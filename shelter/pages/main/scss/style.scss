@@ -346,9 +346,7 @@ section {
             width: 270px;
             height: 435px;
             background: #F1CDB3;
-            div {
-
-            }
+           
             p {
                 font-family: 'Georgia';
                 font-style: normal;
@@ -462,4 +460,28 @@ section {
 .footer {
     height: 350px;
     background: url(noise_lines_transparent@2X.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
+
+    .contacts {
+        h2 {
+            font-family: 'Georgia';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 35px;
+            line-height: 130%;
+            letter-spacing: 0.06em;            
+            color: $color-light-xl;
+        }
+    }
+
+    .location {
+        h2 {
+            font-family: 'Georgia';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 35px;
+            line-height: 130%;
+            letter-spacing: 0.06em;            
+            color: $color-light-xl;
+        }
+    }
 }
