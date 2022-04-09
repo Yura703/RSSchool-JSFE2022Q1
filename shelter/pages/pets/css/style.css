@@ -10,7 +10,7 @@ section {
 
 .activ {
   border-bottom: 2px solid #F1CDB3;
-  color: #FAFAFA !important;
+  color: #292929 !important;
 }
 
 .header {
@@ -29,7 +29,8 @@ section {
 }
 
 .header .header__logo {
-  width: 194px;
+  height: 100%;
+  width: 186px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,7 +47,7 @@ section {
 }
 
 .header .header__logo h1 {
-  font-family: Georgia;
+  font-family: "Georgia";
   font-size: 32px;
   font-weight: 400;
   line-height: 35px;
@@ -71,6 +72,7 @@ section {
 }
 
 .header .header__nav .header__nav__nav-list {
+  margin-top: -1px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,10 +90,7 @@ section {
   font-weight: 400;
   font-size: 15px;
   line-height: 160%;
-  /* identical to box height, or 24px */
-  /* color-light-s */
   color: #545454;
-  /* Inside auto layout */
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
@@ -105,26 +104,12 @@ section {
 
 .header .header__nav .header__nav__nav-list .header__nav__nav-list__nav-item .header__nav__nav-list__nav-item__nav-link:hover {
   border-bottom: 2px solid #F1CDB3;
-  position: static;
-  left: 0%;
-  right: 0%;
-  top: 88.89%;
-  bottom: 0%;
-  /* color-primary */
-  color: #FAFAFA;
-  /* Inside auto layout */
-  -webkit-box-flex: 0;
-      -ms-flex: none;
-          flex: none;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  -ms-flex-item-align: stretch;
-      -ms-grid-row-align: stretch;
-      align-self: stretch;
-  -ms-flex-positive: 0;
-      flex-grow: 0;
-  margin: 0px 0px;
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 160%;
+  color: #292929;
 }
 
 .our-friends {
@@ -333,10 +318,9 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 16px;
   height: 234px;
   width: 280px;
-  padding-top: 16px;
+  margin-top: 16px;
 }
 
 .footer .footer__contacts h2 {
@@ -374,9 +358,7 @@ section {
   font-weight: 400;
   font-size: 20px;
   line-height: 115%;
-  /* identical to box height, or 23px */
   letter-spacing: 0.06em;
-  /* color-primary */
   color: #F1CDB3;
 }
 
@@ -405,9 +387,7 @@ section {
   font-weight: 400;
   font-size: 20px;
   line-height: 115%;
-  /* identical to box height, or 23px */
   letter-spacing: 0.06em;
-  /* color-primary */
   color: #F1CDB3;
 }
 
@@ -465,9 +445,7 @@ section {
   font-weight: 400;
   font-size: 20px;
   line-height: 115%;
-  /* identical to box height, or 23px */
   letter-spacing: 0.06em;
-  /* color-primary */
   color: #F1CDB3;
 }
 
@@ -475,9 +453,4 @@ section {
   height: 310px;
   width: 300px;
   background: url("../../../assets/images/footer-puppy.png");
-}
-
-.funky {
-  font: 20px/24px fantasy;
-  font-weight: bold;
 }

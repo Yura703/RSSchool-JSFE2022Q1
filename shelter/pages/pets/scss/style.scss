@@ -49,8 +49,8 @@ section {
 }
 
 .activ {
-    border-bottom: 2px solid #F1CDB3;
-    color: #FAFAFA !important;
+    border-bottom: 2px solid $color-primary;
+    color: $color-dark-3xl !important;
    
 }
 
@@ -61,19 +61,20 @@ section {
 
     @include flex(center, space-between);
     .header__logo {
-        width: 194px;
+        height: 100%;
+        width: 186px;
         @include flex(center, space-between);
         flex-direction: column;
         h1 {
             //styleName: logo_title;
-            font-family: Georgia;
+            font-family: "Georgia";
             font-size: 32px;
             font-weight: 400;
             line-height: 35px;
             letter-spacing: 0.06em;
             text-align: left;
-            color: $color-dark-l;
-
+            color: $color-dark-l;   
+          
         }
 
         div {
@@ -93,48 +94,31 @@ section {
         width: 443px;
         height: 27px;
         .header__nav__nav-list {
+            margin-top: -1px;
             @include flex(center, space-between);
             .header__nav__nav-list__nav-item {
+                
                 .header__nav__nav-list__nav-item__nav-link {
                     font-family: 'Arial';
                     font-style: normal;
                     font-weight: 400;
                     font-size: 15px;
                     line-height: 160%;
-                    /* identical to box height, or 24px */
-
-
-                    /* color-light-s */
-
-                    //color: #FAFAFA;
                     color: $color-dark-l;
-
-                    /* Inside auto layout */
-
                     flex: none;
                     order: 0;
                     flex-grow: 0;
                     margin: 10px 0px;
 
-                    &:hover {
-                        border-bottom: 2px solid #F1CDB3;
-                        position: static;
-                        left: 0%;
-                        right: 0%;
-                        top: 88.89%;
-                        bottom: 0%;
-    
-                        /* color-primary */
-                        color: #FAFAFA;
-                        //background: #F1CDB3;
-    
-                        /* Inside auto layout */
-    
-                        flex: none;
-                        order: 1;
-                        align-self: stretch;
-                        flex-grow: 0;
-                        margin: 0px 0px;
+                    &:hover {                        
+                        border-bottom: 2px solid #F1CDB3;                       
+                        font-family: 'Arial';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 160%;
+                        color: $color-dark-3xl;    
+                       
                     }
                 }
 
@@ -262,15 +246,12 @@ section {
     @include flex(start, space-between);
     height: 350px;
     background: url(noise_lines_transparent@2X.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
-
     .footer__contacts {
         @include flex(start, space-between);
-        flex-direction: column;
-        margin-top: 16px;
+        flex-direction: column;        
         height: 234px;
         width: 280px;
-        padding-top: 16px;
-
+        margin-top: 16px;
         h2 {
             font-family: 'Georgia';
             font-style: normal;
@@ -280,10 +261,8 @@ section {
             letter-spacing: 0.06em;            
             color: $color-light-xl;
         }
-
         .footer__contacts__mail {
             @include flex(center, flex-start);
-
             div {
                 height: 32px;
                 width: 40px;
@@ -296,12 +275,7 @@ section {
                 font-weight: 400;
                 font-size: 20px;
                 line-height: 115%;
-                /* identical to box height, or 23px */
-
                 letter-spacing: 0.06em;
-
-                /* color-primary */
-
                 color: #F1CDB3;
             }
         }
@@ -320,19 +294,11 @@ section {
                 font-weight: 400;
                 font-size: 20px;
                 line-height: 115%;
-                /* identical to box height, or 23px */
-
                 letter-spacing: 0.06em;
-
-                /* color-primary */
-
                 color: #F1CDB3;
             }
-        }
-
-       
+        }       
     }
-
     .footer__location {
         @include flex(start, space-between);
         flex-direction: column;
@@ -348,10 +314,8 @@ section {
             letter-spacing: 0.06em;            
             color: $color-light-xl;
         }
-
         div {
             @include flex(center, flex-start);
-
             div {
                 height: 32px;
                 width: 22px;
@@ -364,17 +328,11 @@ section {
                 font-weight: 400;
                 font-size: 20px;
                 line-height: 115%;
-                /* identical to box height, or 23px */
-
                 letter-spacing: 0.06em;
-
-                /* color-primary */
-
                 color: #F1CDB3;
             }
         }
     }
-
     div.foto {
         height: 310px;
         width: 300px;
@@ -385,5 +343,3 @@ section {
 // a:hover {
 //     cursor: pointer;
 // }
-
-.funky { font: 20px/24px fantasy {weight: bold;}}
