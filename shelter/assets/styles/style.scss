@@ -99,7 +99,7 @@ section {
     padding-bottom: 0;
     @include flex(start, space-between);
     height: 350px;
-    background: url(noise_lines_transparent@2X.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
+    background: url("../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
     .footer__contacts {
         @include flex(start, space-between);
         flex-direction: column;        
