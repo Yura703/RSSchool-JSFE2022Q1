@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Arial';
+    src: url("../../assets/fonts/arial/arial\ regular.ttf");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Georgia';
+    src: url("../../assets/fonts/georgia/georgia\ regular.ttf");
+    font-weight: 400;
+  }
+
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .body {
+    background-color: rgb(88, 83, 83);
+  }
+
+  .header {
+    width: 1200px;
+    height: 60px;
+    left: calc(50% - 1200px/2);
+    top: 60px;
+    background-color: rgb(105, 99, 99);
+  }

@@ -1,0 +1,337 @@
+// переменные
+$color-bg: red;
+$color-pig: #F1CDB3;
+$color-light-xl: #FFFFFF;
+$color-light-l: #F6F6F6;
+$color-light-s: #FAFAFA;
+$color-dark-s: #CDCDCD;
+$color-dark-m: #B2B2B2;
+$color-dark-l: #545454;
+$color-dark-xl: #4C4C4C;
+$color-dark-2xl: #444444;
+$color-dark-3xl: #292929;
+$color-primary: #F1CDB3;
+$color-primary-light: #FDDCC4; 
+$start-screen-gradient-background: url(noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
+$footer-gradient-background: url(noise_lines_transparent@2X.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
+// $card-hover: background: #C4C4C4;
+// box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+
+$font: Arial, Verdana, sans-serif;
+$section-width: 1200px;
+$header-height: 60px;
+
+//миксины
+@mixin flex($align, $justContent) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justContent;
+}
+
+@mixin circle-btn ($diameter, $border-thick, $border-color) {
+    width: $diameter;
+    height: $diameter;
+    border: $border-thick solid $border-color;
+    box-sizing: border-box;
+    border-radius: 100px;
+}
+
+
+//---------------------------------
+body {
+    max-width: 1280px;
+    margin: 0 auto;   
+}
+
+section {
+    padding-right: 40px;
+    padding-left:  40px;
+}
+
+.activ {
+    border-bottom: 2px solid $color-primary;
+    color: $color-dark-3xl !important;
+   
+}
+
+.header {
+    margin-top: 30px;
+    margin-bottom: 30px;    
+    height: 60px;
+
+    @include flex(center, space-between);
+    .header__logo {
+        height: 100%;
+        width: 186px;
+        @include flex(center, space-between);
+        flex-direction: column;
+        h1 {            
+            font-family: "Georgia";
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 35px;
+            letter-spacing: 0.06em;
+            text-align: left;
+            color: $color-dark-l;             
+        }
+
+        div {
+            font-family: Arial;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 15px;
+            letter-spacing: 0.1em;
+            text-align: left;
+            color: $color-dark-3xl;
+        }
+    }    
+
+    .header__nav {
+        width: 443px;
+        height: 27px;
+        .header__nav__nav-list {
+            margin-top: -1px;
+            @include flex(center, space-between);
+            .header__nav__nav-list__nav-item {
+                
+                .header__nav__nav-list__nav-item__nav-link {
+                    font-family: 'Arial';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 160%;
+                    color: $color-dark-l;
+                    flex: none;
+                    order: 0;
+                    flex-grow: 0;
+                    margin: 10px 0px;
+
+                    &:hover {                        
+                        border-bottom: 2px solid #F1CDB3;                       
+                        font-family: 'Arial';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 160%;
+                        color: $color-dark-3xl;                           
+                    }
+                }               
+            }
+        }        
+    }
+}
+
+.our-friends {   
+   
+    height: 1342px;
+    background: $color-light-l;
+
+    h2 {
+        padding-top: 80px;
+        padding-bottom: 45px;
+        margin: 0 auto;
+        width: 400px;
+        height: 215px;
+        //left: calc(50% - 400px/2);
+
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 35px;
+        line-height: 130%;
+        /* or 45px */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.06em;
+        color: $color-dark-l;
+    }
+
+    .our-friends__cards-container {
+       flex-wrap: wrap; 
+       height: 930px;
+       width: 100%;
+       @include flex(center, space-between);  
+
+        .card {
+            height: 435px;
+            width: 270px;
+            background: $color-light-s;
+            border-radius: 9px;
+            .card__foto {
+                height: 270px;
+                background: url("../../../assets/pets/katrine.png");
+            }
+            p {
+                margin: 0 auto;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 23px;
+                text-align: center;
+                letter-spacing: 0.06em;
+                color: $color-dark-l;
+            }
+            .card__button {      
+                button {
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 13px 43px;                   
+                    border: 2px solid #F1CDB3;                   
+                    border-radius: 100px;  
+                    font-family: 'Georgia';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 17px;
+                    line-height: 130%;
+                    letter-spacing: 0.06em;
+                    color: $color-dark-3xl;
+                }
+            }
+        }
+    }
+
+    .our-friends__navigation {
+        width: 340px;
+        height: 52px;
+        @include flex(center, space-between);
+        margin: 0 auto;
+        margin-top: 45px;
+        margin-bottom: 100px;
+
+        div.inactive {
+            @include circle-btn(52px, 2px, $color-dark-s);
+            @include flex(center, center);     
+        }
+
+        div.active {
+            @include circle-btn(52px, 2px, $color-primary);
+            background: $color-primary;
+            @include flex(center, center);
+            div {
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 115%;            
+                letter-spacing: 0.06em;
+                color: #292929;
+            }
+        }
+
+        div.willactive {
+            @include circle-btn(52px, 2px, $color-primary);
+            @include flex(center, center);  
+        }
+    }
+}
+
+.footer {
+    padding: 40px;
+    padding-bottom: 0;
+    @include flex(start, space-between);
+    height: 350px;
+    background: url(noise_lines_transparent@2X.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
+    .footer__contacts {
+        @include flex(start, space-between);
+        flex-direction: column;        
+        height: 234px;
+        width: 280px;
+        margin-top: 16px;
+        h2 {
+            font-family: 'Georgia';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 35px;
+            line-height: 130%;
+            letter-spacing: 0.06em;            
+            color: $color-light-xl;
+        }
+        .footer__contacts__mail {
+            @include flex(center, flex-start);
+            div {
+                height: 32px;
+                width: 40px;
+                background: url("../../../assets/images/icon-email.svg");
+            }
+            p {
+                margin-left: 20px;
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 115%;
+                letter-spacing: 0.06em;
+                color: #F1CDB3;
+            }
+        }
+        .footer__contacts__phone {
+            @include flex(center, flex-start);
+
+            div {
+                height: 32px;
+                width: 40px;
+                background: url("../../../assets/images/icon-phone.svg");
+            }
+            p {
+                margin-left: 20px;
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 115%;
+                letter-spacing: 0.06em;
+                color: #F1CDB3;
+            }
+        }       
+    }
+    .footer__location {
+        @include flex(start, space-between);
+        flex-direction: column;
+        margin-top: 16px;
+        height: 234px;
+        width: 302px;
+        h2 {
+            font-family: 'Georgia';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 35px;
+            line-height: 130%;
+            letter-spacing: 0.06em;            
+            color: $color-light-xl;
+        }
+        div {
+            @include flex(center, flex-start);
+            div {
+                height: 32px;
+                width: 22px;
+                background: url("../../../assets/images/icon-marker.svg");
+            }
+            p {
+                margin-left: 20px;
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 115%;
+                letter-spacing: 0.06em;
+                color: #F1CDB3;
+            }
+        }
+    }
+    div.foto {
+        height: 310px;
+        width: 300px;
+        background: url("../../../assets/images/footer-puppy.png");
+    }
+}
+
+// a:hover {
+//     cursor: pointer;
+// }
