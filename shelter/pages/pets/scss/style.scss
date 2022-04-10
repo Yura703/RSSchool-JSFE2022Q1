@@ -65,20 +65,17 @@ section {
         width: 186px;
         @include flex(center, space-between);
         flex-direction: column;
-        h1 {
-            //styleName: logo_title;
+        h1 {            
             font-family: "Georgia";
             font-size: 32px;
             font-weight: 400;
             line-height: 35px;
             letter-spacing: 0.06em;
             text-align: left;
-            color: $color-dark-l;   
-          
+            color: $color-dark-l;             
         }
 
         div {
-            //styleName: logo_subtitle;
             font-family: Arial;
             font-size: 13px;
             font-weight: 400;
@@ -86,7 +83,6 @@ section {
             letter-spacing: 0.1em;
             text-align: left;
             color: $color-dark-3xl;
-
         }
     }    
 
@@ -117,15 +113,11 @@ section {
                         font-weight: 400;
                         font-size: 15px;
                         line-height: 160%;
-                        color: $color-dark-3xl;    
-                       
+                        color: $color-dark-3xl;                           
                     }
-                }
-
-               
+                }               
             }
-        }
-        
+        }        
     }
 }
 

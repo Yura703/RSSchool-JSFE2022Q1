@@ -14,17 +14,30 @@
     margin: 0 !important;
 }
 
+.margin-r36 {
+    margin-right: -36px;   
+}
+
+.margin-l36 {
+    margin-left: -36px;   
+}
+
+.activ {
+    border-bottom: 2px solid $color-primary;
+    color: $color-dark-3xl !important;
+   
+}
 
 .header {
     position: absolute;
     min-width: 1280px;
-    top: 60px;
-    
+    top: 57px;    
     height: 60px;
 
     @include flex(center, space-between);
     .header__logo {
-        width: 194px;
+        height: 100%;
+        width: 186px;
         @include flex(center, space-between);
         flex-direction: column;
         h1 {
@@ -56,6 +69,7 @@
         width: 443px;
         height: 27px;
         .header__nav__nav-list {
+            margin-top: -2px;
             @include flex(center, space-between);
             .header__nav__nav-list__nav-item {
                 .header__nav__nav-list__nav-item__nav-link {
@@ -64,16 +78,7 @@
                     font-weight: 400;
                     font-size: 15px;
                     line-height: 160%;
-                    /* identical to box height, or 24px */
-
-
-                    /* color-light-s */
-
-                    //color: #FAFAFA;
-                    color: $color-light-s;
-
-                    /* Inside auto layout */
-
+                    color: $color-dark-s;
                     flex: none;
                     order: 0;
                     flex-grow: 0;
@@ -81,112 +86,77 @@
 
                     &:hover {
                         border-bottom: 2px solid #F1CDB3;
-                        position: static;
-                        left: 0%;
-                        right: 0%;
-                        top: 88.89%;
-                        bottom: 0%;
-    
-                        /* color-primary */
-                        color: #FAFAFA;
-                        //background: #F1CDB3;
-    
-                        /* Inside auto layout */
-    
-                        flex: none;
-                        order: 1;
-                        align-self: stretch;
-                        flex-grow: 0;
-                        margin: 0px 0px;
+                        font-family: 'Arial';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 160%;
+                        color: $color-light-s;
                     }
-                }
-
-               
+                }               
             }
-        }
-        
+        }        
     }
 }
 
 
 .not-only {
-    @include flex(end, space-between);
-   
-    background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
-   
-    
+    margin-left: 5px;
+    @include flex(end, space-between);   
+    background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%); 
     width: 100%;
-    height: 908px;
+    height: 904px;
     .not-only__content {
         @include flex(start, space-between);
         flex-direction: column;
         margin-bottom: 243px;
         width: 460px;
         height: 322px;
-
         h2 {
             margin-bottom: 42px;
             width: 310px;
             height: 114px;
-            left: calc(50% - 310px/2 - 75px);
-            bottom: 208px;
-
-            /* h2 */
-
             font-family: 'Georgia';
             font-style: normal;
             font-weight: 400;
             font-size: 44px;
             line-height: 130%;
-            /* or 57px */
-
             display: flex;
             align-items: center;
-
-            /* color-light-xl */
-
-            color: #FFFFFF;
+            color: $color-light-xl;
         }
 
         p {
             width: 460px;
             height: 72px;
-            left: calc(50% - 460px/2);
-            bottom: 94px;
-
-            /* paragraph-l */
-
+            margin-bottom: 42px;
             font-family: 'Arial';
             font-style: normal;
             font-weight: 400;
             font-size: 15px;
             line-height: 160%;
-            /* or 24px */
-
             display: flex;
             align-items: center;
-
-            /* color-dark-s */
-
-            color: #CDCDCD;
+            color: $color-dark-s;
         }
-
         .not-only__content__button {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 15px 45px;
-
-            
-            width: 207px;
+            padding: 15px 45px;            
+            width: 209px;
             height: 52px;
             left: calc(50% - 207px/2 - 126.5px);
             bottom: 0px;
-
-            /* color-primary */
-
-            background: #F1CDB3;
+            background: $color-primary;
             border-radius: 100px;
+            font-family: 'Georgia';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 130%;
+            letter-spacing: 0.06em;
+            color: $color-dark-3xl;
         }
     }
     .not-only__foto {
@@ -214,7 +184,7 @@
         margin-right: 175px;
         width: 430px;
         height: 380px;
-        @include flex(center, space-between);
+        @include flex(start, space-between);
         flex-direction: column;
         h2 {
             font-family: 'Georgia';
@@ -222,15 +192,10 @@
             font-weight: 400;
             font-size: 35px;
             line-height: 130%;
-            /* or 45px */
-
             display: flex;
             align-items: center;
             letter-spacing: 0.06em;
-
-            /* color-dark-l */
-
-            color: #545454;
+            color: $color-dark-l;
         }
         p {
             font-family: 'Arial';
@@ -238,12 +203,7 @@
             font-weight: 400;
             font-size: 15px;
             line-height: 160%;
-            /* or 24px */
-
-
-            /* color-dark-xl */
-
-            color: #4C4C4C;
+            color: $color-dark-xl;
         }
     }
 }
@@ -252,31 +212,20 @@
     height: 877px;
     padding-top: 80px;
     background: #F6F6F6;
-    h2 {
-        
+    h2 {        
         margin: 0 auto;
         width: 400px;
-        height: 90px;
-        left: 400px;
-        top: 0px;
-
-        /* h3 */
-
+        height: 90px;       
         font-family: 'Georgia';
         font-style: normal;
         font-weight: 400;
         font-size: 35px;
         line-height: 130%;
-        /* or 45px */
-
         display: flex;
         align-items: center;
         text-align: center;
         letter-spacing: 0.06em;
-
-        /* color-dark-l */
-
-        color: #545454;
+        color: $color-dark-l;
     }
     .our-friends__slider {
         margin-top: 60px;
@@ -285,26 +234,31 @@
 
         .slider-btn {
             @include circle-btn(52px, 2px, $color-primary);
-            @include flex(center, center); 
-            
-        }            
+            @include flex(center, center);                     
+        }    
+        
+        
     }
 
     .our-friends__button {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 15px 45px;
+        padding: 15px 44px;
         margin: 60px auto;
         width: 261px;
         height: 52px;
         left: 470px;
         top: 645px;
-
-        /* color-primary */
-
-        background: #F1CDB3;
+        background: $color-primary;
         border-radius: 100px;
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 130%;
+        letter-spacing: 0.06em;
+        color: $color-dark-3xl;
     }
 }
 
@@ -330,10 +284,10 @@
     }
     .help__list {
         margin: 0 auto;
-        height: 281px;
+        height: 336px;
         max-width: 1029px;
         flex-wrap: wrap;
-        @include flex(center, center);    
+        @include flex(start, center);    
         div {
             margin-right: 120px;;
             @include flex(center, center);  
@@ -342,7 +296,8 @@
                 width: 60px;
                 height: 60px;
             }
-            p {
+            p {     
+                margin-top: 30px;           
                 font-family: 'Georgia';
                 font-style: normal;
                 font-weight: 400;
@@ -415,11 +370,10 @@
         .info {
             font-family: 'Arial';
             font-style: italic;
-            font-weight: 400;
+            font-weight: 400px;
             font-size: 12px;
-            line-height: 18px;
-            display: flex;
-            align-items: center;
+            letter-spacing: 0.1px;
+            line-height: 18px;           
             color: $color-dark-m;
         }
     }
