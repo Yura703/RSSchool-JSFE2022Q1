@@ -126,7 +126,7 @@ section {
             letter-spacing: 0.06em;            
             color: $color-light-xl;
         }
-        .footer__contacts__mail {
+        .footer__contacts__mail {           
             @include flex(center, flex-start);
             div {
                 height: 32px;
@@ -134,6 +134,9 @@ section {
                 background: url("../../../assets/images/icon-email.svg");
             }
             p {
+                &:hover {
+                    color: $color-primary-light;
+                }
                 margin-left: 20px;
                 font-family: 'Georgia';
                 font-style: normal;
@@ -153,6 +156,9 @@ section {
                 background: url("../../../assets/images/icon-phone.svg");
             }
             p {
+                &:hover {
+                    color: $color-primary-light;
+                }
                 margin-left: 20px;
                 font-family: 'Georgia';
                 font-style: normal;
@@ -187,6 +193,9 @@ section {
                 background: url("../../../assets/images/icon-marker.svg");
             }
             p {
+                &:hover {
+                    color: $color-primary-light;
+                }
                 margin-left: 20px;
                 font-family: 'Georgia';
                 font-style: normal;

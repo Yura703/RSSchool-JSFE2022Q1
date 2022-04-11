@@ -359,9 +359,12 @@ button:hover {
             padding: 10px 15px;  
             background: $color-primary;
             border-radius: 9px;
+            &:hover {
+                background: $color-primary-light;
+            }
             img {               
                 width: 319px;
-                height: 23px;
+                height: 23px;                
             }
         }
 
