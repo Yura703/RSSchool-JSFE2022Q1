@@ -1,10 +1,10 @@
 @import "../../../assets/styles/style.scss";
 
-.activ {
-    border-bottom: 2px solid $color-primary;
-    color: #FAFAFA !important;
+// .activ {
+//     border-bottom: 2px solid $color-primary;
+//     color: $color-light-s !important;
    
-}
+// }
 
 .reverse {
     transform: rotate(180deg); 
@@ -24,8 +24,14 @@
 
 .activ {
     border-bottom: 2px solid $color-primary;
-    color: $color-dark-3xl !important;
-   
+    a {
+        color: $color-light-s !important;  
+    }
+}
+
+button:hover {
+    background: $color-primary-light !important;
+    cursor: pointer;
 }
 
 .header {
@@ -36,24 +42,25 @@
 
     @include flex(center, space-between);
     .header__logo {
+        margin-top: -12px;
         height: 100%;
         width: 186px;
         @include flex(center, space-between);
         flex-direction: column;
-        h1 {
-            //styleName: logo_title;
-            font-family: Georgia;
-            font-size: 32px;
-            font-weight: 400;
-            line-height: 35px;
-            letter-spacing: 0.06em;
-            text-align: left;
-            color: #F1CDB3;
-
+        h1 {  
+            a {
+                font-family: Georgia;
+                font-size: 32px;
+                font-weight: 400;
+                line-height: 35px;
+                letter-spacing: 0.06em;
+                text-align: left;
+                color: #F1CDB3;
+            }
         }
 
         div {
-            //styleName: logo_subtitle;
+            margin-top: 1px;
             font-family: Arial;
             font-size: 13px;
             font-weight: 400;
@@ -85,7 +92,7 @@
                     margin: 10px 0px;
 
                     &:hover {
-                        border-bottom: 2px solid #F1CDB3;
+                        // border-bottom: 2px solid #F1CDB3;
                         font-family: 'Arial';
                         font-style: normal;
                         font-weight: 400;
@@ -101,7 +108,6 @@
 
 
 .not-only {
-    margin-left: 5px;
     @include flex(end, space-between);   
     background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%); 
     width: 100%;
@@ -139,14 +145,9 @@
             align-items: center;
             color: $color-dark-s;
         }
-        .not-only__content__button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px 45px;            
+        .not-only__content__button {                  
             width: 209px;
-            height: 52px;
-            left: calc(50% - 207px/2 - 126.5px);
+            height: 52px;           
             bottom: 0px;
             background: $color-primary;
             border-radius: 100px;
@@ -208,7 +209,7 @@
     }
 }
 
-.our-friends {
+.our-friends {   
     height: 877px;
     padding-top: 80px;
     background: #F6F6F6;
@@ -235,23 +236,20 @@
         .slider-btn {
             @include circle-btn(52px, 2px, $color-primary);
             @include flex(center, center);                     
-        }    
-        
-        
+        }     
     }
 
-    .our-friends__button {
+    .our-friends__button {       
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 15px 44px;
+        justify-content: center;
         margin: 60px auto;
         width: 261px;
         height: 52px;
-        left: 470px;
-        top: 645px;
         background: $color-primary;
         border-radius: 100px;
+        border: #F1CDB3;
         font-family: 'Georgia';
         font-style: normal;
         font-weight: 400;

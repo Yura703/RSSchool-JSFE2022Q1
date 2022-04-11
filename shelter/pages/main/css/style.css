@@ -21,7 +21,9 @@ section {
 
 .card .card__foto {
   height: 270px;
+  width: 100%;
   background: url("../../../assets/pets/katrine.png");
+  border-radius: 9px 9px 0 0;
 }
 
 .card p {
@@ -39,6 +41,7 @@ section {
 }
 
 .card .card__button button {
+  background: #FAFAFA;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -62,6 +65,17 @@ section {
   color: #292929;
 }
 
+.card:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  background: #FFFFFF;
+}
+
+.card:hover button {
+  background: #FDDCC4;
+}
+
 .footer {
   padding: 40px;
   padding-bottom: 0;
@@ -75,7 +89,7 @@ section {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 350px;
-  background: url("../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 }
 
 .footer .footer__contacts {
@@ -194,7 +208,7 @@ section {
   color: #FFFFFF;
 }
 
-.footer .footer__location div {
+.footer .footer__location a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -206,13 +220,13 @@ section {
           justify-content: flex-start;
 }
 
-.footer .footer__location div div {
+.footer .footer__location a div {
   height: 32px;
   width: 22px;
   background: url("../../../assets/images/icon-marker.svg");
 }
 
-.footer .footer__location div p {
+.footer .footer__location a p {
   margin-left: 20px;
   font-family: 'Georgia';
   font-style: normal;
@@ -227,11 +241,6 @@ section {
   height: 310px;
   width: 300px;
   background: url("../../../assets/images/footer-puppy.png");
-}
-
-.activ {
-  border-bottom: 2px solid #F1CDB3;
-  color: #FAFAFA !important;
 }
 
 .reverse {
@@ -253,7 +262,15 @@ section {
 
 .activ {
   border-bottom: 2px solid #F1CDB3;
-  color: #292929 !important;
+}
+
+.activ a {
+  color: #FAFAFA !important;
+}
+
+button:hover {
+  background: #FDDCC4 !important;
+  cursor: pointer;
 }
 
 .header {
@@ -273,6 +290,7 @@ section {
 }
 
 .header .header__logo {
+  margin-top: -12px;
   height: 100%;
   width: 186px;
   display: -webkit-box;
@@ -290,7 +308,7 @@ section {
           flex-direction: column;
 }
 
-.header .header__logo h1 {
+.header .header__logo h1 a {
   font-family: Georgia;
   font-size: 32px;
   font-weight: 400;
@@ -301,6 +319,7 @@ section {
 }
 
 .header .header__logo div {
+  margin-top: 1px;
   font-family: Arial;
   font-size: 13px;
   font-weight: 400;
@@ -347,7 +366,6 @@ section {
 }
 
 .header .header__nav .header__nav__nav-list .header__nav__nav-list__nav-item .header__nav__nav-list__nav-item__nav-link:hover {
-  border-bottom: 2px solid #F1CDB3;
   font-family: 'Arial';
   font-style: normal;
   font-weight: 400;
@@ -357,7 +375,6 @@ section {
 }
 
 .not-only {
-  margin-left: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -428,20 +445,8 @@ section {
 }
 
 .not-only .not-only__content .not-only__content__button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 15px 45px;
   width: 209px;
   height: 52px;
-  left: calc(50% - 207px/2 - 126.5px);
   bottom: 0px;
   background: #F1CDB3;
   border-radius: 100px;
@@ -596,14 +601,15 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 15px 44px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 60px auto;
   width: 261px;
   height: 52px;
-  left: 470px;
-  top: 645px;
   background: #F1CDB3;
   border-radius: 100px;
+  border: #F1CDB3;
   font-family: 'Georgia';
   font-style: normal;
   font-weight: 400;
