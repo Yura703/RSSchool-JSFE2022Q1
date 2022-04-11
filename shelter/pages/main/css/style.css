@@ -150,6 +150,10 @@ section {
   color: #F1CDB3;
 }
 
+.footer .footer__contacts .footer__contacts__mail p:hover {
+  color: #FDDCC4;
+}
+
 .footer .footer__contacts .footer__contacts__phone {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -177,6 +181,10 @@ section {
   line-height: 115%;
   letter-spacing: 0.06em;
   color: #F1CDB3;
+}
+
+.footer .footer__contacts .footer__contacts__phone p:hover {
+  color: #FDDCC4;
 }
 
 .footer .footer__location {
@@ -235,6 +243,10 @@ section {
   line-height: 115%;
   letter-spacing: 0.06em;
   color: #F1CDB3;
+}
+
+.footer .footer__location a p:hover {
+  color: #FDDCC4;
 }
 
 .footer div.foto {
@@ -787,6 +799,10 @@ button:hover {
   padding: 10px 15px;
   background: #F1CDB3;
   border-radius: 9px;
+}
+
+.in-addition .in-addition__content .credit-card:hover {
+  background: #FDDCC4;
 }
 
 .in-addition .in-addition__content .credit-card img {
