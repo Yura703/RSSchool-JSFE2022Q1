@@ -41,6 +41,7 @@ section {
 }
 
 .card .card__button button {
+  background: #FAFAFA;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -64,14 +65,14 @@ section {
   color: #292929;
 }
 
-.card:hover .card {
+.card:hover {
   cursor: pointer;
   -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
           box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   background: #FFFFFF;
 }
 
-.card:hover .card button {
+.card:hover button {
   background: #FDDCC4;
 }
 
@@ -207,7 +208,7 @@ section {
   color: #FFFFFF;
 }
 
-.footer .footer__location div {
+.footer .footer__location a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -219,13 +220,13 @@ section {
           justify-content: flex-start;
 }
 
-.footer .footer__location div div {
+.footer .footer__location a div {
   height: 32px;
   width: 22px;
   background: url("../../../assets/images/icon-marker.svg");
 }
 
-.footer .footer__location div p {
+.footer .footer__location a p {
   margin-left: 20px;
   font-family: 'Georgia';
   font-style: normal;
@@ -250,10 +251,17 @@ section {
   color: #292929 !important;
 }
 
+button.willactive:hover {
+  background: #FDDCC4 !important;
+  cursor: pointer;
+}
+
 .header {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  height: 60px;
+  background: #FFFFFF;
+  height: 120px;
+  position: fixed;
+  top: 0;
+  min-width: 1280px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -266,7 +274,8 @@ section {
 }
 
 .header .header__logo {
-  height: 100%;
+  margin-top: -10px;
+  height: 50%;
   width: 186px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -284,6 +293,10 @@ section {
 }
 
 .header .header__logo h1 {
+  margin-bottom: 2px;
+}
+
+.header .header__logo h1 a {
   font-family: "Georgia";
   font-size: 32px;
   font-weight: 400;
@@ -349,6 +362,7 @@ section {
 }
 
 .our-friends {
+  margin-top: 120px;
   height: 1342px;
   background: #F6F6F6;
 }
@@ -409,7 +423,8 @@ section {
   margin-bottom: 100px;
 }
 
-.our-friends .our-friends__navigation div.inactive {
+.our-friends .our-friends__navigation button.inactive {
+  background: #F6F6F6;
   width: 52px;
   height: 52px;
   border: 2px solid #CDCDCD;
@@ -427,7 +442,7 @@ section {
           justify-content: center;
 }
 
-.our-friends .our-friends__navigation div.active {
+.our-friends .our-friends__navigation button.active {
   width: 52px;
   height: 52px;
   border: 2px solid #F1CDB3;
@@ -446,7 +461,7 @@ section {
           justify-content: center;
 }
 
-.our-friends .our-friends__navigation div.active div {
+.our-friends .our-friends__navigation button.active div {
   font-family: 'Georgia';
   font-style: normal;
   font-weight: 400;
@@ -456,7 +471,8 @@ section {
   color: #292929;
 }
 
-.our-friends .our-friends__navigation div.willactive {
+.our-friends .our-friends__navigation button.willactive {
+  background: #F6F6F6;
   width: 52px;
   height: 52px;
   border: 2px solid #F1CDB3;
