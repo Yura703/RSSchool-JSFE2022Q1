@@ -13,7 +13,7 @@ const fotoPets = [
   "../../assets/pets/katrine.png",
   "../../assets/pets/jennifer.png",
   "../../assets/pets/woody.png",
-  "../../assets/pets/sophia.png",
+  "../../assets/pets/pets-katrine.png",
   "../../assets/pets/timmy.png",
   "../../assets/pets/charly.png",
   "../../assets/pets/scarlett.png",

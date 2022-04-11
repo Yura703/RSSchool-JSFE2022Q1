@@ -21,7 +21,9 @@ section {
 
 .card .card__foto {
   height: 270px;
+  width: 100%;
   background: url("../../../assets/pets/katrine.png");
+  border-radius: 9px 9px 0 0;
 }
 
 .card p {
@@ -39,6 +41,7 @@ section {
 }
 
 .card .card__button button {
+  background: #FAFAFA;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -62,6 +65,17 @@ section {
   color: #292929;
 }
 
+.card:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  background: #FFFFFF;
+}
+
+.card:hover button {
+  background: #FDDCC4;
+}
+
 .footer {
   padding: 40px;
   padding-bottom: 0;
@@ -75,7 +89,7 @@ section {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 350px;
-  background: url("../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 }
 
 .footer .footer__contacts {
@@ -194,7 +208,7 @@ section {
   color: #FFFFFF;
 }
 
-.footer .footer__location div {
+.footer .footer__location a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -206,13 +220,13 @@ section {
           justify-content: flex-start;
 }
 
-.footer .footer__location div div {
+.footer .footer__location a div {
   height: 32px;
   width: 22px;
   background: url("../../../assets/images/icon-marker.svg");
 }
 
-.footer .footer__location div p {
+.footer .footer__location a p {
   margin-left: 20px;
   font-family: 'Georgia';
   font-style: normal;
