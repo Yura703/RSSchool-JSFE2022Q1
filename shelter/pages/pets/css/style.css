@@ -277,15 +277,16 @@ footer {
 }
 
 .header-bg {
-  background: #ca3232 !important;
+  background: #FFFFFF;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .header {
-  background: #FFFFFF;
   height: 120px;
-  position: fixed;
   top: 0;
-  max-width: 1200px;
+  max-width: 1280px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -387,7 +388,7 @@ footer {
 }
 
 .our-friends {
-  margin-top: 120px;
+  margin-top: 0px;
 }
 
 .our-friends h2 {
