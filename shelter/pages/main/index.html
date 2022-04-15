@@ -12,7 +12,7 @@
 </head>
 
 <body class="body">
-    <header class="container">
+    <header class="wrapper">
         <section class="header">
             <div class="header__logo">
                 <h1>
@@ -44,20 +44,22 @@
     </header>
 
     <main>
-        <section class="not-only">
-            <div class="not-only__content">
-                <h2>Not only people need a house</h2>
-                <p>We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or
-                    she will love you more than anybody else in the world, you will see!</p>
-                <!-- <a href="#our-friends">11</a> -->
-                <button class="not-only__content__button" onclick="window.location.href = '#our-friends'">
-                    Make a friend
-                </button>
+        <section class="not-only-bg">
+            <div class="not-only wrapper">
+                <div class="not-only__content">
+                    <h2>Not only people need a house</h2>
+                    <p>We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or
+                        she will love you more than anybody else in the world, you will see!</p>
+                    <!-- <a href="#our-friends">11</a> -->
+                    <button class="not-only__content__button" onclick="window.location.href = '#our-friends'">
+                        Make a friend
+                    </button>
+                </div>
+                <div class="not-only__foto"></div>
             </div>
-            <div class="not-only__foto"></div>
         </section>
 
-        <section class="about">
+        <section class="about wrapper">
             <div class="about__pets"></div>
             <div class="about__content">
                 <h2>About the shelter <br> “Cozy House”</h2>
@@ -70,52 +72,55 @@
                     they become attached to the pets and would hardly ever leave them alone.</p>
             </div>
         </section>
-        <section class="our-friends" id="our-friends">
-            <h2>Our friends who <br> are looking for a house</h2>
-            <div class="our-friends__slider">
-                <button class="slider-btn margin-r36">
-                    <img src="../../assets/icons/arrow.png" alt="arrow">
-                </button>
-                <div class="card">
-                    <div class="card__foto"></div>
-                    <p>Katrine</p>
-                    <div class="card__button">
-                        <button>
-                            Learn more
-                        </button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__foto"></div>
-                    <p>Katrine</p>
-                    <div class="card__button">
-                        <button>
-                            Learn more
-                        </button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__foto"></div>
-                    <p>Katrine</p>
-                    <div class="card__button">
-                        <button>
-                            Learn more
-                        </button>
-                    </div>
-                </div>
 
-                <button class="slider-btn margin-l36">
-                    <img class="reverse" src="../../assets/icons/arrow.png" alt="arrow">
-                </button>
+        <section class="our-friends-bg" id="our-friends">
+            <div class="our-friends wrapper">
+                <h2>Our friends who <br> are looking for a house</h2>
+                <div class="our-friends__slider">
+                    <button class="slider-btn margin-r36">
+                        <img src="../../assets/icons/arrow.png" alt="arrow">
+                    </button>
+                    <div class="card">
+                        <div class="card__foto"></div>
+                        <p>Katrine</p>
+                        <div class="card__button">
+                            <button>
+                                Learn more
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__foto"></div>
+                        <p>Katrine</p>
+                        <div class="card__button">
+                            <button>
+                                Learn more
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__foto"></div>
+                        <p>Katrine</p>
+                        <div class="card__button">
+                            <button>
+                                Learn more
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="slider-btn margin-l36">
+                        <img class="reverse" src="../../assets/icons/arrow.png" alt="arrow">
+                    </button>
+
+                </div>
+                <!-- <a href="../pets/index.html"> -->
+                <button class="our-friends__button" onclick="window.location.href = '../pets/index.html'">Get to know
+                    the
+                    rest</button>
 
             </div>
-            <!-- <a href="../pets/index.html"> -->
-            <button class="our-friends__button" onclick="window.location.href = '../pets/index.html'">Get to know the
-                rest</button>
-
-
         </section>
-        <section class="help" id="help">
+        <section class="help wrapper" id="help">
             <h2>How you can help <br> our shelter</h2>
             <div class="help__list">
                 <div>
@@ -156,25 +161,28 @@
                 </div>
             </div>
         </section>
-        <section class="in-addition">
-            <div class="in-addition__foto"></div>
-            <div class="in-addition__content">
-                <h2>You can also <br> make a donation</h2>
-                <p>Name of the bank / Type of bank account</p>
-                <a href="" class="credit-card">
-                    <img src="../../assets/icons/credit-card-content.png" alt="credit card">
-                </a>
 
-                <p class="info">Legal information and lorem ipsum dolor sit amet, consectetur<br>
-                    adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed ac<br>
-                    diam. Praesent ultrices maximus tortor et vulputate. Interdum et<br>
-                    malesuada fames ac ante ipsum primis in faucibus.
-                </p>
+        <section class="in-addition-bg">
+            <div class="in-addition wrapper">
+                <div class="in-addition__foto"></div>
+                <div class="in-addition__content">
+                    <h2>You can also <br> make a donation</h2>
+                    <p>Name of the bank / Type of bank account</p>
+                    <a href="" class="credit-card">
+                        <img src="../../assets/icons/credit-card-content.png" alt="credit card">
+                    </a>
+
+                    <p class="info">Legal information and lorem ipsum dolor sit amet, consectetur<br>
+                        adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed ac<br>
+                        diam. Praesent ultrices maximus tortor et vulputate. Interdum et<br>
+                        malesuada fames ac ante ipsum primis in faucibus.
+                    </p>
+                </div>
             </div>
         </section>
     </main>
     <footer>
-        <section class="footer" id="contacts">
+        <section class="footer wrapper" id="contacts">
             <div class="footer__contacts">
                 <h2>For questions and suggestions</h2>
                 <a href="mailto:email@shelter.com" class="footer__contacts__mail">

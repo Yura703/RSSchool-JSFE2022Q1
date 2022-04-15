@@ -2,14 +2,23 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  max-width: 1280px;
-  margin: 0 auto;
+.activ {
+  border-bottom: 2px solid #F1CDB3;
 }
 
-section {
-  padding-right: 40px;
-  padding-left: 40px;
+.activ a {
+  color: #292929 !important;
+}
+
+button.willactive:hover {
+  background: #FDDCC4 !important;
+  cursor: pointer;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 .card {
@@ -17,6 +26,10 @@ section {
   width: 270px;
   background: #FAFAFA;
   border-radius: 9px;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
 }
 
 .card .card__foto {
@@ -67,13 +80,17 @@ section {
 
 .card:hover {
   cursor: pointer;
-  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
-          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  -webkit-box-shadow: 5px 5px 35px 14px rgba(13, 13, 13, 0.26);
+          box-shadow: 5px 5px 35px 14px rgba(13, 13, 13, 0.26);
   background: #FFFFFF;
 }
 
 .card:hover button {
   background: #FDDCC4;
+}
+
+footer {
+  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 }
 
 .footer {
@@ -88,8 +105,8 @@ section {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 350px;
-  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .footer .footer__contacts {
@@ -255,17 +272,12 @@ section {
   background: url("../../../assets/images/footer-puppy.png");
 }
 
-.activ {
-  border-bottom: 2px solid #F1CDB3;
+.our-friends-bg {
+  background: #F6F6F6;
 }
 
-.activ a {
-  color: #292929 !important;
-}
-
-button.willactive:hover {
-  background: #FDDCC4 !important;
-  cursor: pointer;
+.header-bg {
+  background: #ca3232 !important;
 }
 
 .header {
@@ -273,7 +285,8 @@ button.willactive:hover {
   height: 120px;
   position: fixed;
   top: 0;
-  min-width: 1280px;
+  max-width: 1200px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -375,28 +388,17 @@ button.willactive:hover {
 
 .our-friends {
   margin-top: 120px;
-  height: 1342px;
-  background: #F6F6F6;
 }
 
 .our-friends h2 {
   padding-top: 80px;
-  padding-bottom: 45px;
+  padding-bottom: 44px;
   margin: 0 auto;
-  width: 400px;
-  height: 215px;
   font-family: 'Georgia';
   font-style: normal;
   font-weight: 400;
   font-size: 35px;
   line-height: 130%;
-  /* or 45px */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   text-align: center;
   letter-spacing: 0.06em;
   color: #545454;
@@ -405,7 +407,7 @@ button.willactive:hover {
 .our-friends .our-friends__cards-container {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 930px;
+  min-height: 930px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -420,7 +422,6 @@ button.willactive:hover {
 
 .our-friends .our-friends__navigation {
   width: 340px;
-  height: 52px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -431,8 +432,8 @@ button.willactive:hover {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 0 auto;
-  margin-top: 45px;
-  margin-bottom: 100px;
+  padding-top: 45px;
+  padding-bottom: 100px;
 }
 
 .our-friends .our-friends__navigation button.inactive {
@@ -500,4 +501,75 @@ button.willactive:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media (max-width: 1279px) and (min-width: 768px) {
+  section {
+    padding: 0 30px;
+  }
+  .header {
+    min-width: 768px;
+  }
+  .our-friends h2 {
+    padding-bottom: 30px;
+  }
+  .our-friends .our-friends__cards-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .our-friends .our-friends__cards-container .card {
+    margin: 0 20px 30px 0;
+  }
+  .footer {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer div.foto {
+    width: 260px;
+    height: 269px;
+    margin-top: 65px;
+  }
+  .footer .footer__contacts {
+    padding-right: 60px;
+    width: 340px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 320px) {
+  section {
+    padding: 0 10px;
+  }
+  .header__nav {
+    display: none;
+  }
+  .our-friends h2 {
+    font-size: 25px;
+    padding: 42px 0;
+  }
+  .our-friends .our-friends__navigation {
+    width: 300px;
+  }
+  .our-friends .our-friends__cards-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .our-friends .our-friends__cards-container .card {
+    margin: 0 15px 30px 0;
+  }
+  .footer {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer div.foto {
+    width: 260px;
+    height: 269px;
+    padding-top: 65px;
+  }
+  .footer .footer__contacts {
+    margin-right: 60px;
+  }
 }

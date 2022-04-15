@@ -2,14 +2,23 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  max-width: 1280px;
-  margin: 0 auto;
+.activ {
+  border-bottom: 2px solid #F1CDB3;
 }
 
-section {
-  padding-right: 40px;
-  padding-left: 40px;
+.activ a {
+  color: #292929 !important;
+}
+
+button.willactive:hover {
+  background: #FDDCC4 !important;
+  cursor: pointer;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 .card {
@@ -17,6 +26,10 @@ section {
   width: 270px;
   background: #FAFAFA;
   border-radius: 9px;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
 }
 
 .card .card__foto {
@@ -67,13 +80,17 @@ section {
 
 .card:hover {
   cursor: pointer;
-  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
-          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  -webkit-box-shadow: 5px 5px 35px 14px rgba(13, 13, 13, 0.26);
+          box-shadow: 5px 5px 35px 14px rgba(13, 13, 13, 0.26);
   background: #FFFFFF;
 }
 
 .card:hover button {
   background: #FDDCC4;
+}
+
+footer {
+  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 }
 
 .footer {
@@ -88,8 +105,8 @@ section {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 350px;
-  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .footer .footer__contacts {
@@ -285,10 +302,23 @@ button:hover {
   cursor: pointer;
 }
 
+.not-only-bg {
+  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+
+.our-friends-bg {
+  background: #F6F6F6;
+}
+
+.in-addition-bg {
+  background: #F6F6F6;
+}
+
 .header {
   position: absolute;
-  min-width: 1280px;
-  top: 57px;
+  max-width: 1200px;
+  width: 100%;
+  top: 72px;
   height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -396,9 +426,8 @@ button:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
   width: 100%;
-  height: 904px;
+  padding-top: 190px;
 }
 
 .not-only .not-only__content {
@@ -545,9 +574,8 @@ button:hover {
 }
 
 .our-friends {
-  height: 877px;
   padding-top: 80px;
-  background: #F6F6F6;
+  padding-bottom: 40px;
 }
 
 .our-friends h2 {
@@ -632,7 +660,7 @@ button:hover {
 }
 
 .help {
-  height: 611px;
+  padding-bottom: 45px;
 }
 
 .help h2 {
@@ -715,8 +743,6 @@ button:hover {
 }
 
 .in-addition {
-  height: 462px;
-  background: #F6F6F6;
   padding: 80px 182px 100px 183px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -818,4 +844,87 @@ button:hover {
   letter-spacing: 0.1px;
   line-height: 18px;
   color: #B2B2B2;
+}
+
+@media (max-width: 1279px) and (min-width: 768px) {
+  section {
+    padding: 0 30px;
+  }
+  .header {
+    min-width: 768px;
+  }
+  .not-only {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .our-friends h2 {
+    padding-bottom: 30px;
+  }
+  .our-friends .our-friends__cards-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .our-friends .our-friends__cards-container .card {
+    margin: 0 20px 30px 0;
+  }
+  .footer {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer div.foto {
+    width: 260px;
+    height: 269px;
+    margin-top: 65px;
+  }
+  .footer .footer__contacts {
+    padding-right: 60px;
+    width: 340px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 320px) {
+  section {
+    padding: 0 10px;
+  }
+  .header__nav {
+    display: none;
+  }
+  .not-only {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .our-friends h2 {
+    font-size: 25px;
+    padding: 42px 0;
+  }
+  .our-friends .our-friends__navigation {
+    width: 300px;
+  }
+  .our-friends .our-friends__cards-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .our-friends .our-friends__cards-container .card {
+    margin: 0 15px 30px 0;
+  }
+  .footer {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer div.foto {
+    width: 260px;
+    height: 269px;
+    margin-top: 65px;
+  }
+  .footer .footer__contacts {
+    margin-right: 60px;
+  }
 }
