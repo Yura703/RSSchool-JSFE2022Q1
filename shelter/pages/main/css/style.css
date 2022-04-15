@@ -847,9 +847,6 @@ button:hover {
 }
 
 @media (max-width: 1279px) and (min-width: 768px) {
-  section {
-    padding: 0 30px;
-  }
   .header {
     min-width: 768px;
   }
@@ -887,9 +884,6 @@ button:hover {
 }
 
 @media (max-width: 767px) and (min-width: 320px) {
-  section {
-    padding: 0 10px;
-  }
   .header__nav {
     display: none;
   }
