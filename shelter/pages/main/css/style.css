@@ -847,25 +847,107 @@ button:hover {
 }
 
 @media (max-width: 1279px) and (min-width: 768px) {
+  .wrapper {
+    padding: 0 30px;
+  }
+  div.wrapper.not-only {
+    padding: 150px 40px 0 30px;
+  }
   .header {
     min-width: 768px;
+    top: 30px;
   }
   .not-only {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  .our-friends h2 {
-    padding-bottom: 30px;
+  .not-only .not-only__foto {
+    width: 569px;
+    height: 593px;
+    background-size: cover;
+    -ms-flex-item-align: end;
+        -ms-grid-row-align: end;
+        align-self: end;
+    margin-right: -9px;
   }
-  .our-friends .our-friends__cards-container {
+  .not-only .not-only__content {
+    width: 452px;
+    margin-bottom: 100px;
+  }
+  .not-only .not-only__content button {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-left: 5px;
+  }
+  .about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .our-friends .our-friends__cards-container .card {
-    margin: 0 20px 30px 0;
+  .about .about__content {
+    margin-right: 2px;
+  }
+  .about .about__pets {
+    margin: 80px 2px 0 0;
+  }
+  .our-friends-bg {
+    padding-bottom: 43px;
+  }
+  .our-friends h2 {
+    padding-top: 125px;
+  }
+  .our-friends .our-friends__slider {
+    margin-top: 104px;
+  }
+  .not-view {
+    display: none;
+  }
+  .help h2 {
+    height: 201px;
+    padding: 69px 0 25px 0;
+  }
+  .help__list {
+    margin: 0 0 237px 0 !important;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .help__list div {
+    width: 176px;
+    height: 113px;
+    margin: 27.5px !important;
+  }
+  .in-addition {
+    height: 785px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .in-addition .in-addition__content {
+    padding-top: 84px;
+  }
+  .in-addition .in-addition__content p {
+    padding: 19px 0 18px 0;
+  }
+  .in-addition .in-addition__foto {
+    margin-bottom: 102px;
+  }
+  footer > section.wrapper {
+    padding-top: 15px;
   }
   .footer {
     -webkit-box-pack: center;
@@ -873,8 +955,8 @@ button:hover {
             justify-content: center;
   }
   .footer div.foto {
-    width: 260px;
-    height: 269px;
+    width: 300px;
+    height: 310px;
     margin-top: 65px;
   }
   .footer .footer__contacts {
