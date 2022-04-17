@@ -831,7 +831,8 @@ button:hover {
   background: #FDDCC4;
 }
 
-.in-addition .in-addition__content .credit-card img {
+.in-addition .in-addition__content .credit-card .credit-card-foto {
+  background: url(../../../assets/icons/credit-card-content.png);
   width: 319px;
   height: 23px;
 }
@@ -966,29 +967,210 @@ button:hover {
 }
 
 @media (max-width: 767px) and (min-width: 320px) {
-  .header__nav {
+  .wrapper {
+    padding: 0 10px;
+  }
+  .header {
+    min-width: 320px;
+    top: 30px;
+  }
+  .header .header__nav {
     display: none;
+  }
+  div.wrapper.not-only {
+    padding: 126px 10px 0 10px;
   }
   .not-only {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .not-only .not-only__foto {
+    width: 260px;
+    height: 271.77px;
+    background-size: cover;
+    -ms-flex-item-align: end;
+        -ms-grid-row-align: end;
+        align-self: end;
+    padding-bottom: 2px;
+    margin-top: 3px;
+  }
+  .not-only .not-only__content {
+    width: 296px;
+    margin-bottom: 100px;
+  }
+  .not-only .not-only__content h2 {
+    padding: 24px 0 0 1px;
+    font-size: 25px;
+    text-align: center;
+    margin: 0 auto;
+    width: 70%;
+    height: 88px;
+    letter-spacing: 0.06em;
+  }
+  .not-only .not-only__content p {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+  }
+  .not-only .not-only__content button {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    height: 55px !important;
+  }
+  .about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 42px 0 42px 0;
+  }
+  .about .about__content {
+    margin: 0;
+    width: 100%;
+  }
+  .about .about__content h2 {
+    font-size: 25px;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 13px;
+  }
+  .about .about__content p {
+    padding: 11px 15px;
+    text-align: justify;
+  }
+  .about .about__pets {
+    margin: 156px 0 0 0;
+    width: 260px;
+    height: 353.6px;
+    background-size: cover;
+  }
+  .our-friends {
+    height: 792px;
   }
   .our-friends h2 {
     font-size: 25px;
-    padding: 42px 0;
-  }
-  .our-friends .our-friends__navigation {
+    padding-top: 75px;
+    height: 64px;
     width: 300px;
-  }
-  .our-friends .our-friends__cards-container {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .our-friends .our-friends__cards-container .card {
-    margin: 0 15px 30px 0;
+  .our-friends .our-friends__slider {
+    margin-top: 74px;
+  }
+  .our-friends .our-friends__slider button.margin-r36 {
+    position: relative;
+    top: 263px;
+    left: 59px;
+  }
+  .our-friends .our-friends__slider button.margin-l36 {
+    position: relative;
+    top: 263px;
+    right: 59px;
+  }
+  .our-friends .our-friends__button {
+    margin-top: 114px;
+  }
+  .not-view, .not-view320 {
+    display: none;
+  }
+  section.help {
+    padding: 0;
+  }
+  .help {
+    height: 745px;
+  }
+  .help h2 {
+    height: 64px;
+    width: 225px;
+    font-size: 25px;
+    padding: 74px 0 10px 2px;
+  }
+  .help__list {
+    margin: 0;
+    padding: 0;
+    padding: 48px 0 0 0;
+    -webkit-box-pack: justify !important;
+        -ms-flex-pack: justify !important;
+            justify-content: space-between !important;
+  }
+  .help__list div {
+    width: 130px;
+    height: 87px;
+    margin: 15px !important;
+  }
+  .help__list div img {
+    height: 50px !important;
+    width: 50px !important;
+  }
+  .help__list div p {
+    margin-top: 19px !important;
+    font-size: 15px !important;
+  }
+  .in-addition {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .in-addition .in-addition__content {
+    width: 100%;
+    padding: 42px 0 0 0;
+  }
+  .in-addition .in-addition__content h2 {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: 25px;
+    width: 100%;
+    height: 64px;
+    text-align: center;
+  }
+  .in-addition .in-addition__content .credit-card {
+    padding: 0;
+    margin: 0 auto;
+    width: 281px;
+    height: 43px;
+  }
+  .in-addition .in-addition__content .credit-card dir.credit-card-foto {
+    background: url("../../../assets/icons/credit-card-content320.png");
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 23px;
+    background-size: cover;
+    width: 251px;
+    height: 23px;
+  }
+  .in-addition .in-addition__content p {
+    padding: 19px 0 21px 0;
+    text-align: center;
+    letter-spacing: normal;
+    line-height: 160%;
+    margin: 0 auto;
+  }
+  .in-addition .in-addition__content p.info {
+    font-weight: 400px !important;
+    text-align: justify;
+    padding: 20px 10px 0 10px;
+  }
+  .in-addition .in-addition__foto {
+    margin: 82px 0 42px 0;
+    width: 260px;
+    height: 135.2px;
+    background-size: cover;
   }
   .footer {
     -webkit-box-pack: center;
@@ -998,9 +1180,32 @@ button:hover {
   .footer div.foto {
     width: 260px;
     height: 269px;
-    margin-top: 65px;
+    margin-top: 40px;
+    background-size: cover;
   }
   .footer .footer__contacts {
-    margin-right: 60px;
+    margin-top: 30px;
+    height: 208px;
+    margin-bottom: 24px;
+  }
+  .footer .footer__contacts h2 {
+    font-size: 25px;
+    text-align: center;
+    width: 280px;
+  }
+  .footer .footer__contacts .footer__contacts__mail {
+    padding-left: 14px;
+  }
+  .footer .footer__contacts .footer__contacts__phone {
+    padding-left: 19px;
+  }
+  .footer .footer__location {
+    height: 221px;
+  }
+  .footer .footer__location h2 {
+    padding-left: 5px;
+    font-size: 25px;
+    text-align: center;
+    width: 294px;
   }
 }

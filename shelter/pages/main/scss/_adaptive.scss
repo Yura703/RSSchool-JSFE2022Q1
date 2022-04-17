@@ -143,47 +143,258 @@
   
   @media (max-width: 767px) and (min-width: 320px) {
     
-    .header__nav {
-      display: none;
+    .wrapper {
+      padding: 0 10px;
     }
-
-    .not-only {
-      flex-direction: column;
-    }
-
-
-
-
-
 
     
 
-    .our-friends {
-       h2 {
-      font-size: 25px;
-      padding: 42px 0;
+    .header {
+      min-width: 320px;
+      top: 30px;
+      .header__nav {
+        display: none;
       }
-      .our-friends__navigation {
-        width: 300px;
-      }
-      .our-friends__cards-container {
-        justify-content: center;
-        .card {
-          margin: 0 15px 30px 0;
-        }
-      }  
     }
 
-    .footer {
-      justify-content: center;
-      div.foto {
+    div.wrapper.not-only {
+      padding: 126px 10px 0 10px;
+    }
+  
+    .not-only {
+      flex-direction: column;
+      align-items: center;
+      
+      .not-only__foto {
         width: 260px;
-        height: 269px;
-        margin-top: 65px;
+        height: 271.77px;
+        background-size: cover;
+        align-self: end;
+        padding-bottom: 2px;
+        margin-top: 3px;;
       }
+      .not-only__content {
+        width: 296px;
+        margin-bottom: 100px;
+        h2 {
+          padding: 24px 0 0 1px;
+          font-size: 25px;
+          text-align: center;
+          margin: 0 auto;
+          width: 70%;
+          height: 88px;
+          letter-spacing: 0.06em;
+        }
+        p {
+            margin: 0;
+            //padding-top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        button {
+          align-self: center;
+          height: 55px !important;
 
-      .footer__contacts {
-        margin-right: 60px;
+          //margin-left: 5px;
+        }
       }
     }
+
+    .about {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      margin: 42px 0 42px 0;
+      .about__content {
+        margin: 0;
+        //margin-right: 2px;
+        width: 100%;
+        h2 {
+          font-size: 25px;         
+          text-align: center;
+          margin: 0 auto;
+          padding-bottom: 13px;
+        }
+        p {
+          padding: 11px 15px;
+          text-align: justify;
+        }
+      }
+      .about__pets {
+        margin: 156px 0 0 0;
+        width: 260px;
+        height: 353.6px;
+        background-size: cover;
+      }
+    }
+
+    .our-friends-bg {
+      //padding-bottom: 43px;
+    }
+
+    .our-friends { 
+      height: 792px;
+      //padding-bottom: 10px;
+      h2 {
+        font-size: 25px;
+        padding-top: 75px;
+        height: 64px;
+        width: 300px;
+        justify-content: center;
+       }    
+     .our-friends__slider {   
+       margin-top: 74px;   
+       button.margin-r36 {
+       position: relative;
+       top: 263px;
+       left: 59px;
+      }
+      button.margin-l36 {
+        position: relative;
+        top: 263px;
+        right: 59px;
+       }
+     }  
+     .our-friends__button {
+       margin-top: 114px;
+    }
+     
+   }
+   
+
+
+   .not-view, .not-view320 {
+     display: none;
+   }
+
+   section.help {
+     padding: 0;
+   }
+
+   .help {
+     height: 745px;
+      h2 {
+        height: 64px;
+        width: 225px;
+        font-size: 25px;
+        padding: 74px 0 10px 2px;
+        //margin-top: 42px;
+      }
+   }
+
+   .help__list {
+     margin: 0;
+     padding: 0;
+     padding: 48px 0 0 0;
+     //width: 293px;
+      //margin: 0 0 237px 0 !important;
+     //height: 573px !important;
+     justify-content: space-between !important;
+     div {
+       width: 130px;
+       height: 87px;
+       margin: 15px !important;
+       img {
+         height: 50px !important;
+         width: 50px !important;
+       }
+       p {
+         margin-top: 19px !important;
+         font-size: 15px!important;
+       }
+     }
+   }
+
+   .in-addition {
+     //height: 785px;
+     flex-direction: column-reverse;
+
+     .in-addition__content {
+       width: 100%;
+       padding: 42px 0 0 0;
+       h2 {
+         justify-content: center;
+         font-size: 25px;
+         width: 100%;
+         height: 64px;
+         text-align: center;
+       }
+       .credit-card {
+         padding: 0;
+         margin: 0 auto;
+         width: 281px;
+         height: 43px;
+         dir.credit-card-foto {
+            background: url("../../../assets/icons/credit-card-content320.png");
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 23px;
+            background-size: cover;
+            width: 251px;
+            height: 23px;
+         }
+       }
+       p {
+         padding: 19px 0 21px 0;
+         text-align: center;
+         letter-spacing: normal;
+         line-height: 160%;
+         margin: 0 auto;
+       }
+       p.info {
+         font-weight: 400px !important;        
+        text-align: justify;
+        padding: 20px 10px 0 10px;
+       }
+     }
+     .in-addition__foto {
+      margin: 82px 0 42px 0;
+      width: 260px;
+      height: 135.2px;
+      background-size: cover;
+     }
+   }
+
+   
+  //  footer > section.wrapper {
+  //   padding-top: 15px;
+  // }
+   
+  .footer {
+    justify-content: center;
+    div.foto {
+      width: 260px;
+      height: 269px;
+      margin-top: 40px;
+      background-size: cover;
+    }
+
+    .footer__contacts {
+      margin-top: 30px;
+      height: 208px;
+      margin-bottom: 24px;
+      h2 {          
+        font-size: 25px;
+        text-align: center;
+        width: 280px;
+      }
+      .footer__contacts__mail {
+        padding-left: 14px;
+      }
+      .footer__contacts__phone {
+        padding-left: 19px;
+      }
+     
+      
+    }
+    .footer__location {
+      height: 221px;
+      h2 {
+        padding-left: 5px;
+        font-size: 25px;
+        text-align: center;
+        width: 294px;
+      }
+    }
+  }
   }

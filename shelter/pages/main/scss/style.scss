@@ -378,7 +378,8 @@ button:hover {
             &:hover {
                 background: $color-primary-light;
             }
-            img {               
+            .credit-card-foto {     
+                background: url(../../../assets/icons/credit-card-content.png);          
                 width: 319px;
                 height: 23px;                
             }
