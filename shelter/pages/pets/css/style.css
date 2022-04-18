@@ -21,6 +21,40 @@ button.willactive:hover {
   padding: 0 40px;
 }
 
+.menu-btn {
+  width: 30px;
+  height: 22px;
+  position: relative;
+  right: 63px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.menu-btn span {
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #F1CDB3;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.menu-btn span:nth-of-type(2) {
+  top: calc(50% - 10px);
+}
+
+.menu-btn span:nth-of-type(3) {
+  top: calc(50% + 10px);
+}
+
+.menu-btn {
+  display: none;
+}
+
 .card {
   height: 435px;
   width: 270px;
@@ -591,6 +625,15 @@ footer {
   .header__nav {
     display: none;
   }
+  .menu-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    right: 43px;
+  }
+  .menu-btn span {
+    background-color: #000000;
+  }
   .burger-btn {
     display: block !important;
   }
@@ -618,7 +661,7 @@ footer {
   .footer div.foto {
     width: 260px;
     height: 269px;
-    padding-top: 65px;
+    margin-top: 41px;
     background-size: cover;
   }
   .footer .footer__contacts {

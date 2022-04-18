@@ -89,6 +89,14 @@
       display: none;
     }
 
+    .menu-btn {
+      display: flex;
+      right: 43px;
+      span {
+        background-color: #000000;
+      }
+    }
+    
     .burger-btn {
       display: block !important;
     }
@@ -115,7 +123,7 @@
       div.foto {
         width: 260px;
         height: 269px;
-        padding-top: 65px;
+        margin-top: 41px;
         background-size: cover;
       }
 

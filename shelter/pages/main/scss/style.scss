@@ -119,6 +119,7 @@ button:hover {
 }
 
 
+
 .not-only {
     @include flex(end, space-between);   
     //background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
@@ -340,7 +341,7 @@ button:hover {
     }
 
     .in-addition__content {
-        height: 282px;
+        //height: 282px;
         width: 380px;
         @include flex(start, space-between);  
         flex-direction: column;
@@ -369,10 +370,12 @@ button:hover {
         }
 
         .credit-card {
+            width: 349px;
+            height: 43px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10px 15px;  
+            //padding: 10px 15px;  
             background: $color-primary;
             border-radius: 9px;
             &:hover {
@@ -381,7 +384,9 @@ button:hover {
             .credit-card-foto {     
                 background: url(../../../assets/icons/credit-card-content.png);          
                 width: 319px;
-                height: 23px;                
+                height: 23px;    
+                padding-left: 0px;
+                margin: 9px 0 0 0;           
             }
         }
 

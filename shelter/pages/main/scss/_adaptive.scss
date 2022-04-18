@@ -8,7 +8,7 @@
     }
 
     .header {
-      min-width: 768px;
+      max-width: 708px;
       top: 30px;
     }
   
@@ -87,11 +87,14 @@
      .in-addition__content {
        padding-top: 84px;
        p {
-         padding: 19px 0 18px 0;
+         padding: 19px 0 20px 0;
+       }
+       p.info {
+        letter-spacing: 0.01px;
        }
      }
      .in-addition__foto {
-      margin-bottom: 102px;
+      margin-bottom: 98px;
      }
    }
 
@@ -147,11 +150,18 @@
       padding: 0 10px;
     }
 
-    
+    .menu-btn {
+      display: flex;
+    }
 
     .header {
       min-width: 320px;
       top: 30px;
+      .header__logo {
+        div {
+          margin-top: 2px;
+        }
+      }
       .header__nav {
         display: none;
       }
@@ -348,7 +358,7 @@
        }
      }
      .in-addition__foto {
-      margin: 82px 0 42px 0;
+      margin: 42px 0 42px 0;
       width: 260px;
       height: 135.2px;
       background-size: cover;

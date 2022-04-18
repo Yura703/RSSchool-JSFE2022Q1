@@ -21,6 +21,40 @@ button.willactive:hover {
   padding: 0 40px;
 }
 
+.menu-btn {
+  width: 30px;
+  height: 22px;
+  position: relative;
+  right: 63px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.menu-btn span {
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #F1CDB3;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.menu-btn span:nth-of-type(2) {
+  top: calc(50% - 10px);
+}
+
+.menu-btn span:nth-of-type(3) {
+  top: calc(50% + 10px);
+}
+
+.menu-btn {
+  display: none;
+}
+
 .card {
   height: 435px;
   width: 270px;
@@ -762,7 +796,6 @@ button:hover {
 }
 
 .in-addition .in-addition__content {
-  height: 282px;
   width: 380px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -812,6 +845,8 @@ button:hover {
 }
 
 .in-addition .in-addition__content .credit-card {
+  width: 349px;
+  height: 43px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -822,7 +857,6 @@ button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px 15px;
   background: #F1CDB3;
   border-radius: 9px;
 }
@@ -835,6 +869,8 @@ button:hover {
   background: url(../../../assets/icons/credit-card-content.png);
   width: 319px;
   height: 23px;
+  padding-left: 0px;
+  margin: 9px 0 0 0;
 }
 
 .in-addition .in-addition__content .info {
@@ -855,7 +891,7 @@ button:hover {
     padding: 150px 40px 0 30px;
   }
   .header {
-    min-width: 768px;
+    max-width: 708px;
     top: 30px;
   }
   .not-only {
@@ -942,10 +978,13 @@ button:hover {
     padding-top: 84px;
   }
   .in-addition .in-addition__content p {
-    padding: 19px 0 18px 0;
+    padding: 19px 0 20px 0;
+  }
+  .in-addition .in-addition__content p.info {
+    letter-spacing: 0.01px;
   }
   .in-addition .in-addition__foto {
-    margin-bottom: 102px;
+    margin-bottom: 98px;
   }
   footer > section.wrapper {
     padding-top: 15px;
@@ -970,9 +1009,17 @@ button:hover {
   .wrapper {
     padding: 0 10px;
   }
+  .menu-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   .header {
     min-width: 320px;
     top: 30px;
+  }
+  .header .header__logo div {
+    margin-top: 2px;
   }
   .header .header__nav {
     display: none;
@@ -1167,7 +1214,7 @@ button:hover {
     padding: 20px 10px 0 10px;
   }
   .in-addition .in-addition__foto {
-    margin: 82px 0 42px 0;
+    margin: 42px 0 42px 0;
     width: 260px;
     height: 135.2px;
     background-size: cover;
