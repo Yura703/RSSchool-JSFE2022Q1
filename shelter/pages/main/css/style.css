@@ -777,7 +777,7 @@ button:hover {
 }
 
 .in-addition {
-  padding: 80px 182px 100px 183px;
+  padding: 80px 182px 80px 183px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -790,6 +790,7 @@ button:hover {
 }
 
 .in-addition .in-addition__foto {
+  margin-top: -19px;
   width: 505px;
   height: 261px;
   background: url("../../../assets/images/donation-dog.png");
@@ -829,6 +830,7 @@ button:hover {
 }
 
 .in-addition .in-addition__content p {
+  padding: 20px 0;
   font-family: 'Georgia';
   font-style: normal;
   font-weight: 400;
@@ -878,7 +880,7 @@ button:hover {
   font-style: italic;
   font-weight: 400px;
   font-size: 12px;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.01px;
   line-height: 18px;
   color: #B2B2B2;
 }
@@ -891,7 +893,7 @@ button:hover {
     padding: 150px 40px 0 30px;
   }
   .header {
-    max-width: 708px;
+    max-width: calc(100% - 60px);
     top: 30px;
   }
   .not-only {
@@ -948,6 +950,12 @@ button:hover {
   }
   .our-friends .our-friends__slider {
     margin-top: 104px;
+  }
+  .our-friends .our-friends__slider .card {
+    margin-right: -7px;
+  }
+  .our-friends .our-friends__slider .not-view320 {
+    margin-right: 1px;
   }
   .not-view {
     display: none;
@@ -1094,6 +1102,8 @@ button:hover {
     padding-bottom: 13px;
   }
   .about .about__content p {
+    margin: 0 auto;
+    max-width: 430px;
     padding: 11px 15px;
     text-align: justify;
   }
@@ -1121,12 +1131,12 @@ button:hover {
   .our-friends .our-friends__slider button.margin-r36 {
     position: relative;
     top: 263px;
-    left: 59px;
+    left: calc(50% - 92px);
   }
   .our-friends .our-friends__slider button.margin-l36 {
     position: relative;
     top: 263px;
-    right: 59px;
+    right: calc(50% - 92px);
   }
   .our-friends .our-friends__button {
     margin-top: 114px;
@@ -1210,6 +1220,7 @@ button:hover {
   }
   .in-addition .in-addition__content p.info {
     font-weight: 400px !important;
+    max-width: 380px;
     text-align: justify;
     padding: 20px 10px 0 10px;
   }

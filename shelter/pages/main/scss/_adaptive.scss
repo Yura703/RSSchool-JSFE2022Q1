@@ -8,7 +8,7 @@
     }
 
     .header {
-      max-width: 708px;
+      max-width: calc(100% - 60px);
       top: 30px;
     }
   
@@ -53,7 +53,13 @@
         padding-top: 125px;
        }    
      .our-friends__slider {   
-       margin-top: 104px;   
+       margin-top: 104px;  
+       .card {
+        margin-right: -7px;
+       } 
+       .not-view320 {
+        margin-right: 1px;
+       }
      }  
    }
    
@@ -226,6 +232,8 @@
           padding-bottom: 13px;
         }
         p {
+          margin: 0 auto;
+          max-width: 430px;
           padding: 11px 15px;
           text-align: justify;
         }
@@ -257,12 +265,12 @@
        button.margin-r36 {
        position: relative;
        top: 263px;
-       left: 59px;
+       left: calc(50% - 92px);
       }
       button.margin-l36 {
         position: relative;
         top: 263px;
-        right: 59px;
+        right: calc(50% - 92px);
        }
      }  
      .our-friends__button {
@@ -352,9 +360,10 @@
          margin: 0 auto;
        }
        p.info {
-         font-weight: 400px !important;        
-        text-align: justify;
-        padding: 20px 10px 0 10px;
+         font-weight: 400px !important;     
+         max-width: 380px;   
+          text-align: justify;
+          padding: 20px 10px 0 10px;
        }
      }
      .in-addition__foto {
