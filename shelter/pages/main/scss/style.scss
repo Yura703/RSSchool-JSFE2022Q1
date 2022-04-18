@@ -331,10 +331,11 @@ button:hover {
 .in-addition{
     //height: 462px;
     //background: $color-light-l;
-    padding: 80px 182px 100px 183px;
+    padding: 80px 182px 80px 183px;
     @include flex(center, space-between);  
 
     .in-addition__foto {
+        margin-top: -19px;
         width: 505px;
         height: 261px;
         background: url("../../../assets/images/donation-dog.png");
@@ -358,6 +359,7 @@ button:hover {
             color: $color-dark-l;
         }
         p {
+            padding: 20px 0;    
             font-family: 'Georgia';
             font-style: normal;
             font-weight: 400;
@@ -395,7 +397,7 @@ button:hover {
             font-style: italic;
             font-weight: 400px;
             font-size: 12px;
-            letter-spacing: 0.1px;
+            letter-spacing: 0.01px;
             line-height: 18px;           
             color: $color-dark-m;
         }
