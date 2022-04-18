@@ -2,14 +2,57 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  max-width: 1280px;
-  margin: 0 auto;
+.activ {
+  border-bottom: 2px solid #F1CDB3;
 }
 
-section {
-  padding-right: 40px;
-  padding-left: 40px;
+.activ a {
+  color: #292929 !important;
+}
+
+button.willactive:hover {
+  background: #FDDCC4 !important;
+  cursor: pointer;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.menu-btn {
+  width: 30px;
+  height: 22px;
+  position: relative;
+  right: 63px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.menu-btn span {
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #F1CDB3;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.menu-btn span:nth-of-type(2) {
+  top: calc(50% - 10px);
+}
+
+.menu-btn span:nth-of-type(3) {
+  top: calc(50% + 10px);
+}
+
+.menu-btn {
+  display: none;
 }
 
 .card {
@@ -17,6 +60,10 @@ section {
   width: 270px;
   background: #FAFAFA;
   border-radius: 9px;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
 }
 
 .card .card__foto {
@@ -67,13 +114,17 @@ section {
 
 .card:hover {
   cursor: pointer;
-  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
-          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  -webkit-box-shadow: 5px 5px 35px 14px rgba(13, 13, 13, 0.26);
+          box-shadow: 5px 5px 35px 14px rgba(13, 13, 13, 0.26);
   background: #FFFFFF;
 }
 
 .card:hover button {
   background: #FDDCC4;
+}
+
+footer {
+  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 }
 
 .footer {
@@ -88,8 +139,8 @@ section {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 350px;
-  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .footer .footer__contacts {

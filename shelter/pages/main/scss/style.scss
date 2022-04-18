@@ -34,10 +34,22 @@ button:hover {
     cursor: pointer;
 }
 
+.not-only-bg {
+    background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
+}
+.our-friends-bg {
+    background: $color-light-l;
+}
+.in-addition-bg {
+    background: $color-light-l;
+}
+
+
 .header {
     position: absolute;
-    min-width: 1280px;
-    top: 57px;    
+    max-width: 1200px;
+    width: 100%;
+    top: 72px;    
     height: 60px;
 
     @include flex(center, space-between);
@@ -107,11 +119,14 @@ button:hover {
 }
 
 
+
 .not-only {
     @include flex(end, space-between);   
-    background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%); 
+    //background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
+
     width: 100%;
-    height: 904px;
+    padding-top: 190px;
+    //height: 904px;
     .not-only__content {
         @include flex(start, space-between);
         flex-direction: column;
@@ -210,9 +225,10 @@ button:hover {
 }
 
 .our-friends {   
-    height: 877px;
+    //height: 877px;
     padding-top: 80px;
-    background: #F6F6F6;
+    padding-bottom: 40px;
+   
     h2 {        
         margin: 0 auto;
         width: 400px;
@@ -261,7 +277,8 @@ button:hover {
 }
 
 .help {
-    height: 611px;
+    //height: 611px;
+    padding-bottom: 45px;
 
     h2 {
         margin: 0 auto;
@@ -312,8 +329,8 @@ button:hover {
 }
 
 .in-addition{
-    height: 462px;
-    background: $color-light-l;
+    //height: 462px;
+    //background: $color-light-l;
     padding: 80px 182px 100px 183px;
     @include flex(center, space-between);  
 
@@ -324,7 +341,7 @@ button:hover {
     }
 
     .in-addition__content {
-        height: 282px;
+        //height: 282px;
         width: 380px;
         @include flex(start, space-between);  
         flex-direction: column;
@@ -353,18 +370,23 @@ button:hover {
         }
 
         .credit-card {
+            width: 349px;
+            height: 43px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10px 15px;  
+            //padding: 10px 15px;  
             background: $color-primary;
             border-radius: 9px;
             &:hover {
                 background: $color-primary-light;
             }
-            img {               
+            .credit-card-foto {     
+                background: url(../../../assets/icons/credit-card-content.png);          
                 width: 319px;
-                height: 23px;                
+                height: 23px;    
+                padding-left: 0px;
+                margin: 9px 0 0 0;           
             }
         }
 
@@ -380,3 +402,4 @@ button:hover {
     }
 }
 
+@import "./adaptive";

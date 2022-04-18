@@ -2,14 +2,57 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  max-width: 1280px;
-  margin: 0 auto;
+.activ {
+  border-bottom: 2px solid #F1CDB3;
 }
 
-section {
-  padding-right: 40px;
-  padding-left: 40px;
+.activ a {
+  color: #292929 !important;
+}
+
+button.willactive:hover {
+  background: #FDDCC4 !important;
+  cursor: pointer;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.menu-btn {
+  width: 30px;
+  height: 22px;
+  position: relative;
+  right: 63px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.menu-btn span {
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #F1CDB3;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.menu-btn span:nth-of-type(2) {
+  top: calc(50% - 10px);
+}
+
+.menu-btn span:nth-of-type(3) {
+  top: calc(50% + 10px);
+}
+
+.menu-btn {
+  display: none;
 }
 
 .card {
@@ -17,6 +60,10 @@ section {
   width: 270px;
   background: #FAFAFA;
   border-radius: 9px;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
 }
 
 .card .card__foto {
@@ -67,13 +114,17 @@ section {
 
 .card:hover {
   cursor: pointer;
-  -webkit-box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
-          box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  -webkit-box-shadow: 5px 5px 35px 14px rgba(13, 13, 13, 0.26);
+          box-shadow: 5px 5px 35px 14px rgba(13, 13, 13, 0.26);
   background: #FFFFFF;
 }
 
 .card:hover button {
   background: #FDDCC4;
+}
+
+footer {
+  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 }
 
 .footer {
@@ -88,8 +139,8 @@ section {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 350px;
-  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .footer .footer__contacts {
@@ -285,10 +336,23 @@ button:hover {
   cursor: pointer;
 }
 
+.not-only-bg {
+  background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+
+.our-friends-bg {
+  background: #F6F6F6;
+}
+
+.in-addition-bg {
+  background: #F6F6F6;
+}
+
 .header {
   position: absolute;
-  min-width: 1280px;
-  top: 57px;
+  max-width: 1200px;
+  width: 100%;
+  top: 72px;
   height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -396,9 +460,8 @@ button:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
   width: 100%;
-  height: 904px;
+  padding-top: 190px;
 }
 
 .not-only .not-only__content {
@@ -545,9 +608,8 @@ button:hover {
 }
 
 .our-friends {
-  height: 877px;
   padding-top: 80px;
-  background: #F6F6F6;
+  padding-bottom: 40px;
 }
 
 .our-friends h2 {
@@ -632,7 +694,7 @@ button:hover {
 }
 
 .help {
-  height: 611px;
+  padding-bottom: 45px;
 }
 
 .help h2 {
@@ -715,8 +777,6 @@ button:hover {
 }
 
 .in-addition {
-  height: 462px;
-  background: #F6F6F6;
   padding: 80px 182px 100px 183px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -736,7 +796,6 @@ button:hover {
 }
 
 .in-addition .in-addition__content {
-  height: 282px;
   width: 380px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -786,6 +845,8 @@ button:hover {
 }
 
 .in-addition .in-addition__content .credit-card {
+  width: 349px;
+  height: 43px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -796,7 +857,6 @@ button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px 15px;
   background: #F1CDB3;
   border-radius: 9px;
 }
@@ -805,9 +865,12 @@ button:hover {
   background: #FDDCC4;
 }
 
-.in-addition .in-addition__content .credit-card img {
+.in-addition .in-addition__content .credit-card .credit-card-foto {
+  background: url(../../../assets/icons/credit-card-content.png);
   width: 319px;
   height: 23px;
+  padding-left: 0px;
+  margin: 9px 0 0 0;
 }
 
 .in-addition .in-addition__content .info {
@@ -818,4 +881,378 @@ button:hover {
   letter-spacing: 0.1px;
   line-height: 18px;
   color: #B2B2B2;
+}
+
+@media (max-width: 1279px) and (min-width: 768px) {
+  .wrapper {
+    padding: 0 30px;
+  }
+  div.wrapper.not-only {
+    padding: 150px 40px 0 30px;
+  }
+  .header {
+    max-width: 708px;
+    top: 30px;
+  }
+  .not-only {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .not-only .not-only__foto {
+    width: 569px;
+    height: 593px;
+    background-size: cover;
+    -ms-flex-item-align: end;
+        -ms-grid-row-align: end;
+        align-self: end;
+    margin-right: -9px;
+  }
+  .not-only .not-only__content {
+    width: 452px;
+    margin-bottom: 100px;
+  }
+  .not-only .not-only__content button {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-left: 5px;
+  }
+  .about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .about .about__content {
+    margin-right: 2px;
+  }
+  .about .about__pets {
+    margin: 80px 2px 0 0;
+  }
+  .our-friends-bg {
+    padding-bottom: 43px;
+  }
+  .our-friends h2 {
+    padding-top: 125px;
+  }
+  .our-friends .our-friends__slider {
+    margin-top: 104px;
+  }
+  .not-view {
+    display: none;
+  }
+  .help h2 {
+    height: 201px;
+    padding: 69px 0 25px 0;
+  }
+  .help__list {
+    margin: 0 0 237px 0 !important;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .help__list div {
+    width: 176px;
+    height: 113px;
+    margin: 27.5px !important;
+  }
+  .in-addition {
+    height: 785px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .in-addition .in-addition__content {
+    padding-top: 84px;
+  }
+  .in-addition .in-addition__content p {
+    padding: 19px 0 20px 0;
+  }
+  .in-addition .in-addition__content p.info {
+    letter-spacing: 0.01px;
+  }
+  .in-addition .in-addition__foto {
+    margin-bottom: 98px;
+  }
+  footer > section.wrapper {
+    padding-top: 15px;
+  }
+  .footer {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer div.foto {
+    width: 300px;
+    height: 310px;
+    margin-top: 65px;
+  }
+  .footer .footer__contacts {
+    padding-right: 60px;
+    width: 340px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 320px) {
+  .wrapper {
+    padding: 0 10px;
+  }
+  .menu-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .header {
+    min-width: 320px;
+    top: 30px;
+  }
+  .header .header__logo div {
+    margin-top: 2px;
+  }
+  .header .header__nav {
+    display: none;
+  }
+  div.wrapper.not-only {
+    padding: 126px 10px 0 10px;
+  }
+  .not-only {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .not-only .not-only__foto {
+    width: 260px;
+    height: 271.77px;
+    background-size: cover;
+    -ms-flex-item-align: end;
+        -ms-grid-row-align: end;
+        align-self: end;
+    padding-bottom: 2px;
+    margin-top: 3px;
+  }
+  .not-only .not-only__content {
+    width: 296px;
+    margin-bottom: 100px;
+  }
+  .not-only .not-only__content h2 {
+    padding: 24px 0 0 1px;
+    font-size: 25px;
+    text-align: center;
+    margin: 0 auto;
+    width: 70%;
+    height: 88px;
+    letter-spacing: 0.06em;
+  }
+  .not-only .not-only__content p {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+  }
+  .not-only .not-only__content button {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    height: 55px !important;
+  }
+  .about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 42px 0 42px 0;
+  }
+  .about .about__content {
+    margin: 0;
+    width: 100%;
+  }
+  .about .about__content h2 {
+    font-size: 25px;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 13px;
+  }
+  .about .about__content p {
+    padding: 11px 15px;
+    text-align: justify;
+  }
+  .about .about__pets {
+    margin: 156px 0 0 0;
+    width: 260px;
+    height: 353.6px;
+    background-size: cover;
+  }
+  .our-friends {
+    height: 792px;
+  }
+  .our-friends h2 {
+    font-size: 25px;
+    padding-top: 75px;
+    height: 64px;
+    width: 300px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .our-friends .our-friends__slider {
+    margin-top: 74px;
+  }
+  .our-friends .our-friends__slider button.margin-r36 {
+    position: relative;
+    top: 263px;
+    left: 59px;
+  }
+  .our-friends .our-friends__slider button.margin-l36 {
+    position: relative;
+    top: 263px;
+    right: 59px;
+  }
+  .our-friends .our-friends__button {
+    margin-top: 114px;
+  }
+  .not-view, .not-view320 {
+    display: none;
+  }
+  section.help {
+    padding: 0;
+  }
+  .help {
+    height: 745px;
+  }
+  .help h2 {
+    height: 64px;
+    width: 225px;
+    font-size: 25px;
+    padding: 74px 0 10px 2px;
+  }
+  .help__list {
+    margin: 0;
+    padding: 0;
+    padding: 48px 0 0 0;
+    -webkit-box-pack: justify !important;
+        -ms-flex-pack: justify !important;
+            justify-content: space-between !important;
+  }
+  .help__list div {
+    width: 130px;
+    height: 87px;
+    margin: 15px !important;
+  }
+  .help__list div img {
+    height: 50px !important;
+    width: 50px !important;
+  }
+  .help__list div p {
+    margin-top: 19px !important;
+    font-size: 15px !important;
+  }
+  .in-addition {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .in-addition .in-addition__content {
+    width: 100%;
+    padding: 42px 0 0 0;
+  }
+  .in-addition .in-addition__content h2 {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: 25px;
+    width: 100%;
+    height: 64px;
+    text-align: center;
+  }
+  .in-addition .in-addition__content .credit-card {
+    padding: 0;
+    margin: 0 auto;
+    width: 281px;
+    height: 43px;
+  }
+  .in-addition .in-addition__content .credit-card dir.credit-card-foto {
+    background: url("../../../assets/icons/credit-card-content320.png");
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 23px;
+    background-size: cover;
+    width: 251px;
+    height: 23px;
+  }
+  .in-addition .in-addition__content p {
+    padding: 19px 0 21px 0;
+    text-align: center;
+    letter-spacing: normal;
+    line-height: 160%;
+    margin: 0 auto;
+  }
+  .in-addition .in-addition__content p.info {
+    font-weight: 400px !important;
+    text-align: justify;
+    padding: 20px 10px 0 10px;
+  }
+  .in-addition .in-addition__foto {
+    margin: 42px 0 42px 0;
+    width: 260px;
+    height: 135.2px;
+    background-size: cover;
+  }
+  .footer {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer div.foto {
+    width: 260px;
+    height: 269px;
+    margin-top: 40px;
+    background-size: cover;
+  }
+  .footer .footer__contacts {
+    margin-top: 30px;
+    height: 208px;
+    margin-bottom: 24px;
+  }
+  .footer .footer__contacts h2 {
+    font-size: 25px;
+    text-align: center;
+    width: 280px;
+  }
+  .footer .footer__contacts .footer__contacts__mail {
+    padding-left: 14px;
+  }
+  .footer .footer__contacts .footer__contacts__phone {
+    padding-left: 19px;
+  }
+  .footer .footer__location {
+    height: 221px;
+  }
+  .footer .footer__location h2 {
+    padding-left: 5px;
+    font-size: 25px;
+    text-align: center;
+    width: 294px;
+  }
 }
