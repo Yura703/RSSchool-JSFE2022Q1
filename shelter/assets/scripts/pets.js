@@ -1,7 +1,7 @@
 const pets = [
   {
     name: "Jennifer",
-    img: "../../assets/pets/jennifer.png",
+    img: "../../assets/images/jennifer.png",
     type: "Dog",
     breed: "Labrador",
     description:
@@ -13,7 +13,7 @@ const pets = [
   },
   {
     name: "Sophia",
-    img: "../../assets/pets/pets-katrine.png",
+    img: "../../assets/images/sophia.png",
     type: "Dog",
     breed: "Shih tzu",
     description:
@@ -25,7 +25,7 @@ const pets = [
   },
   {
     name: "Woody",
-    img: "../../assets/pets/woody.png",
+    img: "../../assets/images/woody.png",
     type: "Dog",
     breed: "Golden Retriever",
     description:
@@ -37,7 +37,7 @@ const pets = [
   },
   {
     name: "Scarlett",
-    img: "../../assets/pets/scarlett.png",
+    img: "../../assets/images/scarlett.png",
     type: "Dog",
     breed: "Jack Russell Terrier",
     description:
@@ -49,7 +49,7 @@ const pets = [
   },
   {
     name: "Katrine",
-    img: "../../assets/pets/katrine.png",
+    img: "../../assets/images/katrine.png",
     type: "Cat",
     breed: "British Shorthair",
     description:
@@ -61,7 +61,7 @@ const pets = [
   },
   {
     name: "Timmy",
-    img: "../../assets/pets/timmy.png",
+    img: "../../assets/images/timmy.png",
     type: "Cat",
     breed: "British Shorthair",
     description:
@@ -73,7 +73,7 @@ const pets = [
   },
   {
     name: "Freddie",
-    img: "../../assets/pets/freddie.png",
+    img: "../../assets/images/freddie.png",
     type: "Cat",
     breed: "British Shorthair",
     description:
@@ -85,7 +85,7 @@ const pets = [
   },
   {
     name: "Charly",
-    img: "../../assets/pets/charly.png",
+    img: "../../assets/images/charly.png",
     type: "Dog",
     breed: "Jack Russell Terrier",
     description:
@@ -97,55 +97,4 @@ const pets = [
   },
 ];
 
-const namePets = [
-  "Katrine",
-  "Jennifer",
-  "Woody",
-  "Sophia",
-  "Timmy",
-  "Charly",
-  "Scarlett",
-  "Freddie",
-];
-
-const fotoPets = [
-  "../../assets/pets/katrine.png",
-  "../../assets/pets/jennifer.png",
-  "../../assets/pets/woody.png",
-  "../../assets/pets/pets-katrine.png",
-  "../../assets/pets/timmy.png",
-  "../../assets/pets/charly.png",
-  "../../assets/pets/scarlett.png",
-  "../../assets/pets/freddie.png",
-];
-let i = 0;
-
-let fotoBloks = document.querySelectorAll("div.card__foto");
-
-let nameBloks = document.querySelectorAll("div.card > p");
-
-fotoBloks.forEach((el) => (el.style.background = `url("${fotoPets[i++]}")`));
-
-i = 0;
-nameBloks.forEach((el) => (el.innerText = namePets[i++]));
-
-//получение случайного числа, за исключением некоторых чисел
-function getRandonNamber(missNambers) {
-  while (true) {
-    const number = getRandomNumberBetween(0, 7);
-    if (missNambers.indexOf(number) === -1) {
-      return number;
-    }
-  }
-}
-
-//карусель
-const BTN_LEFT = document.querySelector(".btn-left");
-const BTN_RIGHT = document.querySelector(".btn-right");
-
-BTN_LEFT.addEventListener("click", () => {});
-
-//вспомогательные функции
-function getRandomNumberBetween(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+module.exports = { pets };

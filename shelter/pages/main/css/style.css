@@ -315,11 +315,11 @@ footer {
   margin: 0 !important;
 }
 
-.margin-r36 {
+.btn-left {
   margin-right: -36px;
 }
 
-.margin-l36 {
+.btn-right {
   margin-left: -36px;
 }
 
@@ -1128,12 +1128,12 @@ button:hover {
   .our-friends .our-friends__slider {
     margin-top: 74px;
   }
-  .our-friends .our-friends__slider button.margin-r36 {
+  .our-friends .our-friends__slider button.btn-left {
     position: relative;
     top: 263px;
     left: calc(50% - 92px);
   }
-  .our-friends .our-friends__slider button.margin-l36 {
+  .our-friends .our-friends__slider button.btn-right {
     position: relative;
     top: 263px;
     right: calc(50% - 92px);
