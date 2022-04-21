@@ -224,6 +224,44 @@ button:hover {
     }
 }
 
+.item, .slider {
+    display: flex;
+}
+
+.slider-wrapper {
+    width: 82.5%;
+    overflow: hidden;
+   
+}
+
+.item {
+    gap: 90px;
+    margin: 0 45px;
+}
+
+.slider {
+    position: relative;
+    left: -113.7%;
+}
+
+@keyframes move-right {
+    from {left: -120%;}
+    to {left: -222.8%;}
+}
+
+.transition-right {
+    animation: move-right 3s;
+}
+
+@keyframes move-left {
+    from {left: -100%;}
+    to {left: -46px;}
+}
+
+.transition-left {
+    animation: move-left 3s;
+}
+
 .our-friends {   
     //height: 877px;
     padding-top: 80px;
@@ -252,9 +290,8 @@ button:hover {
         .slider-btn {
             @include circle-btn(52px, 2px, $color-primary);
             @include flex(center, center);                     
-        }     
+        }    
     }
-
     .our-friends__button {       
         display: flex;
         flex-direction: column;
