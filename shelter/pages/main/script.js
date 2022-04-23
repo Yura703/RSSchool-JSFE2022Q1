@@ -172,6 +172,8 @@ SLIDER.addEventListener("animationend", (animationEvent) => {
 
   BTN_LEFT.addEventListener("click", moveLeft);
   BTN_RIGHT.addEventListener("click", moveRight);
+
+  //writeEventCard();
 });
 
 function getRandomeNumberCards(cardNambers) {
@@ -197,3 +199,74 @@ function initCard(numbers, direction) {
     nameBloks[index + i].innerText = namePets[numbers[i]];
   }
 }
+
+//попап
+const POPUP_FOTO = document.querySelector(".content__foto");
+const POPUP_NAME = document.querySelector(".content__text>h3");
+const POPUP_TYPE = document.querySelector(".content__text>h4");
+const POPUP_DESC = document.querySelector(".content__text>h5");
+const POPUP_UL = document.querySelectorAll(".content__text>ul>li");
+const CARD = document.querySelectorAll(".card");
+const POPUP = document.querySelector(".popup");
+const POPUP_CLOSE = document.querySelector(".popup__close");
+const POPUP_CONTENT = document.querySelector(".popup__content");
+const BODY = document.querySelector(".body");
+
+function writeCard(name) {
+  pets.forEach((element) => {
+    if (name === element.name) {
+      writePopup(element);
+    }
+  });
+}
+
+function writePopup(obj) {
+  POPUP_NAME.innerText = obj.name;
+  POPUP_FOTO.style.background = `url("${obj.img}") no-repeat`;
+  POPUP_TYPE.innerText = obj.type + " - " + obj.breed;
+  POPUP_DESC.innerText = obj.description;
+  POPUP_UL[0].innerHTML = "<b>Age</b>" + ": " + obj.age;
+  POPUP_UL[1].innerHTML =
+    "<b>Inoculations</b>" + ": " + obj.inoculations.join(", ");
+  POPUP_UL[2].innerHTML = "<b>Diseases</b>" + ": " + obj.diseases.join(", ");
+  POPUP_UL[3].innerHTML = "<b>Parasites</b>" + ": " + obj.parasites.join(", ");
+}
+
+const addClassPopup = () => {
+  POPUP.classList.add("popup-open");
+  BODY.style.overflow = "hidden";
+};
+
+const closePopupBtn = () => {
+  POPUP.classList.remove("popup-open");
+  BODY.style.overflow = "visible";
+};
+
+function writeEventCard(params) {
+  CARD.forEach((elem) => {
+    elem.addEventListener("click", (event) => {
+      //console.log(event);
+      event.path.forEach((el) => {
+        if (
+          el.className === "card" ||
+          el.className === "card card-one" ||
+          el.className === "card card-two"
+        ) {
+          const name = el.querySelector("p").innerText;
+          writeCard(name);
+        }
+      });
+      addClassPopup();
+    });
+  });
+}
+
+writeEventCard();
+
+POPUP_CLOSE.addEventListener("click", closePopupBtn);
+
+POPUP.addEventListener("click", (event) => {
+  if (event.target.className === "popup__body") {
+    closePopupBtn();
+  }
+});
