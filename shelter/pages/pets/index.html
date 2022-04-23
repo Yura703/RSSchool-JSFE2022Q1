@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../assets/normalize.css">
     <link rel="stylesheet" href="../../assets/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="../../assets/icons/favicon.png" type="image/x-icon">
     <title>pets-page</title>
 </head>
 
@@ -20,7 +21,6 @@
                 </h1>
                 <div>Shelter for pets in Boston</div>
             </div>
-
             <nav class="header__nav">
                 <ul class="header__nav__nav-list">
                     <li class="header__nav__nav-list__nav-item">
@@ -56,7 +56,7 @@
                 <div class="our-friends__cards-container">
                     <div class="card">
                         <div class="card__foto"></div>
-                        <p>Katrine</p>
+                        <p></p>
                         <div class="card__button">
                             <button>
                                 Learn more
@@ -65,7 +65,7 @@
                     </div>
                     <div class="card">
                         <div class="card__foto"></div>
-                        <p>Jennifer</p>
+                        <p></p>
                         <div class="card__button">
                             <button>
                                 Learn more
@@ -74,7 +74,7 @@
                     </div>
                     <div class="card">
                         <div class="card__foto"></div>
-                        <p>Woody</p>
+                        <p></p>
                         <div class="card__button">
                             <button>
                                 Learn more
@@ -83,7 +83,7 @@
                     </div>
                     <div class="card tree-line">
                         <div class="card__foto"></div>
-                        <p>Sophia</p>
+                        <p></p>
                         <div class="card__button">
                             <button>
                                 Learn more
@@ -92,7 +92,7 @@
                     </div>
                     <div class="card tree-line">
                         <div class="card__foto"></div>
-                        <p>Timmy</p>
+                        <p></p>
                         <div class="card__button">
                             <button>
                                 Learn more
@@ -101,7 +101,7 @@
                     </div>
                     <div class="card tree-line">
                         <div class="card__foto"></div>
-                        <p>Charly</p>
+                        <p></p>
                         <div class="card__button">
                             <button>
                                 Learn more
@@ -110,7 +110,7 @@
                     </div>
                     <div class="card four-line">
                         <div class="card__foto"></div>
-                        <p>Scarlett</p>
+                        <p></p>
                         <div class="card__button">
                             <button>
                                 Learn more
@@ -119,7 +119,7 @@
                     </div>
                     <div class="card four-line">
                         <div class="card__foto"></div>
-                        <p>Freddie</p>
+                        <p></p>
                         <div class="card__button">
                             <button>
                                 Learn more
@@ -128,17 +128,17 @@
                     </div>
                 </div>
                 <div class="our-friends__navigation">
-                    <button class="inactive">
+                    <button class="inactive btn-start">
                         <img src="../../assets/icons/bl2.png" alt="double-left">
                     </button>
-                    <button class="inactive">
+                    <button class="inactive btn-left">
                         <img src="../../assets/icons/bl1.png" alt="left">
                     </button>
-                    <button class="active">1</button>
-                    <button class="willactive">
+                    <button class="active"></button>
+                    <button class="willactive btn-right">
                         <img src="../../assets/icons/br1.png" alt="right">
                     </button>
-                    <button class="willactive">
+                    <button class="willactive btn-end">
                         <img src="../../assets/icons/br2.png" alt="double-right">
                     </button>
                 </div>
@@ -172,7 +172,32 @@
             <div class="foto"></div>
         </section>
     </footer>
-    <script src="script.js"></script>
+
+    <div class="popup" id="popap">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close">
+                    <span>&times</span>
+                </button>
+                <div class="content__foto"></div>
+                <div class="content__text">
+                    <h3></h3>
+                    <h4></h4>
+                    <h5></h5>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/script.js"></script>
+    <script src="../../assets/scripts/popup.js"></script>
+    <script src="../../assets/scripts/pagination.js"></script>
 </body>
 
 </html>

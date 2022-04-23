@@ -14,11 +14,11 @@
     margin: 0 !important;
 }
 
-.margin-r36 {
+.btn-left {
     margin-right: -36px;   
 }
 
-.margin-l36 {
+.btn-right {
     margin-left: -36px;   
 }
 
@@ -224,6 +224,44 @@ button:hover {
     }
 }
 
+.item, .slider {
+    display: flex;
+}
+
+.slider-wrapper {
+    width: 82.5%;
+    overflow: hidden;
+   
+}
+
+.item {
+    gap: 90px;
+    margin: 0 45px;
+}
+
+.slider {
+    position: relative;
+    left: -113.7%;
+}
+
+@keyframes move-right {
+    from {left: -120%;}
+    to {left: -222.8%;}
+}
+
+.transition-right {
+    animation: move-right 3s;
+}
+
+@keyframes move-left {
+    from {left: -100%;}
+    to {left: -46px;}
+}
+
+.transition-left {
+    animation: move-left 3s;
+}
+
 .our-friends {   
     //height: 877px;
     padding-top: 80px;
@@ -252,9 +290,8 @@ button:hover {
         .slider-btn {
             @include circle-btn(52px, 2px, $color-primary);
             @include flex(center, center);                     
-        }     
+        }    
     }
-
     .our-friends__button {       
         display: flex;
         flex-direction: column;
@@ -402,6 +439,95 @@ button:hover {
             color: $color-dark-m;
         }
     }
+}
+
+.popup {    
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: $color-pupap;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s ease 0s;
+    .popup__body {
+        cursor: pointer;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;        
+        .popup__content {
+            cursor: auto;            
+            position: relative;
+            button {     
+                background-color: #7f7f7f;
+                width: 52px;
+                height: 52px;
+                border: 2px solid $color-primary;
+                box-sizing: border-box;
+                border-radius: 100px;
+                position: absolute;
+                right: -42px;
+                top: -52px;
+                @include flex(center, center);
+                span {
+                    font-size: 35px;
+                    font-weight: 900;
+                    color: $color-dark-3xl;
+                }
+            }      
+                width: 900px;
+                height: 500px;
+                border-radius: 9px;
+                background: $color-light-s;
+                @include flex(center, start);
+            
+                .content__foto {
+                    border-radius: 9px 0 0 9px;
+                    width: 500px;
+                    height: 100%;                
+                    background-size: cover !important;                
+                }
+                .content__text { 
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    width: 400px;
+                    height: 100%;
+                    padding: 50px 20px 88px 29px;  
+                            
+                    h3 {
+                        @extend %text-h3;
+                        padding-bottom: 10px;                    
+                    }
+                    h4 {
+                        @extend %text-h4;                    
+                    }
+                    h5 {
+                        @extend %text-h5;
+                        padding-bottom: 40px 0;
+                    }
+                    ul {
+                        padding: 0; 
+                        li {
+                            @extend %text-h5;
+                            list-style-type: none;
+                        }
+                        li::before {
+                            color: $color-primary; /* Цвет маркера */
+                            content: "•"; /* Сам маркер */
+                            padding-right: 10px; /* Расстояние от маркера до текста */
+                        }
+                    }               
+            }
+        }
+    }
+}
+
+.popup-open {
+    opacity: 1;
+    visibility: visible;
 }
 
 @import "./adaptive";

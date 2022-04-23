@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../assets/normalize.css">
     <link rel="stylesheet" href="../../assets/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="../../assets/icons/favicon.png" type="image/x-icon">
     <title>Main-page</title>
 </head>
 
@@ -81,38 +82,101 @@
             <div class="our-friends wrapper">
                 <h2>Our friends who <br> are looking for a house</h2>
                 <div class="our-friends__slider">
-                    <button class="slider-btn margin-r36">
+                    <button class="slider-btn btn-left">
                         <img src="../../assets/icons/arrow.png" alt="arrow">
                     </button>
-                    <div class="card">
-                        <div class="card__foto"></div>
-                        <p>Katrine</p>
-                        <div class="card__button">
-                            <button>
-                                Learn more
-                            </button>
+                    <div class="slider-wrapper" id="slider-wrapper">
+                        <div class="slider" id="slider">
+                            <div class="item" id="item-left">
+                                <div class="card card-one">
+                                    <div class="card__foto"></div>
+                                    <p></p>
+                                    <div class="card__button">
+                                        <button>
+                                            Learn more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card card-two">
+                                    <div class="card__foto"></div>
+                                    <p></p>
+                                    <div class="card__button">
+                                        <button>
+                                            Learn more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card__foto"></div>
+                                    <p></p>
+                                    <div class="card__button">
+                                        <button>
+                                            Learn more
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item" id="item-active">
+                                <div class="card card-one">
+                                    <div class="card__foto"></div>
+                                    <p></p>
+                                    <div class="card__button">
+                                        <button>
+                                            Learn more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card card-two">
+                                    <div class="card__foto"></div>
+                                    <p></p>
+                                    <div class="card__button">
+                                        <button>
+                                            Learn more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card__foto"></div>
+                                    <p></p>
+                                    <div class="card__button">
+                                        <button>
+                                            Learn more
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item" id="item-right">
+                                <div class="card card-one">
+                                    <div class="card__foto"></div>
+                                    <p></p>
+                                    <div class="card__button">
+                                        <button>
+                                            Learn more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card card-two">
+                                    <div class="card__foto"></div>
+                                    <p></p>
+                                    <div class="card__button">
+                                        <button>
+                                            Learn more
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card__foto"></div>
+                                    <p></p>
+                                    <div class="card__button">
+                                        <button>
+                                            Learn more
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="card not-view320">
-                        <div class="card__foto"></div>
-                        <p>Katrine</p>
-                        <div class="card__button">
-                            <button>
-                                Learn more
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card not-view">
-                        <div class="card__foto"></div>
-                        <p>Katrine</p>
-                        <div class="card__button">
-                            <button>
-                                Learn more
-                            </button>
-                        </div>
-                    </div>
-
-                    <button class="slider-btn margin-l36">
+                    <button class="slider-btn btn-right">
                         <img class="reverse" src="../../assets/icons/arrow.png" alt="arrow">
                     </button>
 
@@ -212,9 +276,30 @@
             <div class="foto"></div>
         </section>
     </footer>
-
+    <div class="popup" id="popap">
+        <div class="popup__body">
+            <div class="popup__content">
+                <button class="popup__close">
+                    <span>&times</span>
+                </button>
+                <div class="content__foto"></div>
+                <div class="content__text">
+                    <h3></h3>
+                    <h4></h4>
+                    <h5></h5>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
+    <script src="../../assets/scripts/popup.js"></script>
 </body>
 
 </html>
