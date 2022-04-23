@@ -336,11 +336,6 @@ footer {
   background: url("../../../assets/images/footer-puppy.png");
 }
 
-button:hover {
-  background: #FDDCC4 !important;
-  cursor: pointer;
-}
-
 .our-friends-bg {
   background: #F6F6F6;
 }
@@ -576,6 +571,11 @@ button:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.our-friends .our-friends__navigation button.active:hover {
+  background: #FDDCC4 !important;
+  cursor: pointer;
 }
 
 .our-friends .our-friends__navigation button.active div {
