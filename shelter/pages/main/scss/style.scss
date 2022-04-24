@@ -531,3 +531,8 @@ button:hover {
 }
 
 @import "./adaptive";
+@import "../../../assets/styles/burger-menu";
+
+.menu-btn > span {
+      background-color: $color-primary;   
+  }

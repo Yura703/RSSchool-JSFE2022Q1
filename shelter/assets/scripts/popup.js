@@ -131,11 +131,15 @@ function writePopup(obj) {
 
 const addClassPopup = () => {
   POPUP.classList.add("popup-open");
+  BODY.style.paddingRight = `${
+    window.innerWidth - document.documentElement.clientWidth
+  }px`;
   BODY.style.overflow = "hidden";
 };
 
 const closePopupBtn = () => {
   POPUP.classList.remove("popup-open");
+  BODY.style.paddingRight = "0px";
   BODY.style.overflow = "visible";
 };
 
