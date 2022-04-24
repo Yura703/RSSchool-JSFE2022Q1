@@ -211,7 +211,7 @@ function writeclassBtn(numberPages) {
 }
 
 function fillCards(numbersCard, numberPages, countCards) {
-  console.log(numbersCard);
+  //console.log(numbersCard);
   let fotoBloks = document.querySelectorAll("div.card__foto");
   let nameBloks = document.querySelectorAll("div.card > p");
   let index = (numberPages - 1) * 8;

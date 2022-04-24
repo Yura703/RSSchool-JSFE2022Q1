@@ -86,44 +86,15 @@
     }
     .four-line, .tree-line {
       display: none;
+    }   
+
+    .header__logo {
+      z-index: 2;
     }
-    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // .our-friends {
-    //   padding-top: 90px;
-    // }
-
-    // .header__nav {
-    //   display: block;
-    // }
-
-    // .header-bg {
-    //   width: 320px;
-    //   height: 823px;
-    //   position: absolute;
-    //   z-index: 100;
-    //   right: 0;
-    //   top: 0;
-    //   display: flex;
-    //   justify-content: start;
-    //   align-items: center;
-    //   flex-direction: column;
-    // }
 
     .header__nav {
       display: none;
-    }
-
-    .menu-btn {
-      display: flex;
-      right: 43px;
-      span {
-        background-color: #000000;
-      }
-    }
-    
-    .burger-btn {
-      display: block !important;
-    }
+    }    
 
     .our-friends {
        h2 {
@@ -220,4 +191,5 @@
           }
       }
   }
-  }
+}
+  

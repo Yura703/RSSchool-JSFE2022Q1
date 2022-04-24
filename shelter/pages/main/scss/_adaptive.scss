@@ -207,14 +207,13 @@
       padding: 0 10px;
     }
 
-    .menu-btn {
-      display: flex;
-    }
+    
 
     .header {
       min-width: 320px;
       top: 30px;
       .header__logo {
+        z-index: 2;
         div {
           margin-top: 2px;
         }
