@@ -168,7 +168,7 @@
             @include flex(center, center);
             &:hover {
                 background: $color-primary-light !important;
-                cursor: pointer;
+                //cursor: pointer;
             } 
             div {
                 font-family: 'Georgia';

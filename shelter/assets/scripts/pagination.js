@@ -124,9 +124,13 @@ const BTN_L = document.querySelector(".btn-left");
 const BTN_NUM = document.querySelector(".active");
 const BTN_R = document.querySelector(".btn-right");
 const BTN_END = document.querySelector(".btn-end");
-let countCards = 8;
+
 let arr = [0, 1, 2, 3, 4, 5, 6, 7];
 let numberPages = 1;
+
+let countCards = 8;
+let countPages = getCountPages();
+
 const arrayPets = randomeFillArray(arr); //сделать перемешивание
 
 BTN_NUM.innerHTML = numberPages;
@@ -140,10 +144,15 @@ fillCards(arrayPets, numberPages, countCards);
 
 function randomeFillArray(arr) {
   let arrPets = [];
-  for (let i = 0; i < 7; i++) {
-    arrPets = arrPets.concat(arr.sort(() => Math.random() - 0.5));
+  while (true) {
+    arrPets = [];
+    for (let i = 0; i < 6; i++) {
+      arrPets = arrPets.concat(arr.sort(() => Math.random() - 0.5));
+    }
+    if (checkRandome(arrPets)) {
+      break;
+    }
   }
-
   return arrPets;
 }
 
@@ -157,8 +166,8 @@ function goStart(params) {
 }
 
 function goEnd(params) {
-  if (numberPages !== 6) {
-    numberPages = 6;
+  if (numberPages !== countPages) {
+    numberPages = countPages;
     BTN_NUM.innerHTML = numberPages;
     writeclassBtn(numberPages);
     fillCards(arrayPets, numberPages, countCards);
@@ -175,7 +184,7 @@ function goLeft(params) {
 }
 
 function goRight(params) {
-  if (numberPages !== 6) {
+  if (numberPages !== countPages) {
     BTN_NUM.innerHTML = ++numberPages;
     writeclassBtn(numberPages);
     writeclassBtn(numberPages);
@@ -193,7 +202,7 @@ function writeclassBtn(numberPages) {
     BTN_R.classList.remove("inactive");
     BTN_END.classList.add("willactive");
     BTN_R.classList.add("willactive");
-  } else if (numberPages === 6) {
+  } else if (numberPages === countPages) {
     BTN_END.classList.remove("willactive");
     BTN_R.classList.remove("willactive");
     BTN_END.classList.add("inactive");
@@ -214,11 +223,39 @@ function fillCards(numbersCard, numberPages, countCards) {
   //console.log(numbersCard);
   let fotoBloks = document.querySelectorAll("div.card__foto");
   let nameBloks = document.querySelectorAll("div.card > p");
-  let index = (numberPages - 1) * 8;
+  let index = (numberPages - 1) * countCards;
   for (let i = 0; i < countCards; i++) {
     fotoBloks[i].style.background = `url("${
       _fotoPets[numbersCard[i + index]]
     }")`;
     nameBloks[i].innerText = _namePets[numbersCard[i + index]];
   }
+}
+
+function getCountPages() {
+  //const mediaQuery1 = window.matchMedia("(max-width: 1279px)");
+  if (window.innerWidth < 768) {
+    countCards = 3;
+    return 16;
+  } else if (window.innerWidth < 1280) {
+    countCards = 6;
+    return 8;
+  } else return 6;
+}
+
+function checkRandome(array) {
+  for (let i = 0; i < array.length; i += 3) {
+    if (
+      array[i] == array[i + 1] &&
+      array[i] == array[i + 2] &&
+      array[i + 1] == array[i + 2]
+    ) {
+      console.log(array[i]);
+      console.log(array[i + 1]);
+      console.log(array[i + 2]);
+      return false;
+    }
+  }
+
+  return true;
 }

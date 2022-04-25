@@ -575,7 +575,6 @@ footer {
 
 .our-friends .our-friends__navigation button.active:hover {
   background: #FDDCC4 !important;
-  cursor: pointer;
 }
 
 .our-friends .our-friends__navigation button.active div {

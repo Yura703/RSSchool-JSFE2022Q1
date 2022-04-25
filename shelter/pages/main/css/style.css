@@ -677,8 +677,8 @@ button:hover {
 }
 
 .transition-right {
-  -webkit-animation: move-right 3s;
-          animation: move-right 3s;
+  -webkit-animation: move-right 1s;
+          animation: move-right 1s;
 }
 
 @-webkit-keyframes move-left {
@@ -700,8 +700,8 @@ button:hover {
 }
 
 .transition-left {
-  -webkit-animation: move-left 3s;
-          animation: move-left 3s;
+  -webkit-animation: move-left 1s;
+          animation: move-left 1s;
 }
 
 .our-friends {
