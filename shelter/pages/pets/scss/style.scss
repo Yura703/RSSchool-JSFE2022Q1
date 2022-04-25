@@ -120,6 +120,26 @@
     cursor: pointer;
   }
 
+i {
+border: solid $color-dark-l;
+border-width: 0 2px 2px 0;
+display: inline-block;
+padding: 4px;
+}  
+i {
+border: solid $color-dark-l;
+border-width: 0 2px 2px 0;
+display: inline-block;
+padding: 4px;
+}  
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
 .our-friends {   
     margin-top: 0px;
     h2 {
@@ -159,7 +179,7 @@
         button.inactive {
             background: $color-light-l;
             @include circle-btn(52px, 2px, $color-dark-s);
-            @include flex(center, center);                
+            @include flex(center, center);    
         }
 
         button.active {
@@ -168,7 +188,7 @@
             @include flex(center, center);
             &:hover {
                 background: $color-primary-light !important;
-                cursor: pointer;
+                //cursor: pointer;
             } 
             div {
                 font-family: 'Georgia';

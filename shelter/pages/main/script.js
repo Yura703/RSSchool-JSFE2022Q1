@@ -60,15 +60,17 @@ BTN_RIGHT.addEventListener("click", moveRight);
 
 //действия после завершения анимации
 SLIDER.addEventListener("animationend", (animationEvent) => {
-  let changedItem;
+  //let changedItem;
   if (animationEvent.animationName === "move-left") {
     SLIDER.classList.remove("transition-left");
-    changedItem = ITEM_LEFT;
-    document.querySelector("#item-active").innerHTML = ITEM_LEFT.innerHTML;
+    getEventPopup(document.querySelector("#item-active"), ITEM_LEFT);
+    //changedItem = ITEM_LEFT;
+    //document.querySelector("#item-active").innerHTML = ITEM_LEFT.innerHTML;
   } else {
     SLIDER.classList.remove("transition-right");
-    changedItem = ITEM_RIGHT;
-    document.querySelector("#item-active").innerHTML = ITEM_RIGHT.innerHTML;
+    getEventPopup(document.querySelector("#item-active"), ITEM_RIGHT);
+    //changedItem = ITEM_RIGHT;
+    //document.querySelector("#item-active").innerHTML = ITEM_RIGHT.innerHTML;
   }
 
   BTN_LEFT.addEventListener("click", moveLeft);
@@ -98,5 +100,18 @@ function initCard(numbers, direction) {
   for (let i = 0; i < 3; i++) {
     fotoBloks[index + i].style.background = `url("${fotoPets[numbers[i]]}")`;
     nameBloks[index + i].innerText = namePets[numbers[i]];
+  }
+}
+
+function getEventPopup(node, nodeA) {
+  let n_fotoBloks = node.querySelectorAll("div.card__foto");
+  let n_nameBloks = node.querySelectorAll("div.card > p");
+
+  let nA_fotoBloks = nodeA.querySelectorAll("div.card__foto");
+  let nA_nameBloks = nodeA.querySelectorAll("div.card > p");
+
+  for (let i = 0; i < 3; i++) {
+    n_fotoBloks[i].style.background = nA_fotoBloks[i].style.background;
+    n_nameBloks[i].innerText = nA_nameBloks[i].innerText;
   }
 }
