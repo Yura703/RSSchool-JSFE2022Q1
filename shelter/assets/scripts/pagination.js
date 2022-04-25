@@ -124,6 +124,8 @@ const BTN_L = document.querySelector(".btn-left");
 const BTN_NUM = document.querySelector(".active");
 const BTN_R = document.querySelector(".btn-right");
 const BTN_END = document.querySelector(".btn-end");
+// const ARROW_LS = document.querySelector("i.ls");
+// const ARROW_L = document.querySelector("i.l");
 
 let arr = [0, 1, 2, 3, 4, 5, 6, 7];
 let numberPages = 1;
@@ -194,6 +196,7 @@ function goRight(params) {
 
 function writeclassBtn(numberPages) {
   if (numberPages === 1) {
+    // ARROW_L.style.border = "red";
     BTN_START.classList.remove("willactive");
     BTN_L.classList.remove("willactive");
     BTN_START.classList.add("inactive");
