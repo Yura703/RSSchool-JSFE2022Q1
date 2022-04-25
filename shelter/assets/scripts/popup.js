@@ -174,3 +174,15 @@ POPUP.addEventListener("click", (event) => {
     closePopupBtn();
   }
 });
+
+POPUP.addEventListener("mouseover", (event) => {
+  if (event.target.className === "popup__body") {
+    POPUP_CLOSE.style.background = "#F1CDB3";
+  }
+});
+
+POPUP.addEventListener("mouseout", (event) => {
+  if (event.target.className === "popup__body") {
+    POPUP_CLOSE.style.background = "#7f7f7f";
+  }
+});
