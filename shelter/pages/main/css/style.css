@@ -1641,6 +1641,10 @@ button:hover {
 }
 
 @media (max-width: 767px) {
+  .active-burger {
+    border-bottom: 2px solid #F1CDB3;
+    color: #FAFAFA !important;
+  }
   .menu-btn {
     position: absolute;
     display: -webkit-box;
@@ -1723,7 +1727,6 @@ button:hover {
     color: #CDCDCD;
   }
   .menu-body .menu-content .menu-list .menu-link a:hover {
-    border-bottom: 2px solid #F1CDB3;
     color: #FAFAFA !important;
   }
   .menu-body .menu-content .menu-list .menu-link:last-child {

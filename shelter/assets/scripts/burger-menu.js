@@ -5,6 +5,7 @@ const LOGO = document.querySelector(".header__logo>h1>a");
 const HDR_TEXT = document.querySelector(".header__logo>div");
 const PETS_LOGO = document.querySelector(".pets-logo");
 const PETS_TEXT = document.querySelector(".pets-text");
+const HREF_LOGO = document.querySelector(".menu-content>div>h1>a");
 
 MENU_BTN.addEventListener("click", (e) => {
   //MENU_BTN.classList.remove("menu-btn-click");
@@ -33,11 +34,24 @@ HREF.forEach((element) => {
   element.addEventListener("click", () => {
     MENU_BTN.classList.remove("active");
     MENU_BODY.classList.remove("active");
+    document.querySelector(".body").style.overflow = "visible";
+    document.querySelector(".header__logo").style.display = "flex";
+    if (PETS_LOGO) document.querySelector(".pets-logo").style.color = "#545454";
+    if (PETS_TEXT) document.querySelector(".pets-text").style.color = "#292929";
   });
-  element.addEventListener("click", () => {
-    MENU_BTN.classList.remove("active");
-    MENU_BODY.classList.remove("active");
-  });
+  // element.addEventListener("click", () => {
+  //   MENU_BTN.classList.remove("active");
+  //   MENU_BODY.classList.remove("active");
+  // });
+});
+
+HREF_LOGO.addEventListener("click", () => {
+  MENU_BTN.classList.remove("active");
+  MENU_BODY.classList.remove("active");
+  document.querySelector(".body").style.overflow = "visible";
+  document.querySelector(".header__logo").style.display = "flex";
+  if (PETS_LOGO) document.querySelector(".pets-logo").style.color = "#545454";
+  if (PETS_TEXT) document.querySelector(".pets-text").style.color = "#292929";
 });
 
 MENU_BODY.addEventListener("click", (e) => {
