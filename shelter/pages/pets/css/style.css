@@ -940,6 +940,8 @@ i {
     display: -ms-flexbox;
     display: flex;
     right: 43px;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .menu-btn span {
     background-color: #000000;
@@ -953,8 +955,6 @@ i {
   .menu-btn.active {
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
-    -webkit-transition-duration: .5s;
-            transition-duration: .5s;
   }
   .menu-btn.active span {
     background-color: #F1CDB3;
