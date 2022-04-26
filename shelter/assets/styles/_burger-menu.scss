@@ -16,6 +16,10 @@
 
 
 // }  
+.active-burger {
+  border-bottom: 2px solid #F1CDB3;
+  color: #FAFAFA !important;
+}
 
 .menu-btn {
     position: absolute;
@@ -83,7 +87,7 @@
             line-height: 160%;
             color: $color-dark-s;
             &:hover {
-              border-bottom: 2px solid $color-primary;
+              // border-bottom: 2px solid $color-primary;
               color: $color-light-s !important;          
             }
           }

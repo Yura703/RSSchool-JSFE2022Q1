@@ -492,13 +492,6 @@ i {
   padding: 4px;
 }
 
-i {
-  border: solid #545454;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 4px;
-}
-
 .left {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
@@ -578,6 +571,10 @@ i {
           justify-content: center;
 }
 
+.our-friends .our-friends__navigation button.inactive i {
+  border-color: #CDCDCD;
+}
+
 .our-friends .our-friends__navigation button.active {
   width: 52px;
   height: 52px;
@@ -595,10 +592,6 @@ i {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.our-friends .our-friends__navigation button.active:hover {
-  background: #FDDCC4 !important;
 }
 
 .our-friends .our-friends__navigation button.active div {
@@ -628,6 +621,10 @@ i {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.our-friends .our-friends__navigation button.willactive i {
+  border-color: #292929;
 }
 
 .popup {
@@ -696,6 +693,11 @@ i {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.popup .popup__body .popup__content button:hover {
+  background-color: #F1CDB3 !important;
+  cursor: pointer;
 }
 
 .popup .popup__body .popup__content button span {
@@ -934,6 +936,10 @@ i {
 }
 
 @media (max-width: 767px) {
+  .active-burger {
+    border-bottom: 2px solid #F1CDB3;
+    color: #FAFAFA !important;
+  }
   .menu-btn {
     position: absolute;
     display: -webkit-box;
@@ -1016,7 +1022,6 @@ i {
     color: #CDCDCD;
   }
   .menu-body .menu-content .menu-list .menu-link a:hover {
-    border-bottom: 2px solid #F1CDB3;
     color: #FAFAFA !important;
   }
   .menu-body .menu-content .menu-list .menu-link:last-child {
