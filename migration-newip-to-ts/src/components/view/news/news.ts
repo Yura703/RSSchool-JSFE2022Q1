@@ -2,7 +2,7 @@ import { IResponse } from '../../../types/IResponse';
 import './news.css';
 
 class News {
-    draw(data: IResponse['articles']) {
+    draw(data: IResponse['articles'] | never[]) {
         const news = data.length >= 10 ? data.filter((_item, idx: number) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
