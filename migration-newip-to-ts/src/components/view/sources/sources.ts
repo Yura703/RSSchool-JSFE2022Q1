@@ -1,4 +1,4 @@
-import { ISources } from '../../../types/IResponse';
+import { ISources } from '../../../types/ISources';
 import './sources.css';
 
 class Sources {

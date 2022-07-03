@@ -41,7 +41,6 @@ class Loader {
     }
 
     load(method: MethodType, endpoint: string, callback: (data: string | never) => void, options = {}) {
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
