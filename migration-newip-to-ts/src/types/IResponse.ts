@@ -5,7 +5,7 @@ export interface IResponse {
         {
             source: {
                 id: null;
-                name: 'SiliconANGLE News';
+                name: string;
             };
             author: string;
             title: string;
@@ -16,4 +16,18 @@ export interface IResponse {
             content: string;
         }
     ];
+}
+
+export interface INews {
+    source: {
+        id: null;
+        name: string;
+    };
+    author: string;
+    title: string;
+    description: string;
+    url: string;
+    urlToImage: string;
+    publishedAt: string;
+    content: string;
 }

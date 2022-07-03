@@ -1,7 +1,8 @@
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    getSources(callback: (() => void) | undefined) {
+    getSources(callback: ((data?: any) => void) | undefined) {
+        //!1111111111111111111111111
         super.getResp(
             {
                 endpoint: 'sources',
