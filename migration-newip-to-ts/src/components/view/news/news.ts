@@ -1,9 +1,9 @@
-import { INews } from '../../../types/IResponse';
+import { IResponse } from '../../../types/IResponse';
 import './news.css';
 
 class News {
-    draw(data: INews[]) {
-        const news = data.length >= 10 ? data.filter((_item: INews, idx: number) => idx < 10) : data;
+    draw(data: IResponse['articles']) {
+        const news = data.length >= 10 ? data.filter((_item, idx: number) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
         const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
@@ -14,7 +14,7 @@ class News {
                     urlToImage: string;
                     author: string;
                     source: {
-                        id: null;
+                        id: null | string;
                         name: string;
                     };
                     publishedAt: string;
