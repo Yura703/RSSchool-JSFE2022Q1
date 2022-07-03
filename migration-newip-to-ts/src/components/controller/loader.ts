@@ -40,12 +40,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: MethodType, endpoint: string, callback: (data: any) => void, options = {}) {
+    load(method: MethodType, endpoint: string, callback: (data: string | never) => void, options = {}) {
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data))
+            .then((data: string | never) => callback(data))
             .catch((err) => console.error(err));
     }
 }
