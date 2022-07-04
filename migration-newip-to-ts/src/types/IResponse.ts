@@ -18,4 +18,4 @@ export interface IResponse {
     ];
 }
 
-export type Articles = Pick<IResponse, 'articles'>;
+export type ArticlesType = Pick<IResponse, 'articles'>["articles"];

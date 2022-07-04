@@ -1,5 +1,5 @@
-import { IResponse } from '../../types/IResponse';
-import { ISources } from '../../types/ISources';
+import { ArticlesType } from '../../types/IResponse';
+import { SourcesType } from '../../types/ISources';
 import News from './news/news';
 import Sources from './sources/sources';
 
@@ -13,12 +13,12 @@ export class AppView {
         this.sources = new Sources();
     }
 
-    drawNews(data: { articles: IResponse['articles'] } | undefined) {
+    drawNews(data: { articles: ArticlesType } | undefined) {
         const values = data?.articles ? data?.articles : [];
         this.news.draw(values);
     }
 
-    drawSources(data: { sources: ISources['sources'] } | undefined) {
+    drawSources(data: { sources: SourcesType } | undefined) {
         const values = data?.sources ? data?.sources : [];
         this.sources.draw(values);
     }

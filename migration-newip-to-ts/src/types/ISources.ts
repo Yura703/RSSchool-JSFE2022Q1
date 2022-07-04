@@ -17,4 +17,4 @@ export interface ISources {
     ];
 }
 
-export type Sources = Pick<ISources, 'sources'>
+export type SourcesType = Pick<ISources, 'sources'>["sources"];
