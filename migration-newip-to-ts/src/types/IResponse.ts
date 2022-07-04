@@ -1,5 +1,7 @@
+import { Status } from "./statusEnum";
+
 export interface IResponse {
-    status: 'ok';
+    status: Status.ok;
     totalResults: number;
     articles: [
         {

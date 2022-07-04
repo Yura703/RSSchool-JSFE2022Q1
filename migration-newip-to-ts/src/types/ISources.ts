@@ -1,9 +1,10 @@
 import { CategoryType } from "./categoryType";
 import { CountryType } from "./countryType";
 import { LanguageType } from "./languageType";
+import { Status } from "./statusEnum";
 
 export interface ISources {
-    status: 'ok';
+    status: Status.ok;
     sources: [
         {
             id: string;

@@ -3,7 +3,7 @@ import { SourcesType } from '../../types/ISources';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    getSources(callback: (data?: { sources: SourcesType }) => void) {
+    getSources(callback: (data?: { sources: SourcesType }) => void): void {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -12,7 +12,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback: (data?: { articles: ArticlesType }) => void) {
+    getNews(e: Event, callback: (data?: { articles: ArticlesType }) => void): void {
         let target = e.target as HTMLElement;
         const newsContainer = e.currentTarget as HTMLElement;
 
