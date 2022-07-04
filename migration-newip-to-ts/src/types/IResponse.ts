@@ -17,3 +17,5 @@ export interface IResponse {
         }
     ];
 }
+
+export type Articles = Pick<IResponse, 'articles'>;

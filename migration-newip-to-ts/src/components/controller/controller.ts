@@ -12,7 +12,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback: (data?: { sources: IResponse['articles'] }) => void) {
+    getNews(e: Event, callback: (data?: { articles: IResponse['articles'] }) => void) {
         let target = e.target as HTMLElement;
         const newsContainer = e.currentTarget as HTMLElement;
 

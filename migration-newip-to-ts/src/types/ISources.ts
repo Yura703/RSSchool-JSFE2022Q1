@@ -1,3 +1,7 @@
+import { CategoryType } from "./categoryType";
+import { CountryType } from "./countryType";
+import { LanguageType } from "./languageType";
+
 export interface ISources {
     status: 'ok';
     sources: [
@@ -6,9 +10,11 @@ export interface ISources {
             name: string;
             description: string;
             url: string;
-            category: string; //!сделать тип
-            language: string; //!сделать тип
-            country: string; //!сделать тип
+            category: CategoryType;
+            language: LanguageType;
+            country: CountryType;
         }
     ];
 }
+
+export type Sources = Pick<ISources, 'sources'>
