@@ -46,6 +46,10 @@ const baseConfig = {
                     from: path.resolve(__dirname, 'src', 'img', 'news_placeholder.jpg'),
                     to: path.resolve(__dirname, 'dist', 'img', 'news_placeholder.jpg'),
                 },
+                {
+                    from: path.resolve(__dirname, 'src', 'img', 'favicon96.png'),
+                    to: path.resolve(__dirname, 'dist', 'img', 'favicon96.png'),
+                },
             ],
         }),       
         //new ESLintPlugin({ extensions: ['ts', 'js'] }),
