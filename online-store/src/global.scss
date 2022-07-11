@@ -1,0 +1,24 @@
+body {
+  
+  
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: rgb(241, 219, 219);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.header__logic {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+}

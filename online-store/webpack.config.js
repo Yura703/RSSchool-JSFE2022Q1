@@ -21,6 +21,23 @@ const baseConfig = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.s[ac]ss$/i,
+                //include: paths,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+                    {
+                        loader: 'sass-resources-loader',
+                        options: {
+                            resources: [
+                                'src/styles/vars.scss',
+                            ]
+                        }
+                    }
+                ]
+            }
         ],
     },
 
@@ -40,18 +57,18 @@ const baseConfig = {
             filename: 'index.html',
         }),
         new CleanWebpackPlugin(), 
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, 'src', 'img', 'news_placeholder.jpg'),
-                    to: path.resolve(__dirname, 'dist', 'img', 'news_placeholder.jpg'),
-                },
-                {
-                    from: path.resolve(__dirname, 'src', 'img', 'favicon96.png'),
-                    to: path.resolve(__dirname, 'dist', 'img', 'favicon96.png'),
-                },
-            ],
-        }),       
+        // new CopyPlugin({
+        //     patterns: [
+        //         {
+        //             from: path.resolve(__dirname, 'src', 'img', 'news_placeholder.jpg'),
+        //             to: path.resolve(__dirname, 'dist', 'img', 'news_placeholder.jpg'),
+        //         },
+        //         {
+        //             from: path.resolve(__dirname, 'src', 'img', 'favicon96.png'),
+        //             to: path.resolve(__dirname, 'dist', 'img', 'favicon96.png'),
+        //         },
+        //     ],
+        // }),       
         //new ESLintPlugin({ extensions: ['ts', 'js'] }),
     ],
 };
