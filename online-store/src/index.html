@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../src/img/favicon.ico" type="image/x-icon">
-  <!-- <link rel="stylesheet" href="global.css"> -->
   <title>Online-store</title>
 </head>
   <body>
@@ -19,32 +18,58 @@
         <div class="login">Sign in</div>
       </div>     
     </header>
-    <main class="wrapper">
-      <section>
+    <main class="main wrapper">
+      <aside class="aside">
         <form action="" method="get">
           <input type="text" name="text" id="" placeholder="Search">
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
-          <button></button>
+          <p>Make</p>
           <select name="select" id="select"></select>
-          <div><button></button><button></button><button></button><button></button><button></button></div>
-          <input type="range" name="range" id="range">
+          <p>Vehicle type</p>
+          <button>All</button>
+          <button>Sedan</button>
+          <button>Van</button>
+          <button>SUV</button>
+          <button>Estate Car</button>
+          <div id="input-with-keypress-0"></div>
+          <div id="input-with-keypress-1"></div>
+          <div id="price__slider"></div>
+
+          <p>Fuel Type</p>
+          <button>All</button>
+          <button>Diesel</button>
+          <button>Petrol</button>
+          <button>Electric</button>
+          <button>Gas</button>
+          
+          <p>Colors</p>
+          <div class="colors">
+            <button></button><button></button><button></button><button></button><button></button><button></button><button></button>
+          </div>
+          <p>Kilometre</p>
+          <p id="km">111</p>
+          <input type="range" name="range-km" id="range-km">
+          <p>First registration</p>
+          <p id="date">111</p>
+          <input type="range" name="range-date" id="range-date">
+          <p>Price</p>
+          <p id="price">111</p>
+          <input type="range" name="range-price" id="range-price">
+          <button type="reset">Clear Filters</button>
+          <button>Clear Settings</button>
         </form>
-      </section>
-      <section>
+      </aside>
+      <section class="products">
 
       </section>
     </main>
-    <footer class="wrapper">
-      <div>
+    <footer class="wrapper footer">
+      <div class="footer__git-link">
         <a href="https://github.com/Yura703">yura703</a>
       </div>
       <div>
         <p>2022</p>
       </div>
-      <div>
+      <div class="footer__school-link">
         <a href=https://rs.school/js/">
           <img src="https://rs.school/images/rs_school_js.svg" alt="logo">
         </a>

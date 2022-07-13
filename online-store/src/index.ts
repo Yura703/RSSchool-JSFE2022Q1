@@ -7,3 +7,5 @@ import './styles/style.scss';
 // const root = <HTMLElement>document.getElementById('root');
 
 // root.append(<Node>header);
+import { pricesSlider } from '../src/noUiSlider/myNoUiSlider';
+pricesSlider();
