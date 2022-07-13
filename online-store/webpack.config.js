@@ -57,18 +57,27 @@ const baseConfig = {
             filename: 'index.html',
         }),
         new CleanWebpackPlugin(), 
-        // new CopyPlugin({
-        //     patterns: [
-        //         {
-        //             from: path.resolve(__dirname, 'src', 'img', 'news_placeholder.jpg'),
-        //             to: path.resolve(__dirname, 'dist', 'img', 'news_placeholder.jpg'),
-        //         },
-        //         {
-        //             from: path.resolve(__dirname, 'src', 'img', 'favicon96.png'),
-        //             to: path.resolve(__dirname, 'dist', 'img', 'favicon96.png'),
-        //         },
-        //     ],
-        // }),       
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src/assets', 'images', '1.jpg'),
+                    to: path.resolve(__dirname, 'dist/assets', 'images', '1.jpg'),
+                },
+                {
+                    from: path.resolve(__dirname, 'src/assets', 'images', '2.jpg'),
+                    to: path.resolve(__dirname, 'dist/assets', 'images', '2.jpg'),
+                },
+                {
+                    from: path.resolve(__dirname, 'src/assets', 'images', '3.jpg'),
+                    to: path.resolve(__dirname, 'dist/assets', 'images', '3.jpg'),
+                },
+                
+                // {
+                //     from: path.resolve(__dirname, 'src', 'img', 'favicon96.png'),
+                //     to: path.resolve(__dirname, 'dist', 'img', 'favicon96.png'),
+                // },
+            ],
+        }),       
         //new ESLintPlugin({ extensions: ['ts', 'js'] }),
     ],
 };
