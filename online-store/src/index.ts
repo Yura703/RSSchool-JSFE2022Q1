@@ -7,12 +7,17 @@ import './styles/style.scss';
 // const root = <HTMLElement>document.getElementById('root');
 
 // root.append(<Node>header);
-import { pricesSlider } from '../src/noUiSlider/myNoUiSlider';
-import { drawProducts } from './drawProducts/drawProducts';
+import { pricesSlider } from './components/noUiSlider/myNoUiSlider';
+import { drawProducts } from './blocsDOM/drawProducts/drawProducts';
 import { cars } from './db/Products';
+import { productSort } from './blocsDOM/productSort/productSort';
+import { CustomSelect } from './components/CustomSelect/CustomSelect';
+import { InputText } from './components/input-text';
 pricesSlider();
+productSort('products');
 
 for (let i = 0; i < cars.length; i++) {
     drawProducts(cars[i], 'products');
 }
 //drawProducts(cars[0], 'products');
+//const CSelect = new CustomSelect(['1111', '2222', '3333', '4444', '5555'], 'products');
