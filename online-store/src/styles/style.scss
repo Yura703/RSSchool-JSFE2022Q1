@@ -4,3 +4,36 @@
 body {
   box-sizing: border-box;
 }
+
+.button-color {
+  margin: 10px 0;
+  width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 5px;
+
+      button {
+        width: 12%;
+        height: 30px;
+        border-radius: 5px;
+        
+      }
+}
+
+.button-fuel {
+  margin: 10px 0;
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  
+    button {
+      width: 20%;
+      height: 100%;
+      border-radius: 5px;
+      
+    }
+}
