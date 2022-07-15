@@ -7,17 +7,27 @@ import './styles/style.scss';
 // const root = <HTMLElement>document.getElementById('root');
 
 // root.append(<Node>header);
-import { pricesSlider } from './components/noUiSlider/myNoUiSlider';
+import { NoUiSlider } from './components/noUiSlider/myNoUiSlider';
 import { drawProducts } from './blocsDOM/drawProducts/drawProducts';
 import { cars } from './db/Products';
 import { productSort } from './blocsDOM/productSort/productSort';
 import { CustomSelect } from './components/CustomSelect/CustomSelect';
 import { InputText } from './components/input-text';
-pricesSlider();
+import { FilterPanel } from './blocsDOM/filterPanel';
+//NoUiSlider();
 productSort('products');
 
 for (let i = 0; i < cars.length; i++) {
     drawProducts(cars[i], 'products');
 }
-//drawProducts(cars[0], 'products');
-//const CSelect = new CustomSelect(['1111', '2222', '3333', '4444', '5555'], 'products');
+drawProducts(cars[0], 'products');
+// const cSelect = new CustomSelect(['1111', '2222', '3333', '4444', '5555'], 'products');
+// cSelect.addEventListener((e) => console.log(e.type));
+// //cSelect.on('click', (e) => alert(e));
+
+new FilterPanel('aside');
+
+document.addEventListener('slider', function (event) {
+    const customEvent = event as CustomEvent;
+    console.log(customEvent.detail);
+});

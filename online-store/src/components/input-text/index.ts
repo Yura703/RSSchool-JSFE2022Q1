@@ -4,6 +4,7 @@ export class InputText {
     constructor(target: string | HTMLElement) {
         this.inputText = document.createElement('input');
         this.inputText.type = 'text';
+        this.inputText.placeholder = 'Search';
         this.#initInput(target);
     }
 
