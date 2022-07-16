@@ -32,8 +32,8 @@ export class FilterPanel {
         this.#createText(this.form, 'Production year');
         new NoUiSlider(this.form, 2000, 2022, 'year');
 
-        this.#createText(this.form, 'Kilometre (x 1000 km)');
-        new NoUiSlider(this.form, 0, 1000, 'km');
+        this.#createText(this.form, 'Quantity in stock');
+        new NoUiSlider(this.form, 0, 100, 'count');
 
         new ButtonGroupWithTitle(this.form, 3, ['Favorites', 'Clear Filters', 'Clear Settings'], 'button-color');
 

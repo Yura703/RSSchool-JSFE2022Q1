@@ -14,6 +14,7 @@ import { productSort } from './blocsDOM/productSort/productSort';
 import { CustomSelect } from './components/CustomSelect/CustomSelect';
 import { InputText } from './components/input-text';
 import { FilterPanel } from './blocsDOM/filterPanel';
+import { MyLocalStorage } from './MyLocalStorage';
 //NoUiSlider();
 productSort('products');
 
@@ -36,3 +37,7 @@ document.addEventListener('checkBox', function (event) {
     const customEvent = event as CustomEvent;
     console.log(customEvent.detail);
 });
+
+const ls = new MyLocalStorage();
+ls.value = { color: ['Red', 'Blue'], count: [5, 15] };
+console.log(ls.value);
