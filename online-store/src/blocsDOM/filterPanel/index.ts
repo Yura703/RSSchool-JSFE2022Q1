@@ -1,4 +1,5 @@
 import { ButtonGroup } from '../../components/buttonGroup';
+import { CheckboxGroup } from '../../components/checkboxGroup';
 import { CustomSelect } from '../../components/CustomSelect/CustomSelect';
 import { InputText } from '../../components/input-text';
 import { NoUiSlider } from '../../components/noUiSlider/myNoUiSlider';
@@ -20,10 +21,10 @@ export class FilterPanel {
         new CustomSelect(selectText.VEHICLE, this.form);
 
         this.#createText(this.form, ' Fuel Type');
-        new ButtonGroupWithTitle(this.form, 5, selectText.FUEL, 'button-fuel');
+        new CheckboxGroup(this.form, 5, selectText.FUEL, 'button-fuel', true);
 
         this.#createText(this.form, ' Colors');
-        new ButtonGroup(this.form, 7, 'button-color');
+        new CheckboxGroup(this.form, 7, selectText.COLORS, 'checkbox-color', false);
 
         this.#createText(this.form, 'Price (x 1000 $)');
         new NoUiSlider(this.form, 0, 200, 'price');

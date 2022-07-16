@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
+import './style.scss';
 
 export class NoUiSlider {
     name: string;

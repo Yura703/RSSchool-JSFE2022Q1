@@ -31,3 +31,8 @@ document.addEventListener('slider', function (event) {
     const customEvent = event as CustomEvent;
     console.log(customEvent.detail);
 });
+
+document.addEventListener('checkBox', function (event) {
+    const customEvent = event as CustomEvent;
+    console.log(customEvent.detail);
+});
