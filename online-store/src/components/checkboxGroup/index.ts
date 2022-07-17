@@ -3,12 +3,19 @@ import './style.scss';
 export class CheckboxGroup {
     checkboxGroup: HTMLDivElement;
 
-    constructor(target: string | HTMLElement, count: number, title: string[], classCSS: string, writeTitle: boolean) {
+    constructor(
+        target: string | HTMLElement,
+        count: number,
+        title: string[],
+        classCSS: string,
+        writeTitle: boolean,
+        name: string
+    ) {
         this.checkboxGroup = document.createElement('div');
         this.checkboxGroup.classList.add(classCSS);
 
         this.#createCheckbox(count, title, writeTitle);
-        this.#addListener(this.checkboxGroup);
+        this.#addListener(this.checkboxGroup, name);
         this.#init(target);
     }
 
@@ -35,7 +42,7 @@ export class CheckboxGroup {
         }
     }
 
-    #addListener(target: HTMLDivElement) {
+    #addListener(target: HTMLDivElement, name: string) {
         target.addEventListener('click', () => {
             const chbAll = target.querySelectorAll('input');
             const chbChecked: string[] = [];
@@ -47,7 +54,7 @@ export class CheckboxGroup {
 
             target.dispatchEvent(
                 new CustomEvent('checkBox', {
-                    detail: { chbChecked },
+                    detail: { [name]: chbChecked },
                     bubbles: true,
                 })
             );

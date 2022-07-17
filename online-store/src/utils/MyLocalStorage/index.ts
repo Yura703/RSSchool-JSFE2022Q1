@@ -1,4 +1,4 @@
-import { IFilter } from '../types/filter';
+import { IFilter } from '../../types/IFilter';
 
 export class MyLocalStorage {
     myLocalStorage: IFilter;
@@ -23,6 +23,7 @@ export class MyLocalStorage {
 
     public remove() {
         window.localStorage.removeItem('filter');
+        this.myLocalStorage = {};
     }
 
     #approveFilter(object: IFilter, myLocalStorage: IFilter) {
@@ -32,6 +33,7 @@ export class MyLocalStorage {
         //         myLocalStorage[key] = object[key]; //?ошибка - type меняется с ИЛИ(|) на И(&)
         //     }
         // }
+        if (Object.prototype.hasOwnProperty.call(object, 'text')) myLocalStorage.text = object.text;
         if (Object.prototype.hasOwnProperty.call(object, 'count')) myLocalStorage.count = object.count;
         if (Object.prototype.hasOwnProperty.call(object, 'year')) myLocalStorage.year = object.year;
         if (Object.prototype.hasOwnProperty.call(object, 'color')) myLocalStorage.color = object.color;

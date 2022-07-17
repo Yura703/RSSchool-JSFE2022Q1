@@ -7,7 +7,7 @@ export class CustomSelect {
 
     _customSelect: HTMLSelectElement;
 
-    constructor(params: string[], target: string | HTMLElement) {
+    constructor(params: string[], target: string | HTMLElement, name: string) {
         if (target instanceof HTMLElement) {
             this._elRoot = target;
         } else {
@@ -15,9 +15,11 @@ export class CustomSelect {
         }
 
         this._customSelect = document.createElement('select');
+        //this._customSelect.multiple = true;
 
         this.#initSelect(params, this._customSelect);
         this._customSelect.classList.add(this.#CLASS_NAME_SELECT);
+        this.#addListener(this._customSelect, name);
 
         this._elRoot.append(this._customSelect);
     }
@@ -32,7 +34,14 @@ export class CustomSelect {
         }
     }
 
-    // addEventListener(subscriber: EventListenerOrEventListenerObject) {
-    //     this._customSelect.addEventListener('change', subscriber);
-    // }
+    #addListener(_customSelect: HTMLSelectElement, name: string) {
+        _customSelect.addEventListener('change', () => {
+            _customSelect.dispatchEvent(
+                new CustomEvent('select', {
+                    detail: { [name]: _customSelect.value },
+                    bubbles: true,
+                })
+            );
+        });
+    }
 }

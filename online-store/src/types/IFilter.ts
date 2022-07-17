@@ -4,6 +4,7 @@ import { MakeType } from './makeType';
 import { VehicleType } from './vehicleType';
 
 export interface IFilter {
+    text?: string;
     count?: [number, number];
     year?: [number, number];
     color?: ColorType[];
@@ -12,3 +13,7 @@ export interface IFilter {
     fuel?: FuelType[];
     price?: [number, number];
 }
+
+export type ButtonType = {
+    name: string;
+};

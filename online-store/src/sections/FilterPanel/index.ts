@@ -1,10 +1,10 @@
-import { ButtonGroup } from '../../components/buttonGroup';
-import { CheckboxGroup } from '../../components/checkboxGroup';
+import { ButtonGroup } from '../../components/ButtonGroup';
+import { CheckboxGroup } from '../../components/CheckboxGroup';
 import { CustomSelect } from '../../components/CustomSelect/CustomSelect';
-import { InputText } from '../../components/input-text';
-import { NoUiSlider } from '../../components/noUiSlider/myNoUiSlider';
+import { InputText } from '../../components/Input-text';
+import { NoUiSlider } from '../../components/NoUiSlider/myNoUiSlider';
 import { selectText } from '../../constants/constants';
-import { ButtonGroupWithTitle } from './ButtonGroupWithTitle';
+import { ButtonGroupWithTitle } from '../ButtonGroupWithTitle';
 
 export class FilterPanel {
     form: HTMLFormElement;
@@ -15,16 +15,16 @@ export class FilterPanel {
         new InputText(this.form);
 
         this.#createText(this.form, 'Make');
-        new CustomSelect(selectText.MAKES, this.form);
+        new CustomSelect(selectText.MAKES, this.form, 'make');
 
         this.#createText(this.form, 'Vehicle Type');
-        new CustomSelect(selectText.VEHICLE, this.form);
+        new CustomSelect(selectText.VEHICLE, this.form, 'vehicle');
 
         this.#createText(this.form, ' Fuel Type');
-        new CheckboxGroup(this.form, 5, selectText.FUEL, 'button-fuel', true);
+        new CheckboxGroup(this.form, 5, selectText.FUEL, 'button-fuel', true, 'fuel');
 
         this.#createText(this.form, ' Colors');
-        new CheckboxGroup(this.form, 7, selectText.COLORS, 'checkbox-color', false);
+        new CheckboxGroup(this.form, 7, selectText.COLORS, 'checkbox-color', false, 'color');
 
         this.#createText(this.form, 'Price (x 1000 $)');
         new NoUiSlider(this.form, 0, 200, 'price');
@@ -35,7 +35,9 @@ export class FilterPanel {
         this.#createText(this.form, 'Quantity in stock');
         new NoUiSlider(this.form, 0, 100, 'count');
 
-        new ButtonGroupWithTitle(this.form, 3, ['Favorites', 'Clear Filters', 'Clear Settings'], 'button-color');
+        new ButtonGroup(this.form, 1, 'button-favorites', ['Favorites']);
+
+        new ButtonGroup(this.form, 2, 'button-clear', ['Clear Filters', 'Clear Settings']);
 
         if (target instanceof HTMLElement) {
             target.append(this.form);

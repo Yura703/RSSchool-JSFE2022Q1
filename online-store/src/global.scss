@@ -57,14 +57,14 @@ body {
 }
 
 #products {
-  width: 80%;
+  width: 100%;
   height: 100%;
   // background-color: rgb(115, 177, 215);
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 10px;
 }
 
 .footer {

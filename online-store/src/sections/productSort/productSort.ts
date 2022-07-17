@@ -1,4 +1,6 @@
 //import { IProduct } from '../types/IProduct';
+import { CustomSelect } from '../../components/CustomSelect/CustomSelect';
+import { selectText } from '../../constants/constants';
 import './style.scss';
 
 export function productSort(idHTMLElement: string) {
@@ -8,10 +10,7 @@ export function productSort(idHTMLElement: string) {
     div.classList.add('sort');
     const span = document.createElement('span');
     span.innerText = 'Sort By';
-    const input = document.createElement('input');
-    input.type = 'select';
-
     div.append(span);
-    div.append(input);
+    new CustomSelect(selectText.SORT, div, 'product');
     base.append(div);
 }

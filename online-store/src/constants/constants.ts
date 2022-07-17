@@ -7,4 +7,17 @@ export const selectText = {
     COLORS: ['Red', 'Grey', 'Blue', 'Green', 'Yellow', 'Black', 'White'],
     FUEL: ['All', 'Diesel', 'Petrol', 'Electric', 'Gas'],
     VEHICLE: ['All', 'Sedan', 'Van', 'SUV', 'Estate Car'],
+    SORT: [
+        '',
+        'Name: UP',
+        'Name: DOWN',
+        'Year: UP',
+        'Year: DOWN',
+        'Quantity: UP',
+        'Quantity: DOWN',
+        'Price: UP',
+        'Price: DOWN',
+    ],
 };
+
+export const events = ['slider', 'checkBox', 'select', 'inputEvent', 'product'];

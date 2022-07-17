@@ -47,7 +47,7 @@ export class NoUiSlider {
         slider.noUiSlider?.on('change.one', function ([value1, value2]) {
             slider.dispatchEvent(
                 new CustomEvent('slider', {
-                    detail: { value1, value2, name },
+                    detail: { [name]: [value1, value2] },
                     bubbles: true,
                 })
             );
