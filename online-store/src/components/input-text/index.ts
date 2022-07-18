@@ -3,7 +3,7 @@ export class InputText {
 
     constructor(target: string | HTMLElement) {
         this.inputText = document.createElement('input');
-        this.inputText.type = 'text';
+        this.inputText.type = 'search';
         this.inputText.placeholder = 'Search';
         this.#addListener(this.inputText);
         this.#initInput(target);

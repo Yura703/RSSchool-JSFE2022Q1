@@ -1,4 +1,4 @@
-import { events } from '../constants/constants';
+import { events, selectText } from '../constants/constants';
 import { MyLocalStorage } from './MyLocalStorage';
 import { ButtonType, IFilter } from '../types/IFilter';
 import { ProductPanel } from '../sections/ProductPanel';
@@ -14,7 +14,6 @@ export function driverEventListener() {
             ls.value = customEvent.detail as IFilter;
 
             productPanel.viewProducts(ls.value);
-            console.log('789', ls.value);
         });
     }
 
@@ -27,4 +26,15 @@ export function driverEventListener() {
         }
         productPanel.removeProducts();
     });
+
+    for (let i = 0; i < selectText.SORT.length; i++) {
+        document.addEventListener(selectText.SORT[i], function (event) {
+            const customEvent = event as CustomEvent;
+
+            // ls.value = customEvent.detail as IFilter;
+
+            // productPanel.viewProducts(ls.value);
+            console.log('789', customEvent.detail);
+        });
+    }
 }

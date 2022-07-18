@@ -1,6 +1,7 @@
 .noUi-connect {
   background-color: rgb(118, 238, 108);
   height: 10px;
+  cursor: pointer;
 }
 
 .noUi-target {
@@ -14,6 +15,7 @@
   border-radius: 50%;
   right: -4px;
   background-color: rgb(9, 90, 52);
+  cursor: pointer;
 }
 
 .noUi-handle:before, .noUi-handle:after {

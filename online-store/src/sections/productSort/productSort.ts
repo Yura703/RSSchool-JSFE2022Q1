@@ -1,5 +1,3 @@
-//import { IProduct } from '../types/IProduct';
-import { CustomSelect } from '../../components/CustomSelect/CustomSelect';
 import { selectText } from '../../constants/constants';
 import './style.scss';
 
@@ -8,9 +6,26 @@ export function productSort(idHTMLElement: string) {
 
     const div = document.createElement('div');
     div.classList.add('sort');
+
     const span = document.createElement('span');
     span.innerText = 'Sort By';
+
     div.append(span);
-    new CustomSelect(selectText.SORT, div, 'product');
+
+    const sortSelect = document.createElement('select');
+    sortSelect.classList.add('sort-select');
+    for (let i = 0; i < selectText.SORT.length; i++) {
+        const el = document.createElement('option');
+        el.textContent = selectText.SORT[i];
+        el.value = selectText.SORT[i];
+        sortSelect.appendChild(el);
+    }
+
+    sortSelect.addEventListener('change', () => {
+        //sort(sortSelect.value);
+    });
+
+    div.append(sortSelect);
+
     base.append(div);
 }

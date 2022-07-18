@@ -10,24 +10,55 @@ body {
   // background-color: rgb(241, 219, 219);
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  background-color: rgb(200, 237, 170);
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      font-size: 1.5rem;
+
+      .header__logic {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 300px;
+        .bucket {
+          font-size: medium;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          #bucket-count {
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+            border-radius: 50%;
+            border: 1px green solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .bucket:hover {
+            border: $main-color 2px solid;
+          }
+        }
+      }
+    }
 }
 
-.header__logic {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 300px;
-}
+
 
 .main {
   display: flex;
   justify-content: space-between;
   align-items: start;
+  margin-top: 100px;
 }
 
 .aside {
@@ -49,9 +80,10 @@ body {
       button {
         width: 20%;
         height: 30px;
-        border-radius: 5px;
-        
-      }
+        border-radius: 5px;        
+      }      
+
+      
     }
   }
 }
@@ -72,6 +104,9 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: rgb(200, 237, 170);
+  margin-top: 10px;
+  font-size: 1.5rem;
 }
 
 .footer__git-link {

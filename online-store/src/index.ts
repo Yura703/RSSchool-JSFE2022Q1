@@ -8,7 +8,9 @@ import { ProductPanel } from './sections/ProductPanel';
 import { productSort } from './sections/productSort/productSort';
 
 new FilterPanel('aside');
-productSort('products');
+
+productSort('products-sort');
+
 new ProductPanel();
 
 driverEventListener();

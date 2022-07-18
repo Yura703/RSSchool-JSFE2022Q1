@@ -10,7 +10,7 @@ export class ProductPanel {
     constructor() {
         this.db = new ProductDB(cars);
 
-        this.viewProducts({});
+        this.viewProducts(window.localStorage.getItem('filter') as IFilter);
     }
 
     removeProducts() {
@@ -24,8 +24,6 @@ export class ProductPanel {
 
     viewProducts(localStor: IFilter) {
         const filterCars = this.db.getByPropertyInterval(localStor);
-        console.log('123s', localStor);
-        console.log('456s', filterCars);
 
         if (filterCars) {
             this.removeProducts();

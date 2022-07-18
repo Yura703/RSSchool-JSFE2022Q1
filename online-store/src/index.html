@@ -4,28 +4,36 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../src/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../src/assets/images/favicon.png" type="image/x-icon">
   <title>Online-store</title>
 </head>
   <body>
     <div id="root"></div>
-    <header class="wrapper header">
-      <div class="header__logo">
-        <h1>Shop</h1>
-      </div>
-      <div class="header__logic">
-        <div class="bucket">Cart</div>
-        <div class="login">Sign in</div>
+    <header>
+      <div class="wrapper header">
+        <div class="header__logo">
+          <h1>Online-store</h1>
+        </div>
+        <div class="header__logic">
+          <div class="bucket">
+            <span>Backet</span>
+            <div id="bucket-count">1</div>
+          </div>
+          
+          <div class="login">Sign in</div>
+        </div>     
       </div>     
     </header>
-    <main class="main wrapper">
-      <aside class="aside" id="aside">
-       
-      </aside>
-      <section id="products">
 
+    <main class="main wrapper">
+      <aside class="aside" id="aside">       
+      </aside>
+      <section class="main-info">
+        <div id="products-sort"></div>
+        <div id="products"></div>
       </section>
     </main>
+
     <footer class="wrapper footer">
       <div class="footer__git-link">
         <a href="https://github.com/Yura703">yura703</a>

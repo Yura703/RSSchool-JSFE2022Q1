@@ -4,6 +4,7 @@ import { CustomSelect } from '../../components/CustomSelect/CustomSelect';
 import { InputText } from '../../components/Input-text';
 import { NoUiSlider } from '../../components/NoUiSlider/myNoUiSlider';
 import { selectText } from '../../constants/constants';
+import './style.scss';
 
 export class FilterPanel {
     form: HTMLFormElement;

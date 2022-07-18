@@ -11,21 +11,30 @@ export function drawProducts(products: IProduct, idHTMLElement: string) {
     carFoto.style.backgroundImage = `url(${products.image})`;
 
     const carTitle = document.createElement('h3');
-    carTitle.innerText = products.title;
+    carTitle.innerText = products.make + ' ' + products.title;
 
     const carPrice = document.createElement('p');
     carPrice.innerText = 'Price: ' + products.price.toString() + '.000 $';
 
+    const carVehicle = document.createElement('p');
+    carVehicle.innerText = 'Vehicle Type: ' + products.vehicle + '; ' + 'Color: ' + products.color;
+
     const carYear = document.createElement('p');
     carYear.innerText = `Year: ${products.year}, Type fuel: ${products.fuel}`;
 
-    const carCount = document.createElement('p');
+    const carCount = document.createElement('span');
     carCount.innerText = 'Count: ' + products.count.toString();
+
+    const btn = document.createElement('button');
+    btn.innerText = 'Add to backet';
+    btn.name = products.id;
 
     divCar.append(carFoto);
     divCar.append(carTitle);
     divCar.append(carPrice);
     divCar.append(carYear);
+    divCar.append(carVehicle);
     divCar.append(carCount);
+    divCar.append(btn);
     base.append(divCar);
 }
