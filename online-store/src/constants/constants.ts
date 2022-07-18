@@ -5,7 +5,7 @@ export const messages = {
 export const selectText = {
     MAKES: ['All', 'AUDI', 'BMW', 'Opel', 'Wolkswagen', 'Ford', 'Renault', 'Mercedes', 'Peugeot', 'Nissan', 'Mazda'],
     COLORS: ['Red', 'Grey', 'Blue', 'Green', 'Yellow', 'Black', 'White'],
-    FUEL: ['All', 'Diesel', 'Petrol', 'Electric', 'Gas'],
+    FUEL: ['Diesel', 'Petrol', 'Electric', 'Gas'],
     VEHICLE: ['All', 'Sedan', 'Van', 'SUV', 'Estate Car'],
     SORT: [
         '',

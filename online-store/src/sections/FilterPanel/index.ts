@@ -4,7 +4,6 @@ import { CustomSelect } from '../../components/CustomSelect/CustomSelect';
 import { InputText } from '../../components/Input-text';
 import { NoUiSlider } from '../../components/NoUiSlider/myNoUiSlider';
 import { selectText } from '../../constants/constants';
-import { ButtonGroupWithTitle } from '../ButtonGroupWithTitle';
 
 export class FilterPanel {
     form: HTMLFormElement;
@@ -21,7 +20,7 @@ export class FilterPanel {
         new CustomSelect(selectText.VEHICLE, this.form, 'vehicle');
 
         this.#createText(this.form, ' Fuel Type');
-        new CheckboxGroup(this.form, 5, selectText.FUEL, 'button-fuel', true, 'fuel');
+        new CheckboxGroup(this.form, 4, selectText.FUEL, 'button-fuel', true, 'fuel');
 
         this.#createText(this.form, ' Colors');
         new CheckboxGroup(this.form, 7, selectText.COLORS, 'checkbox-color', false, 'color');

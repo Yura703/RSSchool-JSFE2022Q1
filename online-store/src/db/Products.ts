@@ -11,7 +11,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 50,
     },
     {
         id: ' 1',
@@ -23,7 +23,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 60,
     },
     {
         id: '1',
@@ -35,7 +35,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 70,
     },
     {
         id: '1',
@@ -47,7 +47,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 80,
     },
     {
         id: '1',
@@ -59,7 +59,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 90,
     },
     {
         id: '1',
@@ -71,7 +71,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 100,
     },
     {
         id: '1',
@@ -83,7 +83,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 110,
     },
     {
         id: '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -95,7 +95,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 120,
     },
     {
         id: ' 1',
@@ -107,7 +107,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 130,
     },
     {
         id: '1',
@@ -119,7 +119,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 140,
     },
     {
         id: '1',
@@ -131,7 +131,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 150,
     },
     {
         id: '1',
@@ -143,7 +143,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 160,
     },
     {
         id: '1',
@@ -155,7 +155,7 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 170,
     },
     {
         id: '1',
@@ -167,6 +167,6 @@ export const cars: IProduct[] = [
         make: 'AUDI',
         vehicle: 'SUV',
         fuel: 'Petrol',
-        price: 50000,
+        price: 180,
     },
 ];

@@ -14,7 +14,7 @@ export function drawProducts(products: IProduct, idHTMLElement: string) {
     carTitle.innerText = products.title;
 
     const carPrice = document.createElement('p');
-    carPrice.innerText = 'Cost: ' + products.price.toString() + '$';
+    carPrice.innerText = 'Price: ' + products.price.toString() + '.000 $';
 
     const carYear = document.createElement('p');
     carYear.innerText = `Year: ${products.year}, Type fuel: ${products.fuel}`;

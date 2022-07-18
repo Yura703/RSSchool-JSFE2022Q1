@@ -47,6 +47,9 @@ export class ProductDB {
         for (key in obj) {
             if (Object.prototype.hasOwnProperty.call(obj, key)) {
                 if (!Array.isArray(obj[key])) {
+                    if (obj[key] === 'All') {
+                        continue;
+                    }
                     carsResult = carsResult.filter((car) => car[key as keyof IProduct] === obj[key]);
                 } else {
                     carsResult = carsResult.filter(
