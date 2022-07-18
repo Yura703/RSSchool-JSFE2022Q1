@@ -46,23 +46,85 @@ export class ProductDB {
         let key: keyof typeof obj;
         for (key in obj) {
             if (Object.prototype.hasOwnProperty.call(obj, key)) {
-                if (!Array.isArray(obj[key])) {
-                    if (obj[key] === 'All') {
-                        continue;
-                    }
-                    carsResult = carsResult.filter((car) => car[key as keyof IProduct] === obj[key]);
-                } else {
-                    carsResult = carsResult.filter(
-                        (car) =>
-                            car[key as keyof IProduct] >= obj[key]![0] && car[key as keyof IProduct] <= obj[key]![1]
-                    );
+                if (obj[key] === 'All') {
+                    continue;
                 }
+
+                switch (key) {
+                    case 'text':
+                        carsResult = carsResult.filter((car) => {
+                            const str1 = car.title.toUpperCase();
+                            const str2 = obj.text!.toUpperCase();
+                            return str1.includes(str2);
+                        });
+
+                        break;
+
+                    case 'count':
+                        carsResult = carsResult.filter(
+                            (car) =>
+                                car[key as keyof IProduct] >= obj[key]![0] && car[key as keyof IProduct] <= obj[key]![1]
+                        );
+
+                        break;
+
+                    case 'year':
+                        carsResult = carsResult.filter(
+                            (car) =>
+                                car[key as keyof IProduct] >= obj[key]![0] && car[key as keyof IProduct] <= obj[key]![1]
+                        );
+
+                        break;
+
+                    case 'color':
+                        carsResult = carsResult.filter((car) => {
+                            const arrColors = obj[key] as string[];
+                            const color = car[key as keyof IProduct] as string;
+                            return arrColors.indexOf(color) !== -1;
+                        });
+
+                        break;
+
+                    case 'make':
+                        carsResult = carsResult.filter((car) => car[key as keyof IProduct] === obj[key]);
+
+                        break;
+
+                    case 'vehicle':
+                        carsResult = carsResult.filter((car) => car[key as keyof IProduct] === obj[key]);
+
+                        break;
+
+                    case 'fuel':
+                        carsResult = carsResult.filter((car) => {
+                            const arrFuel = obj[key] as string[];
+                            const fuel = car[key as keyof IProduct] as string;
+                            return arrFuel.indexOf(fuel) !== -1;
+                        });
+
+                        break;
+
+                    case 'price':
+                        carsResult = carsResult.filter(
+                            (car) =>
+                                car[key as keyof IProduct] >= obj[key]![0] && car[key as keyof IProduct] <= obj[key]![1]
+                        );
+                        break;
+
+                    default:
+                        break;
+                }
+
                 if (carsResult.length === 0) {
                     return;
                 }
             }
         }
-        // console.log(carsResult);
+
         return carsResult;
     }
+
+    // #() {
+    //     carsResult = carsResult.filter((car) => car[key as keyof IProduct] === obj[key]);
+    // }
 }
