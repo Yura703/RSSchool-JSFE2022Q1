@@ -4,7 +4,7 @@ body {
 }
 
 .wrapper {
-  width: 1400px;
+  max-width: 1383px;
   padding: 0 20px;
   margin: 0 auto;
   // background-color: rgb(241, 219, 219);
@@ -62,7 +62,7 @@ header {
 }
 
 .aside {
-  width: 20%;
+  width: 260px;
   padding-right: 20px;
   form {
     
@@ -92,7 +92,7 @@ header {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
