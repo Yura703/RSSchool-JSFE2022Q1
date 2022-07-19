@@ -11,7 +11,7 @@ export function drawProducts(products: IProduct, idHTMLElement: string) {
     carFoto.style.backgroundImage = `url(${products.image})`;
 
     const carTitle = document.createElement('h3');
-    carTitle.innerText = products.make + ' ' + products.title;
+    carTitle.innerText = products.title + ' - ' + products.make;
 
     const carPrice = document.createElement('p');
     carPrice.innerText = 'Price: ' + products.price.toString() + '.000 $';
@@ -30,12 +30,17 @@ export function drawProducts(products: IProduct, idHTMLElement: string) {
     btn.innerText = 'Add to backet';
     btn.name = products.id;
 
+    // const popularCheckBox = document.createElement('input');
+    // popularCheckBox.type = 'checkbox';
+
     divCar.append(carFoto);
     divCar.append(carTitle);
     divCar.append(carPrice);
     divCar.append(carYear);
     divCar.append(carVehicle);
     divCar.append(carCount);
+    //divCar.append(popularCheckBox);
     divCar.append(btn);
+
     base.append(divCar);
 }

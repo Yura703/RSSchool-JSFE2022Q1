@@ -3,4 +3,16 @@
   display: flex;
   justify-content: end;
   align-items: center;
+
+  span {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+.sort-select {
+  width: 270px;
+  height: 30px;
+  margin: 0 0 15px 50px;
 }

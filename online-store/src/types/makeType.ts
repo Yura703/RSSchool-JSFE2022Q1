@@ -2,7 +2,7 @@ export type MakeType =
     | 'AUDI'
     | 'BMW'
     | 'Opel'
-    | 'Wolkswagen'
+    | 'Volkswagen'
     | 'Ford'
     | 'Renault'
     | 'Mercedes'
