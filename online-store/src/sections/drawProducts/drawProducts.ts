@@ -26,6 +26,7 @@ export function drawProducts(products: IProduct, idHTMLElement: string) {
     carCount.innerText = 'Count: ' + products.count.toString();
 
     const btn = document.createElement('button');
+    btn.classList.add('cart-button');
     btn.innerText = 'Add to backet';
     btn.name = products.id;
 
