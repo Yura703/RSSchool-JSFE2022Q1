@@ -43,12 +43,21 @@ export class ProductDB {
 
     getByPropertyInterval(obj: IFilter): IProduct[] | undefined {
         let carsResult = Object.assign(this.cars) as IProduct[];
+        const lsFavor = window.localStorage.getItem('favorites') === '2';
+        if (lsFavor) {
+            carsResult = carsResult.filter((object) => {
+                return object.favorites;
+            });
+        }
+
         let key: keyof typeof obj;
+
         for (key in obj) {
             if (Object.prototype.hasOwnProperty.call(obj, key)) {
                 if (obj[key] === 'All') {
                     continue;
                 }
+                console.log('key-', key);
 
                 switch (key) {
                     case 'text':
@@ -105,6 +114,7 @@ export class ProductDB {
                         break;
 
                     case 'price':
+                        console.log('333');
                         carsResult = carsResult.filter(
                             (car) =>
                                 car[key as keyof IProduct] >= obj[key]![0] && car[key as keyof IProduct] <= obj[key]![1]
@@ -123,8 +133,4 @@ export class ProductDB {
 
         return carsResult;
     }
-
-    // #() {
-    //     carsResult = carsResult.filter((car) => car[key as keyof IProduct] === obj[key]);
-    // }
 }

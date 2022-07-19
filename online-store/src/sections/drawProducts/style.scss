@@ -28,12 +28,14 @@
       background-color: rgb(36, 233, 124);    
     }
 
-    input {
+    .cart-favorite {
       width: 25px;
       height: 25px;
       display: inline;
       position: relative;
-      left: 160px;
-      top: -114px;
+      left: 190px;
+      top: -110px;
+      font-weight: bold;
+      color: red;
     }
 }

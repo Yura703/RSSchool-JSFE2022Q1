@@ -12,6 +12,7 @@ export const cars: IProduct[] = [
         vehicle: 'SUV',
         fuel: 'Diesel',
         price: 150,
+        favorites: true,
     },
     {
         id: '9b1deb4d-3b7d-4bad-9bdd-3b0d7b3dcb6d',
@@ -24,6 +25,7 @@ export const cars: IProduct[] = [
         vehicle: 'Estate Car',
         fuel: 'Diesel',
         price: 140,
+        favorites: false,
     },
     {
         id: '9b1deb4d-3b7d-4bad-9bdd-4b0d7b3dcb6d',
@@ -36,6 +38,7 @@ export const cars: IProduct[] = [
         vehicle: 'SUV',
         fuel: 'Petrol',
         price: 50,
+        favorites: false,
     },
     {
         id: '9b1deb4d-3b7d-4bad-9bdd-5b0d7b3dcb6d',
@@ -48,6 +51,7 @@ export const cars: IProduct[] = [
         vehicle: 'Sedan',
         fuel: 'Petrol',
         price: 80,
+        favorites: false,
     },
     {
         id: '9b1deb4d-3b7d-4bad-9bdd-6b0d7b3dcb6d',
@@ -60,6 +64,7 @@ export const cars: IProduct[] = [
         vehicle: 'SUV',
         fuel: 'Diesel',
         price: 90,
+        favorites: false,
     },
     {
         id: '9b1deb4d-3b7d-4bad-9bdd-7b0d7b3dcb6d',
@@ -72,6 +77,7 @@ export const cars: IProduct[] = [
         vehicle: 'Sedan',
         fuel: 'Petrol',
         price: 25,
+        favorites: false,
     },
     {
         id: '8b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -84,6 +90,7 @@ export const cars: IProduct[] = [
         vehicle: 'Van',
         fuel: 'Diesel',
         price: 30,
+        favorites: true,
     },
     {
         id: '7b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -96,6 +103,7 @@ export const cars: IProduct[] = [
         vehicle: 'Van',
         fuel: 'Diesel',
         price: 25,
+        favorites: false,
     },
     {
         id: '6b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -108,6 +116,7 @@ export const cars: IProduct[] = [
         vehicle: 'Sedan',
         fuel: 'Petrol',
         price: 130,
+        favorites: false,
     },
     {
         id: '5b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -120,6 +129,7 @@ export const cars: IProduct[] = [
         vehicle: 'SUV',
         fuel: 'Petrol',
         price: 140,
+        favorites: true,
     },
     {
         id: '4b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -132,6 +142,7 @@ export const cars: IProduct[] = [
         vehicle: 'Van',
         fuel: 'Diesel',
         price: 70,
+        favorites: false,
     },
     {
         id: '3b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -144,6 +155,7 @@ export const cars: IProduct[] = [
         vehicle: 'Van',
         fuel: 'Diesel',
         price: 35,
+        favorites: true,
     },
     {
         id: '2b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -156,6 +168,7 @@ export const cars: IProduct[] = [
         vehicle: 'Van',
         fuel: 'Diesel',
         price: 170,
+        favorites: false,
     },
     {
         id: '1b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -168,6 +181,7 @@ export const cars: IProduct[] = [
         vehicle: 'Sedan',
         fuel: 'Electric',
         price: 50,
+        favorites: false,
     },
     {
         id: '7b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -180,6 +194,7 @@ export const cars: IProduct[] = [
         vehicle: 'Sedan',
         fuel: 'Gas',
         price: 120,
+        favorites: true,
     },
     {
         id: '6b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -192,6 +207,7 @@ export const cars: IProduct[] = [
         vehicle: 'Van',
         fuel: 'Diesel',
         price: 70,
+        favorites: false,
     },
     {
         id: '5b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -204,6 +220,7 @@ export const cars: IProduct[] = [
         vehicle: 'Sedan',
         fuel: 'Petrol',
         price: 140,
+        favorites: true,
     },
     {
         id: '4b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -216,6 +233,7 @@ export const cars: IProduct[] = [
         vehicle: 'SUV',
         fuel: 'Diesel',
         price: 70,
+        favorites: false,
     },
     {
         id: '3b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -228,6 +246,7 @@ export const cars: IProduct[] = [
         vehicle: 'SUV',
         fuel: 'Diesel',
         price: 35,
+        favorites: false,
     },
     {
         id: '2b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -240,6 +259,7 @@ export const cars: IProduct[] = [
         vehicle: 'SUV',
         fuel: 'Diesel',
         price: 170,
+        favorites: false,
     },
     {
         id: '1b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d',
@@ -252,5 +272,6 @@ export const cars: IProduct[] = [
         vehicle: 'Estate Car',
         fuel: 'Diesel',
         price: 50,
+        favorites: true,
     },
 ];

@@ -24,6 +24,7 @@ export class MyLocalStorage {
     public remove() {
         window.localStorage.removeItem('filter');
         this.myLocalStorage = {};
+        window.localStorage.setItem('favorites', '1');
     }
 
     #approveFilter(object: IFilter, myLocalStorage: IFilter) {

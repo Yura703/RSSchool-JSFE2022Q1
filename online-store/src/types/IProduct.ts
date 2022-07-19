@@ -14,4 +14,5 @@ export interface IProduct {
     vehicle: VehicleType;
     fuel: FuelType;
     price: number;
+    favorites: boolean;
 }

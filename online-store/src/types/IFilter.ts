@@ -12,6 +12,7 @@ export interface IFilter {
     vehicle?: VehicleType[];
     fuel?: FuelType[];
     price?: [number, number];
+    //favorites?: boolean;
 }
 
 export type ButtonType = {

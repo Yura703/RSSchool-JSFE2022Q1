@@ -12,8 +12,6 @@ new FilterPanel('aside');
 
 productSort('products-sort');
 
-new ProductPanel();
-
 driverEventListener();
 
 new Bucket(0);

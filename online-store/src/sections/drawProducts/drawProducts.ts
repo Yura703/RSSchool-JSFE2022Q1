@@ -30,17 +30,20 @@ export function drawProducts(products: IProduct, idHTMLElement: string) {
     btn.innerText = 'Add to backet';
     btn.name = products.id;
 
-    // const popularCheckBox = document.createElement('input');
-    // popularCheckBox.type = 'checkbox';
-
     divCar.append(carFoto);
     divCar.append(carTitle);
     divCar.append(carPrice);
     divCar.append(carYear);
     divCar.append(carVehicle);
     divCar.append(carCount);
-    //divCar.append(popularCheckBox);
     divCar.append(btn);
+
+    if (products.favorites) {
+        const CarFavorit = document.createElement('div');
+        CarFavorit.innerText = 'Favorite';
+        CarFavorit.classList.add('cart-favorite');
+        divCar.append(CarFavorit);
+    }
 
     base.append(divCar);
 }

@@ -7,10 +7,12 @@ import { messages } from '../../constants/constants';
 export class ProductPanel {
     db: ProductDB;
 
+    locStor: IFilter;
+
     constructor() {
         this.db = new ProductDB(cars);
-
-        this.viewProducts(window.localStorage.getItem('filter') as IFilter);
+        this.locStor = JSON.parse(window.localStorage.getItem('filter')!) as IFilter;
+        this.viewProducts(this.locStor);
     }
 
     removeProducts() {
@@ -22,8 +24,9 @@ export class ProductPanel {
         }
     }
 
-    viewProducts(localStor: IFilter) {
-        const filterCars = this.db.getByPropertyInterval(localStor);
+    viewProducts(localStor?: IFilter) {
+        const locStor: IFilter = localStor ? localStor : this.locStor;
+        const filterCars = this.db.getByPropertyInterval(locStor);
 
         if (filterCars) {
             this.removeProducts();
@@ -34,7 +37,11 @@ export class ProductPanel {
             this.removeProducts();
             const element = document.getElementById('products');
             if (element) {
-                element.innerText = messages.NO_MATCHES;
+                element.innerHTML = `<div style="
+                                        font-size: 2rem;
+                                        color: darkgreen;
+                                        padding: 100px 217px 50px 50px;
+                                    ">${messages.NO_MATCHES}</div>`;
             }
         }
     }
