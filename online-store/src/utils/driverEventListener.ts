@@ -4,9 +4,8 @@ import { ButtonType, IFilter } from '../types/IFilter';
 import { ProductPanel } from '../sections/ProductPanel';
 import { IProduct } from '../types/IProduct';
 
-export function driverEventListener() {
+export function driverEventListener(productPanel: ProductPanel) {
     const ls = new MyLocalStorage();
-    const productPanel = new ProductPanel();
 
     for (let i = 0; i < events.length; i++) {
         document.addEventListener(events[i], function (event) {
@@ -34,22 +33,16 @@ export function driverEventListener() {
 
             productPanel.viewProducts();
         }
-        //productPanel.removeProducts();
     });
 
-    for (let i = 0; i < selectText.SORT.length; i++) {
-        document.addEventListener(selectText.SORT[i], function (event) {
-            const customEvent = event as CustomEvent;
+    // for (let i = 0; i < selectText.SORT.length; i++) {
+    //     document.addEventListener(selectText.SORT[i], function (event) {
+    //         const customEvent = event as CustomEvent;
 
-            // ls.value = customEvent.detail as IFilter;
+    //         // ls.value = customEvent.detail as IFilter;
 
-            // productPanel.viewProducts(ls.value);
-            console.log('789', customEvent.detail);
-        });
-    }
-
-    // const form = document.querySelector('form');
-    // form!.addEventListener('submit', function (event) {
-    //     event.preventDefault();
-    // });
+    //         // productPanel.viewProducts(ls.value);
+    //         console.log('789', customEvent.detail);
+    //     });
+    // }
 }

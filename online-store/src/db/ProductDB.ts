@@ -57,7 +57,6 @@ export class ProductDB {
                 if (obj[key] === 'All') {
                     continue;
                 }
-                console.log('key-', key);
 
                 switch (key) {
                     case 'text':
@@ -114,7 +113,6 @@ export class ProductDB {
                         break;
 
                     case 'price':
-                        console.log('333');
                         carsResult = carsResult.filter(
                             (car) =>
                                 car[key as keyof IProduct] >= obj[key]![0] && car[key as keyof IProduct] <= obj[key]![1]

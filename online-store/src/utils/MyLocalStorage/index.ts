@@ -25,6 +25,7 @@ export class MyLocalStorage {
         window.localStorage.removeItem('filter');
         this.myLocalStorage = {};
         window.localStorage.setItem('favorites', '1');
+        window.localStorage.setItem('sort', 'random');
     }
 
     #approveFilter(object: IFilter, myLocalStorage: IFilter) {

@@ -1,4 +1,5 @@
 import { selectText } from '../../constants/constants';
+import { ProductPanel } from '../ProductPanel';
 import './style.scss';
 
 export function productSort(idHTMLElement: string) {
@@ -22,7 +23,10 @@ export function productSort(idHTMLElement: string) {
     }
 
     sortSelect.addEventListener('change', () => {
-        //sort(sortSelect.value);
+        window.localStorage.setItem('sort', sortSelect.value);
+        const products = new ProductPanel();
+        products.removeProducts();
+        products.viewProducts();
     });
 
     div.append(sortSelect);
