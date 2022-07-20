@@ -5,6 +5,7 @@ export class InputText {
         this.inputText = document.createElement('input');
         this.inputText.type = 'search';
         this.inputText.placeholder = 'Search';
+        this.inputText.autofocus = true;
         this.#addListener(this.inputText);
         this.#initInput(target);
     }

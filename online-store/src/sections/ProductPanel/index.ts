@@ -30,7 +30,6 @@ export class ProductPanel {
         const locStor: IFilter = localStor ? localStor : this.locStor;
         const fCars = this.db.getByPropertyInterval(locStor);
         const filterCars = this.#sortProducts(fCars);
-        console.log(filterCars);
 
         if (filterCars) {
             this.removeProducts();

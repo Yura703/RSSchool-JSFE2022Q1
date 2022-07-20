@@ -1,8 +1,7 @@
-import { events, selectText } from '../constants/constants';
+import { events } from '../constants/constants';
 import { MyLocalStorage } from './MyLocalStorage';
 import { ButtonType, IFilter } from '../types/IFilter';
 import { ProductPanel } from '../sections/ProductPanel';
-import { IProduct } from '../types/IProduct';
 
 export function driverEventListener(productPanel: ProductPanel) {
     const ls = new MyLocalStorage();
@@ -10,7 +9,6 @@ export function driverEventListener(productPanel: ProductPanel) {
     for (let i = 0; i < events.length; i++) {
         document.addEventListener(events[i], function (event) {
             const customEvent = event as CustomEvent;
-
             ls.value = customEvent.detail as IFilter;
 
             productPanel.viewProducts(ls.value);
@@ -34,15 +32,4 @@ export function driverEventListener(productPanel: ProductPanel) {
             productPanel.viewProducts();
         }
     });
-
-    // for (let i = 0; i < selectText.SORT.length; i++) {
-    //     document.addEventListener(selectText.SORT[i], function (event) {
-    //         const customEvent = event as CustomEvent;
-
-    //         // ls.value = customEvent.detail as IFilter;
-
-    //         // productPanel.viewProducts(ls.value);
-    //         console.log('789', customEvent.detail);
-    //     });
-    // }
 }

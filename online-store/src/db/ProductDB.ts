@@ -54,7 +54,9 @@ export class ProductDB {
 
         for (key in obj) {
             if (Object.prototype.hasOwnProperty.call(obj, key)) {
-                if (obj[key] === 'All') {
+                console.log(obj[key]);
+
+                if (obj[key] === 'All' || obj[key]!.length === 0) {
                     continue;
                 }
 
@@ -87,6 +89,7 @@ export class ProductDB {
                     case 'color':
                         carsResult = carsResult.filter((car) => {
                             const arrColors = obj[key] as string[];
+
                             const color = car[key as keyof IProduct] as string;
                             return arrColors.indexOf(color) !== -1;
                         });
