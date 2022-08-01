@@ -1,15 +1,16 @@
 {
+  "parser": "@typescript-eslint/parser",
   "plugins": ["prettier", "import","@typescript-eslint"],
   "extends": [
-      "airbnb-typescript/base",
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:@typescript-eslint/recommended-requiring-type-checking",
       "plugin:prettier/recommended",
-      "prettier"
-  ],
-  "parser": "@typescript-eslint/parser",
+      "prettier",
+      "eslint:recommended",
+      "airbnb-typescript/base",      
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking"      
+  ], 
   "parserOptions": {
+      "tsconfigRootDir": "async-race",    
       "project": "tsconfig.json",        
       "ecmaVersion": "latest",
       "sourceType": "module"
