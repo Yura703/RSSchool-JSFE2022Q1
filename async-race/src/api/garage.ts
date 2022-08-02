@@ -52,3 +52,14 @@ export const updateCar = async (id: number, body: Omit<ICar, 'id'>) => {
   if (carRes.status === 200) return carRes.parsedBody;
   else throw new Error('Object update failed');
 };
+
+// export function funG() {
+//   async function asd() {
+//     console.log(await getCars(1, 10));
+//     console.log(await getCar(9));
+//     console.log(await createCar({ name: 'Audi8', color: '#6c779f' }));
+//     //console.log(await deleteCar(7));
+//     console.log(await updateCar(4, { name: 'Audi55', color: '#6c779f' }));
+//   }
+//   asd();
+// }

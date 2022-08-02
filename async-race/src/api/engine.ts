@@ -1,20 +1,21 @@
 import { constants } from '../constants/index';
-import { Sort, Order } from '../types/IWinner';
+import { IEngineResponse } from '../types/ICar';
+import { httpFetch } from './httpFetch';
 
 const engine = `${constants.base}/engine`;
 
-export const startEngine = async (id: number) => (await fetch(`${engine}/${id}&status=started`)).json();
+export const startedOrStopedEngine = async (id: number, status: string) => {
+  const body = (await httpFetch<IEngineResponse>(`${engine}/${id}&status=${status}`)).parsedBody;
 
-export const stopEngine = async (id: number) => (await fetch(`${engine}/${id}&status=stopped`)).json();
-
-export const drive = async (id: number) => {
-  const res = await fetch(`${engine}?id=${id}&status=drive`).catch();
-  return res.status !== 200 ? { success: false } : { success: true };
+  return body;
 };
 
-export const getSortOrder = (sort: Sort, order: Order) => {
-  if (sort && order) return `&_sort=${sort}&_order=${order}`;
-  return '';
+export const drive = async (id: number) => {
+  const res = await httpFetch<IEngineResponse>(`${engine}?id=${id}&status=drive`);
+
+  if (res && !(res instanceof Array)) {
+    return res.status !== 200 ? { success: false } : { success: true };
+  } else throw new Error('Error initialed drive car');
 };
 
 export function fun() {

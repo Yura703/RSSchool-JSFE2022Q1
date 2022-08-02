@@ -10,6 +10,12 @@ export interface IWinnerQueryParams {
   sort: Sort;
   order: Order;
 }
+
+export interface IWinnerResponse {
+  items?: IWinner[];
+  count?: number;
+}
+
 export enum Order {
   'ASC',
   'DESC',
