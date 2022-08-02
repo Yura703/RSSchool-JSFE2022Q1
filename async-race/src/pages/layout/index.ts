@@ -1,17 +1,12 @@
-export function createBtn() {
-  const body = document.querySelector('body');
+import { createFooter } from '../../components/footer/index';
+import { createHeader } from '../../components/header/index';
+import { createSection } from '../../components/section/index';
 
-  const btnToGarage = document.createElement('button');
-  btnToGarage.innerText = 'TO GARAGE';
+export function createLayout() {
+  createHeader();
 
-  const btnToWinners = document.createElement('button');
-  btnToWinners.innerText = 'TO WINNERS';
+  const wrapper = createSection('body', 'main', ['wrapper']);
+  createSection(wrapper, 'main', ['main']);
 
-  const btnPrev = document.createElement('button');
-  btnPrev.innerText = 'PREV';
-
-  const btnNext = document.createElement('button');
-  btnNext.innerText = 'NEXT';
-
-  body?.append(btnToGarage, btnToWinners, btnPrev, btnNext);
+  createFooter();
 }

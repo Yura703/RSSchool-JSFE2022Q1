@@ -1,10 +1,10 @@
-import { createBtn } from './pages/layout/index';
-//!обработать все созданные ошибки
-createBtn();
+import 'normalize.css';
+import './styles/style.scss';
 
-import { fun } from './api/engine';
-//import { funG } from './api/garage';
-//import { funW } from './api/winners';
-fun();
-//funG();
-//funW();
+import { createLayout } from './pages/layout/index';
+import { createFormsPanel } from './components/formsPanel/index';
+import { createGarage } from './pages/garage/index';
+//!обработать все созданные ошибки
+
+createLayout();
+createGarage();
