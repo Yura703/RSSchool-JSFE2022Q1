@@ -3,6 +3,7 @@
 export const constants = {
   base: 'http://localhost:3000',
   url: ['garage', 'engine', 'winners'],
+  tableRow: ['Number', 'Car', 'Name', 'Wins', 'Best time (seconds)'],
 };
 
 export enum EngineStatus {

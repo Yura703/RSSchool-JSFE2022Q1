@@ -7,4 +7,6 @@ export function createButton(target: HTMLElement | string, text: string, clases?
   if (clases) btn.classList.add(...clases);
 
   targetBody.append(btn);
+
+  return btn;
 }

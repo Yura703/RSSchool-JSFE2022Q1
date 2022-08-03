@@ -12,10 +12,13 @@ function ctreateDriveElements(target: HTMLElement, carModel: string) {
 
 function ctreateTrack(target: HTMLElement, carPicture: string) {
   const track = createSection(target, 'div');
-  createButton(track, 'A');
-  createButton(track, 'B');
+  createButton(track, 'A', ['car-A']);
+  createButton(track, 'B', ['car-B']);
   createSection(track, 'div').innerHTML = carPicture;
-  createSection(track, 'div').innerText = 'Флаг';
+  
+  const img = createSection(track, 'img', ['img-avto']);
+  (<HTMLImageElement>img).src = './assets/flag.png';
+  (<HTMLImageElement>img).alt = 'flag';
 
   return track;
 }
