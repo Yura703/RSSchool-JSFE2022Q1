@@ -119,24 +119,36 @@ footer.wrapper {
     align-items: center;    
     gap: 0.5rem;
     flex-wrap: wrap;
-    
+    height: 2.5rem;
     &:nth-child(2) {
-      padding-right: 50px;
+      
       .car-A, .car-B {
         border-radius: 50%;
       }
       div {
-        width: calc(100% - 130px);
+        width: calc(100% - 77px);
         
       }
-      .img-avto {
+      .flag {
         height: 30px;
         width: 30px;
+        position: relative;
+        right: 100px;
       }
      
     } 
   }
    
+}
+
+div.avto-svg {
+  width: 100px;
+  position: relative;
+  top: -30px;
+}
+
+.avto-road {
+  border-bottom: dashed red;
 }
 
 
@@ -162,4 +174,3 @@ table, th, td {
   align-items: center;
   gap: 1rem;
 }
-

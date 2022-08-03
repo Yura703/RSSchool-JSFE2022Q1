@@ -17,5 +17,5 @@ export function createGarage() {
   createInfoPanel(garage);
   const cars = createSection(garage, 'div');
 
-  createCarTrack(cars, 'Audi', 'тут будет картинка авто');
+  createCarTrack(cars, 'Audi', 'red'); //++++++++
 }
