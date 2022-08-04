@@ -1,4 +1,4 @@
-enum CarBrand {
+const CarBrand = [
   'Acura',
   'Alfa Romeo',
   'Alpine',
@@ -106,9 +106,9 @@ enum CarBrand {
   'Volvo',
   'Xpeng',
   'Zotye',
-}
+];
 
-enum CarModal {
+const CarModel = [
   'Durango',
   'Ram',
   'Challenger',
@@ -166,6 +166,6 @@ enum CarModal {
   'Rio',
   'Creta',
   'Solaris',
-}
+];
 
-export { CarBrand, CarModal };
+export { CarBrand, CarModel };

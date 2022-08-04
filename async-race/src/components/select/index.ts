@@ -22,6 +22,12 @@ export class CustomSelect {
     this._elRoot.append(this._customSelect);
   }
 
+  
+  public get value() : string {
+    return this._customSelect.value;
+  }
+  
+
   #initSelect(options: string[], selectElement: HTMLSelectElement) {
     for (let i = 0; i < options.length; i++) {
       const opt = options[i];

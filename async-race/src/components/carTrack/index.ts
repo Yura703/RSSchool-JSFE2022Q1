@@ -3,22 +3,26 @@ import { constants } from '../createTableWinners/index';
 import { createSection } from '../section/index';
 import { getStringSVG } from './getStringSVG';
 
-function ctreateDriveElements(target: HTMLElement, carModel: string) {
+function ctreateDriveElements(target: HTMLElement, carModel: string, id: number) {
   const driveElements = createSection(target, 'div');
-  createButton(driveElements, 'SELECT');
-  createButton(driveElements, 'REMOVE');
+  const btnSelect = createButton(driveElements, 'SELECT');
+  btnSelect.id = 'S' + id.toString();
+  const btnRemove = createButton(driveElements, 'REMOVE');
+  btnRemove.id = 'R' + id.toString();
+  btnRemove.style.zIndex = "1";
   createSection(driveElements, 'h3').innerText = carModel;
 
   return driveElements;
 }
 
-function ctreateTrack(target: HTMLElement, carColor: string, idCar: string) {
+function ctreateTrack(target: HTMLElement, carColor: string, id: number) {
   const track = createSection(target, 'div');
   createButton(track, 'A', ['car-A']);
   createButton(track, 'B', ['car-B']);
   const road = createSection(track, 'div', ['avto-road']);
   const avto = createSection(road, 'div', ['avto-svg']);
   avto.innerHTML = getStringSVG(constants.widthAvto, carColor);
+  avto.id = 'C' + id.toString();
 
   const img = createSection(road, 'img', ['flag']);
   (<HTMLImageElement>img).src = './assets/flag.png';
@@ -27,10 +31,10 @@ function ctreateTrack(target: HTMLElement, carColor: string, idCar: string) {
   return track;
 }
 
-export function createCarTrack(target: HTMLElement, carModel: string, carColor: string) {
+export function createCarTrack(target: HTMLElement, carModel: string, carColor: string, id: number) {
   const carTrack = createSection(target, 'div', ['car-track']);
-  ctreateDriveElements(carTrack, carModel);
-  ctreateTrack(carTrack, carColor, 'a123');
+  ctreateDriveElements(carTrack, carModel, id);
+  ctreateTrack(carTrack, carColor, id);
 
   return carTrack;
 }

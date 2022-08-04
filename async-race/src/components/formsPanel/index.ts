@@ -1,3 +1,5 @@
+import { CarBrand } from '../../constants/cars';
+import { createNewCar, generateCars } from '../../controller/carControlller/index';
 import { createButton } from '../button/index';
 import { createSection } from '../section/index';
 import { CustomSelect } from '../select/index';
@@ -9,15 +11,23 @@ function createCarPanel(
   btnText: string,
   btnClasses: string[],
 ) {
-  new CustomSelect(params, target, nameSelect);
-  (<HTMLInputElement>createSection(target, 'input')).type = 'color';
-  createButton(target, btnText, btnClasses);
+  const select = new CustomSelect(params, target, nameSelect);
+  const inputColor = (<HTMLInputElement>createSection(target, 'input'));
+  inputColor.type = 'color';
+  const btn = createButton(target, btnText, btnClasses);
+
+  btn.addEventListener('click', () => createNewCar(select, inputColor));
+
 }
 
 function generateCarsPanel(target: HTMLElement) {
-  createButton(target, 'RACE', ['form__btn_race']);
-  createButton(target, 'RESET', ['form__btn_reset']);
-  createButton(target, 'GENERATE CARS', ['form__btn_generate']);
+  const btnRace = createButton(target, 'RACE', ['form__btn_race']);
+  const btnReset = createButton(target, 'RESET', ['form__btn_reset']);
+  const btnGenerate= createButton(target, 'GENERATE CARS', ['form__btn_generate']);
+  btnRace.addEventListener('click', async() => await {});
+  btnReset.addEventListener('click', async() => {});
+  btnGenerate.addEventListener('click', async() => await generateCars(100));
+
 }
 
 export function createFormsPanel(target: HTMLElement) {
@@ -26,8 +36,8 @@ export function createFormsPanel(target: HTMLElement) {
   const updateCar = createSection(formsPanel, 'div', ['form__update-car']);
   const generateCar = createSection(formsPanel, 'div', ['form__generate-car']);
 
-  createCarPanel(createCar, ['A', 'B', 'C', 'D', 'E', 'F'], 'carCreate', 'CREATE', ['form__btn_create']);
-  createCarPanel(updateCar, ['A', 'B', 'C', 'D', 'E', 'F'], 'carCreate', 'UPDATE', ['form__btn_update']);
+  createCarPanel(createCar, CarBrand, 'carCreate', 'CREATE', ['form__btn_create']);
+  createCarPanel(updateCar, CarBrand, 'carCreate', 'UPDATE', ['form__btn_update']);
 
   generateCarsPanel(generateCar);
 }

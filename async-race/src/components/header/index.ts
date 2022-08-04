@@ -10,6 +10,5 @@ export function createHeader() {
   const btnToWinners = createButton(header, 'TO WINNERS', ['header__btn_to-winners']);
 
   btnToGarage.addEventListener('click', () => switchPages(true));
-
   btnToWinners.addEventListener('click', () => switchPages(false));
 }

@@ -17,7 +17,7 @@ header.wrapper {
 
 main.wrapper {
   background-color: $main-color;
-  height: calc(100% - 8rem);
+  //height: calc(100% - 8rem);
 }
 
 footer.wrapper {
@@ -173,4 +173,8 @@ table, th, td {
   justify-content: start;
   align-items: center;
   gap: 1rem;
+}
+
+button.inactive {
+ background-color: rgb(107, 114, 116);
 }
