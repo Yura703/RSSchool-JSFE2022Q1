@@ -64,7 +64,6 @@ export async function createGarage() {
 
 export async function switchPagination(direction: boolean) {
   store.page = direction ? store.page + 1 : store.page - 1;
-console.log(store);
 
   const garage: HTMLElement | null = document.querySelector('.garage');
   const pageNumber: HTMLElement | null = document.querySelector('.page');

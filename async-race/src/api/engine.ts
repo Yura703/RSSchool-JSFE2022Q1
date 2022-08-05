@@ -18,6 +18,3 @@ export const drive = async (id: number) => {
   } else throw new Error('Error initialed drive car');
 };
 
-export function fun() {
-  console.log('engine');
-}

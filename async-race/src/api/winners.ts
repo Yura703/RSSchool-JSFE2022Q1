@@ -75,7 +75,3 @@ export const updateWinner = async (id: number, body: Omit<IWinner, 'id'>) => {
 //   }
 // };
 
-export async function funW() {
-  console.log(await getWinners({ page: 1, limit: 10, sort: Sort.id, order: Order.ASC }));
-  console.log(await getWinner(1));
-}

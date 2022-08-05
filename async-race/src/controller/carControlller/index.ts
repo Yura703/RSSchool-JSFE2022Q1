@@ -42,12 +42,18 @@ export async function getListCarsFromDB(page = 1, limit = 7) {
   return carRes;
 }
 
-export function createNewCar(select: CustomSelect, inputColor: HTMLInputElement) {
+export async function createNewCar(select: CustomSelect, inputColor: HTMLInputElement) {
   const name = select.value;
   const color = inputColor.value;
 
   const car = new Car(name, color);
-  console.log(car);//!добавить сохраниене в БД и вывод на экран
+  await createCar(car);
+  if (store.carCount < 7) {
+    await renderCarsTrack('.garage'); 
+  } else {
+    store.carCount += 1; 
+  }
+  (<HTMLElement>document.querySelector('h1.count')).innerText = `Garage (${store.carCount})`;
   
 }
 
