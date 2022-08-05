@@ -17,15 +17,22 @@ export function generateCar() {
 }
 
 export async function generateCars(count: number) {
-  store.carCount += 100; 
-  (<HTMLElement>document.querySelector('h1.count')).innerText = `Garage (${store.carCount})`;
-
+  
+  const promiseArr = [];
   for (let i = 0; i < count; i++) {
     const car = generateCar();
-    await createCar(car);
+    promiseArr.push(createCar(car));    
   }  
-  
-  if (store.carCount < 107) await renderCarsTrack('.garage');//! сделать отключение кнопок, пока отработает добавление машин в БД - 4 сек
+    
+  if (store.carCount < 7) {
+    promiseArr.push(renderCarsTrack('.garage')); 
+  } else {
+    store.carCount += 100; 
+  }
+    
+  Promise.all(promiseArr).then(values => {   
+    (<HTMLElement>document.querySelector('h1.count')).innerText = `Garage (${store.carCount})`;
+  });
 }
 
 export async function getListCarsFromDB(page = 1, limit = 7) {
@@ -42,4 +49,29 @@ export function createNewCar(select: CustomSelect, inputColor: HTMLInputElement)
   const car = new Car(name, color);
   console.log(car);//!добавить сохраниене в БД и вывод на экран
   
+}
+
+export function disabledButton() {
+  const pageMax = (store.carCount > 1) ? Math.ceil(store.carCount / 7) : 1; 
+
+  if (store.carCount > 7) {
+    const btnPrev: HTMLButtonElement | null = document.querySelector('.footer__btn_perv')
+    const btnNext: HTMLButtonElement | null = document.querySelector('.footer__btn_next')
+
+    if (!btnNext || !btnPrev) throw new Error('Target element does not exist');
+
+    if (pageMax === 1) {
+      btnPrev.disabled = true;
+      btnNext.disabled = true;
+    } else if(store.page === 1) {
+      btnPrev.disabled = true;
+      btnNext.disabled = false;
+    } else if(store.page === pageMax) {   
+      btnPrev.disabled = false;
+      btnNext.disabled = true;
+    } else {
+      btnPrev.disabled = false;
+      btnNext.disabled = false;
+    }
+  } 
 }

@@ -1,7 +1,7 @@
 import { createCarTrack } from '../../components/carTrack/index';
 import { createFormsPanel } from '../../components/formsPanel/index';
 import { createSection } from '../../components/section/index';
-import { generateCars, getListCarsFromDB } from '../../controller/carControlller/index';
+import { disabledButton, generateCars, getListCarsFromDB } from '../../controller/carControlller/index';
 import { carListener } from '../../listeners/carListener';
 import { store } from '../../store/index';
 import { Car } from '../../types/Car';
@@ -28,6 +28,7 @@ function checkForExistenceAndCreateOrDelete(target: HTMLElement) {
 export async function renderCarsTrack(target: HTMLElement | string, carsList?: ICar | ICar[], count = 7) {
 
   const targetDiv: HTMLElement | null = (typeof target === 'string') ? document.querySelector(target) : target;
+ 
  if (!targetDiv) {
    throw new Error('target element does not exist');
  }
@@ -36,27 +37,23 @@ export async function renderCarsTrack(target: HTMLElement | string, carsList?: I
   if (carList) {    
     const cars = checkForExistenceAndCreateOrDelete(targetDiv);
     carListener(cars);
-
+  
     if (carList instanceof Array) {
-      store.carCount = carList.length;
+  
       for (let i = 0; i < count; i++) {
-        if (i >= store.carCount) break;
+        if (i >= carList.length) break;
         createCarTrack(cars, carList[i].name, carList[i].color, carList[i].id);
       }
+
     } else {
       createCarTrack(cars, carList.name, carList.color, carList.id);
-    }
-  }
-  
-}
-
-function getAndSaveMaxPages(count?: number ) {
-  if (count) store.pageMax = Math.ceil(count / 7);
+    }    
+  }  
+  disabledButton();
 }
 
 export async function createGarage() {
   const carRes = await getListCarsFromDB(store.page);
-  getAndSaveMaxPages(carRes.count);
 
   const garage = createSection('.main', 'selection', ['garage']);
   createFormsPanel(garage);  
@@ -67,6 +64,7 @@ export async function createGarage() {
 
 export async function switchPagination(direction: boolean) {
   store.page = direction ? store.page + 1 : store.page - 1;
+console.log(store);
 
   const garage: HTMLElement | null = document.querySelector('.garage');
   const pageNumber: HTMLElement | null = document.querySelector('.page');
