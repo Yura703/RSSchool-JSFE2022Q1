@@ -1,4 +1,4 @@
-import { createCar, getCars } from '../../api/garage';
+import { createCar, getCars, updateCar } from '../../api/garage';
 import { CustomSelect } from '../../components/select/index';
 import { CarBrand, CarModel } from '../../constants/cars';
 import { renderCarsTrack } from '../../pages/garage/index';
@@ -48,13 +48,18 @@ export async function createNewCar(select: CustomSelect, inputColor: HTMLInputEl
 
   const car = new Car(name, color);
   await createCar(car);
-  if (store.carCount < 7) {
-    await renderCarsTrack('.garage'); 
-  } else {
-    store.carCount += 1; 
-  }
-  (<HTMLElement>document.querySelector('h1.count')).innerText = `Garage (${store.carCount})`;
-  
+
+  updateGarage(false);
+}
+
+export async function updateSelectCar(select: CustomSelect, inputColor: HTMLInputElement) {
+  const name = select.value;
+  const color = inputColor.value;
+
+  const car = new Car(name, color);
+  await updateCar(store.editCarId, car);
+
+  updateGarage(false);
 }
 
 export function disabledButton() {
@@ -80,4 +85,26 @@ export function disabledButton() {
       btnNext.disabled = false;
     }
   } 
+}
+
+export async function updateGarage(deleteOrCreate: boolean) {
+  if (deleteOrCreate) {
+    await renderCarsTrack('.garage');
+  } else {
+    store.carCount < 7 ? await renderCarsTrack('.garage') : store.carCount += 1; 
+  } 
+  (<HTMLElement>document.querySelector('h1.count')).innerText = `Garage (${store.carCount})`;  
+}
+
+export function initUpdateSection() {
+  const select: HTMLSelectElement | null = document.querySelector('select.update');
+  const input: HTMLInputElement | null = document.querySelector('input.update');
+  const btn: HTMLButtonElement | null = document.querySelector('.form__btn_update');
+
+  if (select && input && btn) {  
+      
+    select.disabled = false;
+    input.disabled = false;
+    btn.disabled = false;
+  }  
 }

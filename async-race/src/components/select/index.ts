@@ -27,6 +27,13 @@ export class CustomSelect {
     return this._customSelect.value;
   }
   
+  disabled(disabledOrUndisabled: boolean) {
+    this._customSelect.disabled = (disabledOrUndisabled) ?  true : false;
+  }
+
+  addClasses(classes: string) {
+    this._customSelect.classList.add(classes);
+  }
 
   #initSelect(options: string[], selectElement: HTMLSelectElement) {
     for (let i = 0; i < options.length; i++) {

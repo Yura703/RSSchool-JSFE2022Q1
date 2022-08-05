@@ -71,6 +71,4 @@ export async function switchPagination(direction: boolean) {
   if (garage) {
     await renderCarsTrack(garage);
   }
-} //! не соответствует кол машин в гараже и после перезагрузки
-//! не активные кнопки , сделать макс кол страниц
-//!сделать обновление машиныб 
+} 

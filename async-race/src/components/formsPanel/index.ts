@@ -1,8 +1,9 @@
 import { CarBrand } from '../../constants/cars';
-import { createNewCar, generateCars } from '../../controller/carControlller/index';
+import { createNewCar, generateCars, updateSelectCar } from '../../controller/carControlller/index';
 import { createButton } from '../button/index';
 import { createSection } from '../section/index';
 import { CustomSelect } from '../select/index';
+import { updateCar } from '../../api/garage';
 
 function createCarPanel(
   target: HTMLElement,
@@ -10,14 +11,23 @@ function createCarPanel(
   nameSelect: string,
   btnText: string,
   btnClasses: string[],
+  disabled?: boolean
 ) {
+  const classes = disabled ? 'update' : 'create';
+
   const select = new CustomSelect(params, target, nameSelect);
-  const inputColor = (<HTMLInputElement>createSection(target, 'input'));
+  select.addClasses(classes);
+  const inputColor = (<HTMLInputElement>createSection(target, 'input', [classes]));
   inputColor.type = 'color';
   const btn = createButton(target, btnText, btnClasses);
 
-  btn.addEventListener('click', () => createNewCar(select, inputColor));
+  if (disabled) {
+    select.disabled(true);
+    inputColor.disabled = true;
+    btn.disabled = true;
 
+    btn.addEventListener('click', async () => await updateSelectCar(select, inputColor));
+  } else btn.addEventListener('click', () => createNewCar(select, inputColor));
 }
 
 function generateCarsPanel(target: HTMLElement) {
@@ -37,7 +47,7 @@ export function createFormsPanel(target: HTMLElement) {
   const generateCar = createSection(formsPanel, 'div', ['form__generate-car']);
 
   createCarPanel(createCar, CarBrand, 'carCreate', 'CREATE', ['form__btn_create']);
-  createCarPanel(updateCar, CarBrand, 'carCreate', 'UPDATE', ['form__btn_update']);
+  createCarPanel(updateCar, CarBrand, 'carCreate', 'UPDATE', ['form__btn_update'], true);
 
   generateCarsPanel(generateCar);
 }
