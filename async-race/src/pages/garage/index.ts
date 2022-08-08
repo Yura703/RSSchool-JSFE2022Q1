@@ -1,4 +1,5 @@
 import { createCarTrack } from '../../components/carTrack/index';
+import { createTableWinners } from '../../components/createTableWinners/index';
 import { createFormsPanel } from '../../components/formsPanel/index';
 import { createSection } from '../../components/section/index';
 import { disabledButton, generateCars, getListCarsFromDB } from '../../controller/carControlller/index';
@@ -63,12 +64,25 @@ export async function createGarage() {
 }
 
 export async function switchPagination(direction: boolean) {
-  store.page = direction ? store.page + 1 : store.page - 1;
+  const cars = document.querySelector('.winners');
+  
+  if(cars?.classList.contains('hidden')) {
+    store.page = direction ? store.page + 1 : store.page - 1;
 
-  const garage: HTMLElement | null = document.querySelector('.garage');
-  const pageNumber: HTMLElement | null = document.querySelector('.page');
-  if (pageNumber) pageNumber.innerText = `Page #${store.page}`;
-  if (garage) {
-    await renderCarsTrack(garage);
-  }
+    const garage: HTMLElement | null = document.querySelector('.garage');
+    const pageNumber: HTMLElement | null = document.querySelector('.page');
+    if (pageNumber) pageNumber.innerText = `Page #${store.page}`;
+    if (garage) {
+      await renderCarsTrack(garage);
+    }
+  } else {
+    store.pageWin = direction ? store.pageWin + 1 : store.pageWin - 1;
+
+    const winner: HTMLElement | null = document.querySelector('.winners');
+    const pageNumber: HTMLElement | null = document.querySelector('h2');
+    if (pageNumber) pageNumber.innerText = `Page #${store.pageWin}`;
+    if (winner) {
+      //createTableWinners(winner);
+    }
+  } 
 } 

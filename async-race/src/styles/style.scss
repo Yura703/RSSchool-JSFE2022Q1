@@ -153,15 +153,60 @@ div.avto-svg {
 
 
 //---------------------- winners --------------------------
-table, th, td {
-  border:1px solid black;
-}
+// table, th, td {
+//   border:1px solid black;
+// }
+
+// .table {
+//   width: 100%;
+//   th, td {
+//     width: 20%;
+//   }
+//   td {
+//     margin: 0 auto;
+//   }
+// }
 
 .table {
+  border-collapse: collapse;
   width: 100%;
-  th {
-    width: 20%;
-  }
+}
+
+.table th {
+  color: #ffebcd;
+  background: #008b8b;
+  cursor: pointer;
+}
+
+.table td,
+.table th {
+  width: calc(100% / 5);
+  height: 40px;
+  text-align: center;
+  border: 2px solid #846868;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #e3e3e3;
+}
+
+th.sorted[data-order="1"],
+th.sorted[data-order="-1"] {
+  position: relative;
+}
+
+th.sorted[data-order="1"]::after,
+th.sorted[data-order="-1"]::after {
+  right: 8px;
+  position: absolute;
+}
+
+th.sorted[data-order="-1"]::after {
+content: "▼"
+}
+
+th.sorted[data-order="1"]::after {
+content: "▲"
 }
 
 // --------------------- footer ----------------------------

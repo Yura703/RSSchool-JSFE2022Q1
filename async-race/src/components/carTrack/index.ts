@@ -21,6 +21,7 @@ function ctreateTrack(target: HTMLElement, carColor: string, id: number) {
   btnA.id = 'A' + id.toString();
   const btnB = createButton(track, 'B', ['car-B']);
   btnB.id = 'B' + id.toString();
+  btnB.disabled = true;
   const road = createSection(track, 'div', ['avto-road']);
   const avto = createSection(road, 'div', ['avto-svg']);
   avto.innerHTML = getStringSVG(constants.widthAvto, carColor);

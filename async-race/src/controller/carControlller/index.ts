@@ -1,11 +1,12 @@
 import { drive, startedOrStopedEngine } from '../../api/engine';
 import { createCar, getCars, getCar, updateCar } from '../../api/garage';
+import { createWinner } from '../../api/winners';
 import { CustomSelect } from '../../components/select/index';
 import { CarBrand, CarModel } from '../../constants/cars';
 import { renderCarsTrack } from '../../pages/garage/index';
 import { store } from '../../store/index';
 import { Car } from '../../types/Car';
-import { ICarResponse, IEngineResponse } from '../../types/ICar';
+import { ICar, ICarResponse, IEngineResponse } from '../../types/ICar';
 
 function getRandomNumber(max: number) {
   return Math.floor(Math.random() * (max + 1));
@@ -118,16 +119,13 @@ async function startAnimation(duration: number, target: HTMLElement) {
 
   let requestId = requestAnimationFrame(function animate(time) {
     // timeFraction изменяется от 0 до 1
-    let timeFraction = (time - start) / duration;
-    if (timeFraction > 1) timeFraction = 1;
+    let timeFraction = (time - start) / duration;    
     
-    target.style.left = (timeFraction * 100) + '%';  
-    
+    target.style.left = (timeFraction * 100) + '%';     
 
     if (timeFraction < 1) {
-      requestAnimationFrame(animate);
+      requestId = requestAnimationFrame(animate);
     }
-
   });
   
   return requestId;
@@ -150,8 +148,14 @@ export async function startMoving(id: number, target?: HTMLElement) {
     
     if (!reqDriveCar.success) {
       console.log(`car ${id} brocken 500`);
-      await returnToStart(id);
+      //! - остановить анимацию и машину на трассе
+    } else {    
+      const car = await getCar(id) 
+      if (store.wins.length === 0) writeWinner(car, duration);
+      store.wins.push(id)
+      
     }
+    
     
   } catch (err) {
     console.log('Error 12345');
@@ -165,8 +169,11 @@ export async function returnToStart(id: number) {
   const stoppedCar = await startedOrStopedEngine(id, 'stopped');
 
   const idAnimation = store.carsId.filter(el => el[0] === id);
+  console.log(idAnimation[0][1]);
   
-  cancelAnimationFrame(idAnimation[0][1]);
+  const aaa =  cancelAnimationFrame(idAnimation[0][1]);
+  console.log(aaa);
+  
 
   if (stoppedCar && car) {
     car.style.left = 0 + '%';  
@@ -180,4 +187,15 @@ function getWight(target = '.avto-road') {
   const road = document.querySelectorAll(target)[0] as HTMLDivElement;
 
   return road.offsetWidth;  
+}
+
+function writeWinner(car: ICar, duration: number) {
+  const span = document.querySelector('span') ?? document.createElement('span');
+  
+  span.innerText = `${car.name} won with time ${duration}`;
+  span.style.color = 'gold';
+  span.style.paddingLeft = '5%';
+  document.querySelector('.count')?.appendChild(span);
+
+  createWinner({ "wins": 1, "time": duration})
 }

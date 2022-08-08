@@ -6,7 +6,7 @@ const winners = `${constants.base}/winners`;
 
 export const getWinners = async ({ page, limit, sort, order }: IWinnerQueryParams): Promise<IWinnerResponse> => {
   const { parsedBody, count }: HttpResponse<IWinner> = await httpFetch<IWinner>(
-    `${winners}?_page=${page}&_limit=${limit}$&_sort=${sort}&_order=${order}`,
+    `${winners}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`,
   );
 
   return {
