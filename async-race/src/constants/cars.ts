@@ -68,7 +68,7 @@ const CarBrand = [
   'Maybach',
   'Mazda',
   'MCLaren',
-  'Mercedes-Benz',
+  'Mersedes',
   'MG',
   'MINI',
   'Mitsubishi',

@@ -1,10 +1,11 @@
-import { createCar, getCars, updateCar } from '../../api/garage';
+import { drive, startedOrStopedEngine } from '../../api/engine';
+import { createCar, getCars, getCar, updateCar } from '../../api/garage';
 import { CustomSelect } from '../../components/select/index';
 import { CarBrand, CarModel } from '../../constants/cars';
 import { renderCarsTrack } from '../../pages/garage/index';
 import { store } from '../../store/index';
 import { Car } from '../../types/Car';
-import { ICarResponse } from '../../types/ICar';
+import { ICarResponse, IEngineResponse } from '../../types/ICar';
 
 function getRandomNumber(max: number) {
   return Math.floor(Math.random() * (max + 1));
@@ -49,7 +50,7 @@ export async function createNewCar(select: CustomSelect, inputColor: HTMLInputEl
   const car = new Car(name, color);
   await createCar(car);
 
-  updateGarage(false);
+  updateGarage();
 }
 
 export async function updateSelectCar(select: CustomSelect, inputColor: HTMLInputElement) {
@@ -59,7 +60,7 @@ export async function updateSelectCar(select: CustomSelect, inputColor: HTMLInpu
   const car = new Car(name, color);
   await updateCar(store.editCarId, car);
 
-  updateGarage(false);
+  updateGarage();
 }
 
 export function disabledButton() {
@@ -87,24 +88,96 @@ export function disabledButton() {
   } 
 }
 
-export async function updateGarage(deleteOrCreate: boolean) {
-  if (deleteOrCreate) {
-    await renderCarsTrack('.garage');
-  } else {
-    store.carCount < 7 ? await renderCarsTrack('.garage') : store.carCount += 1; 
-  } 
+export async function updateGarage() {
+  await renderCarsTrack('.garage');
   (<HTMLElement>document.querySelector('h1.count')).innerText = `Garage (${store.carCount})`;  
 }
 
-export function initUpdateSection() {
+export async function initUpdateSection() {
   const select: HTMLSelectElement | null = document.querySelector('select.update');
   const input: HTMLInputElement | null = document.querySelector('input.update');
   const btn: HTMLButtonElement | null = document.querySelector('.form__btn_update');
 
-  if (select && input && btn) {  
-      
+  if (select && input && btn) {        
     select.disabled = false;
     input.disabled = false;
     btn.disabled = false;
+
+    const car = await getCar(store.editCarId);
+    select.value = getCarName(car.name);
+    input.value = car.color;  
   }  
+}
+
+function getCarName(fullName: string) {  
+  return CarBrand.filter((name) => fullName.includes(name))[0];
+}
+
+async function startAnimation(duration: number, target: HTMLElement) {
+  let start = performance.now();
+
+  let requestId = requestAnimationFrame(function animate(time) {
+    // timeFraction изменяется от 0 до 1
+    let timeFraction = (time - start) / duration;
+    if (timeFraction > 1) timeFraction = 1;
+    
+    target.style.left = (timeFraction * 100) + '%';  
+    
+
+    if (timeFraction < 1) {
+      requestAnimationFrame(animate);
+    }
+
+  });
+  
+  return requestId;
+}
+
+export async function startMoving(id: number, target?: HTMLElement) {
+  try { 
+    const car: HTMLElement | null = (target) ? target : document.querySelector(`#C${id}`);  
+   
+    if(!car) throw new Error('Not existing car ID');
+
+    const { velocity, distance }: IEngineResponse = await startedOrStopedEngine(id, 'started');
+    
+    const duration: number = distance / velocity;
+
+    const requestId = await startAnimation(duration, car);
+    store.carsId.push([id, requestId]);
+
+    const reqDriveCar = await drive(id);    
+    
+    if (!reqDriveCar.success) {
+      console.log(`car ${id} brocken 500`);
+      await returnToStart(id);
+    }
+    
+  } catch (err) {
+    console.log('Error 12345');
+    
+  } 
+}
+
+export async function returnToStart(id: number) {
+  const car: HTMLElement | null = document.querySelector(`#C${id}`);
+
+  const stoppedCar = await startedOrStopedEngine(id, 'stopped');
+
+  const idAnimation = store.carsId.filter(el => el[0] === id);
+  
+  cancelAnimationFrame(idAnimation[0][1]);
+
+  if (stoppedCar && car) {
+    car.style.left = 0 + '%';  
+  }
+  
+  
+
+}
+
+function getWight(target = '.avto-road') {
+  const road = document.querySelectorAll(target)[0] as HTMLDivElement;
+
+  return road.offsetWidth;  
 }

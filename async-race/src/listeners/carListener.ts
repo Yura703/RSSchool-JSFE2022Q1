@@ -1,38 +1,40 @@
 import { deleteCar } from "../api/garage";
-import { initUpdateSection, updateGarage } from "../controller/carControlller/index";
+import { initUpdateSection, returnToStart, startMoving, updateGarage } from "../controller/carControlller/index";
 import { store } from "../store/index";
 
 
 export function carListener(cars: HTMLElement) {
+  cars.addEventListener('click', async (event) => await selectAndRemove(event));
+}
+
+async function selectAndRemove(event: MouseEvent) {      
+    const element = event.target as HTMLButtonElement;
+    const id = +element.id.slice(1);
     
-//if (!cars) throw new Error('Target element does not exist');
-  //select
-cars.addEventListener('click', async (event) => {
-  const element = event.target as HTMLButtonElement;
-  if (element.id[0] === 'R') {
-    await deleteCar(+element.id.slice(1));
-    updateGarage(true);
-  } else if (element.id[0] === 'S') {
-  store.editCarId = +element.id.slice(1);  
-  initUpdateSection(); 
+
+    switch (element.id[0]) {
+      case 'R':
+        await deleteCar(id);
+        updateGarage();
+        break;
+
+      case 'S':
+        store.editCarId = id;  
+        initUpdateSection(); 
+        break;
+
+      case 'A':
+        startMoving(id);
+        break;
+
+      case 'B':
+        returnToStart(id);
+        break;
+    
+      default:
+        break;
+    }
 }
-});
-}
 
-
-// //remove
-// cars.addEventListener('click', () => {
-
-// });
-
-// //A
-// cars.addEventListener('click', () => {
-
-// });
-
-// //B
-// cars.addEventListener('click', () => {
-
-// });
 
 

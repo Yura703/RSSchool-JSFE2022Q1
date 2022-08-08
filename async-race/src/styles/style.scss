@@ -124,21 +124,21 @@ footer.wrapper {
       
       .car-A, .car-B {
         border-radius: 50%;
-      }
-      div {
-        width: calc(100% - 77px);
-        
-      }
+      }     
       .flag {
         height: 30px;
         width: 30px;
         position: relative;
-        right: 100px;
+        left: calc(100% - 140px);
       }
      
     } 
   }
    
+}
+
+.avto-road {  
+  width: calc(100% - 177px);    
 }
 
 div.avto-svg {
@@ -178,3 +178,15 @@ table, th, td {
 button.inactive {
  background-color: rgb(107, 114, 116);
 }
+
+//-------------------------------------------------------------
+@keyframes move {
+  0% {     
+      left: 0;
+  }
+  100% {    
+      left: 90%;
+  }
+}
+
+

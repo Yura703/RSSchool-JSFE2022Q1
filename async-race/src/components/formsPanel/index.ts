@@ -1,9 +1,10 @@
 import { CarBrand } from '../../constants/cars';
-import { createNewCar, generateCars, updateSelectCar } from '../../controller/carControlller/index';
+import { createNewCar, generateCars, updateSelectCar, returnToStart, startMoving } from '../../controller/carControlller/index';
 import { createButton } from '../button/index';
 import { createSection } from '../section/index';
 import { CustomSelect } from '../select/index';
 import { updateCar } from '../../api/garage';
+import { store } from '../../store/index';
 
 function createCarPanel(
   target: HTMLElement,
@@ -34,8 +35,22 @@ function generateCarsPanel(target: HTMLElement) {
   const btnRace = createButton(target, 'RACE', ['form__btn_race']);
   const btnReset = createButton(target, 'RESET', ['form__btn_reset']);
   const btnGenerate= createButton(target, 'GENERATE CARS', ['form__btn_generate']);
-  btnRace.addEventListener('click', async() => await {});
-  btnReset.addEventListener('click', async() => {});
+  btnRace.addEventListener('click', async() => {
+    let promisseArray: Promise<void>[] = [];
+    const elements = document.querySelectorAll('.avto-svg');
+    elements.forEach(async element => {
+      const id =  +element.id.slice(1);
+      promisseArray.push(startMoving(id));
+    });
+    Promise.all(promisseArray).then();    
+  });
+  btnReset.addEventListener('click', async() => {
+    let promisseArray: Promise<void>[] = [];
+    store.carsId.forEach(async element => {
+      promisseArray.push(returnToStart(element[0]));
+    });
+    Promise.all(promisseArray).then();
+  });
   btnGenerate.addEventListener('click', async() => await generateCars(100));
 
 }
