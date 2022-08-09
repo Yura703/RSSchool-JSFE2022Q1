@@ -19,16 +19,16 @@ export const getWinner = async (id: number) => {
   const winner = (await httpFetch<IWinner>(`${winners}/${id}`)).parsedBody;
 
   if (winner) return winner;
-  else throw new Error('This ID does not exist');
+  else return -1;
 };
 
-export const deleteWinner = async (id: string) => {
+export const deleteWinner = async (id: number) => {
   const status = (await httpFetch<IWinner>(`${winners}/${id}`, { method: 'DELETE' })).status;
 
   return status === 200;
 };
 
-export const createWinner = async (body: Omit<IWinner, 'id'>) => {
+export const createWinner = async (body: IWinner) => {
   const winnerRes = await httpFetch<IWinner>(winners, {
     method: 'POST',
     body: JSON.stringify(body),

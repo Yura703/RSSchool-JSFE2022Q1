@@ -1,4 +1,5 @@
 import { deleteCar } from "../api/garage";
+import { deleteWinner } from "../api/winners";
 import { initUpdateSection, returnToStart, startMoving, updateGarage } from "../controller/carControlller/index";
 import { store } from "../store/index";
 
@@ -25,6 +26,7 @@ async function selectAndRemove(event: MouseEvent) {
     switch (element.id[0]) {
       case 'R':
         await deleteCar(id);
+        deleteWinner(id);
         updateGarage();
         break;
 

@@ -8,6 +8,7 @@ import { renderCarsTrack } from '../../pages/garage/index';
 import { store } from '../../store/index';
 import { Car } from '../../types/Car';
 import { ICar, ICarResponse, IEngineResponse } from '../../types/ICar';
+import { verifyAndCreateWinner } from '../winnerController';
 
 const animSet = new Set();
 
@@ -195,5 +196,5 @@ function writeWinner(car: ICar, duration: number) {
   span.style.paddingLeft = '5%';
   document.querySelector('.count')?.appendChild(span);
   
-  createWinner({ "wins": 1, "time": duration})  
+  verifyAndCreateWinner({ "id": car.id, "wins": 1, "time": duration});
 }
