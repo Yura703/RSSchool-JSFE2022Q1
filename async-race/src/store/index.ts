@@ -3,6 +3,7 @@ export const store: storeType = {
   pageWin: 1,
   carCount: 0,
   editCarId: 0,
+  carsAnimation: [{id: 0, flag: true}],
   carsId: [], 
   wins: []
 }
@@ -12,6 +13,7 @@ type storeType = {
   pageWin: number,
   carCount: number,
   editCarId: number,
+  carsAnimation: {id: number, flag: boolean}[],
   carsId: carsIdType[], 
   wins: number[]
 }

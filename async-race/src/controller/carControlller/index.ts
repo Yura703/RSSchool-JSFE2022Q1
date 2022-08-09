@@ -8,6 +8,8 @@ import { store } from '../../store/index';
 import { Car } from '../../types/Car';
 import { ICar, ICarResponse, IEngineResponse } from '../../types/ICar';
 
+const animSet = new Set();
+
 function getRandomNumber(max: number) {
   return Math.floor(Math.random() * (max + 1));
 }
@@ -114,7 +116,7 @@ function getCarName(fullName: string) {
   return CarBrand.filter((name) => fullName.includes(name))[0];
 }
 
-async function startAnimation(duration: number, target: HTMLElement) {
+async function startAnimation(duration: number, target: HTMLElement, id: number) {
   let start = performance.now();
 
   let requestId = requestAnimationFrame(function animate(time) {
@@ -123,7 +125,9 @@ async function startAnimation(duration: number, target: HTMLElement) {
     
     target.style.left = (timeFraction * 100) + '%';     
 
-    if (timeFraction < 1) {
+    const carError = animSet.has(id);
+
+    if (timeFraction < 1 && carError) {
       requestId = requestAnimationFrame(animate);
     }
   });
@@ -133,6 +137,7 @@ async function startAnimation(duration: number, target: HTMLElement) {
 
 export async function startMoving(id: number, target?: HTMLElement) {
   try { 
+    animSet.add(id);
     const car: HTMLElement | null = (target) ? target : document.querySelector(`#C${id}`);  
    
     if(!car) throw new Error('Not existing car ID');
@@ -141,46 +146,38 @@ export async function startMoving(id: number, target?: HTMLElement) {
     
     const duration: number = distance / velocity;
 
-    const requestId = await startAnimation(duration, car);
+    const requestId = await startAnimation(duration, car, id);
     store.carsId.push([id, requestId]);
 
     const reqDriveCar = await drive(id);    
     
     if (!reqDriveCar.success) {
+      animSet.delete(id);
+     
       console.log(`car ${id} brocken 500`);
-      //! - остановить анимацию и машину на трассе
+      cancelAnimationFrame(requestId);
+      
     } else {    
       const car = await getCar(id) 
-      if (store.wins.length === 0) writeWinner(car, duration);
-      store.wins.push(id)
-      
-    }
-    
-    
+      if (store.wins.length === 0) writeWinner(car, Math.round(duration) / 1000);
+      store.wins.push(id)      
+    }   
   } catch (err) {
-    console.log('Error 12345');
-    
+    console.log('Error 12345');    
   } 
 }
 
 export async function returnToStart(id: number) {
   const car: HTMLElement | null = document.querySelector(`#C${id}`);
-
+  animSet.delete(id);
+  
   const stoppedCar = await startedOrStopedEngine(id, 'stopped');
 
   const idAnimation = store.carsId.filter(el => el[0] === id);
-  console.log(idAnimation[0][1]);
-  
-  const aaa =  cancelAnimationFrame(idAnimation[0][1]);
-  console.log(aaa);
-  
 
   if (stoppedCar && car) {
     car.style.left = 0 + '%';  
-  }
-  
-  
-
+  } 
 }
 
 function getWight(target = '.avto-road') {
@@ -192,7 +189,7 @@ function getWight(target = '.avto-road') {
 function writeWinner(car: ICar, duration: number) {
   const span = document.querySelector('span') ?? document.createElement('span');
   
-  span.innerText = `${car.name} won with time ${duration}`;
+  span.innerText = `${car.name} won with time ${duration} s`;
   span.style.color = 'gold';
   span.style.paddingLeft = '5%';
   document.querySelector('.count')?.appendChild(span);

@@ -35,6 +35,7 @@ function createCarPanel(
 function generateCarsPanel(target: HTMLElement) {
   const btnRace = createButton(target, 'RACE', ['form__btn_race']);
   const btnReset = createButton(target, 'RESET', ['form__btn_reset']);
+  btnReset.disabled = true;
   const btnGenerate= createButton(target, 'GENERATE CARS', ['form__btn_generate']);
   btnRace.addEventListener('click', async() => {
     store.wins = [];
@@ -45,17 +46,21 @@ function generateCarsPanel(target: HTMLElement) {
       unDisableBtn(id, true);
       promisseArray.push(startMoving(id));
     });    
-    const win =  Promise.all(promisseArray).then();    
+    const win =  Promise.all(promisseArray).then();  
+    btnRace.disabled = true;
+    btnReset.disabled = false;
   });
-  btnReset.addEventListener('click', async() => {
+  btnReset.addEventListener('click', async() => {    
     let promisseArray: Promise<void>[] = [];
     store.carsId.forEach(async element => {
       unDisableBtn(element[0], false);
       promisseArray.push(returnToStart(element[0]));
     });    
     Promise.all(promisseArray).then();
+    btnReset.disabled = true;
+    btnRace.disabled = false;
   });
-  btnGenerate.addEventListener('click', async() => await generateCars(100));
+  btnGenerate.addEventListener('click', async() => await generateCars(100));  
 }
 
 export function createFormsPanel(target: HTMLElement) {
