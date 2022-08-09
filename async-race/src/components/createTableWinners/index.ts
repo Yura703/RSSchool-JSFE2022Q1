@@ -1,6 +1,7 @@
 import { getCar } from '../../api/garage';
 import { getWinners } from '../../api/winners';
 import { constants } from '../../constants/index';
+import { winnersTableSortListeners } from '../../listeners/winnersListeners';
 import { store } from '../../store/index';
 import { Order, Sort } from '../../types/IWinner';
 import { getStringSVG } from '../carTrack/getStringSVG';
@@ -23,9 +24,9 @@ function fillTable(target: HTMLElement, winnersList: string[]) {
   createSection(target, 'td').innerText = winnersList[4];
 }
 
-async function getAllWinners() {
+async function getAllWinners(sort?: string, order?: string) {
   const page = store.pageWin;
-  return await getWinners({ page, limit:7, sort: Sort.id, order: Order.ASC }); 
+  return await getWinners({ page, limit:7, sort: sort ?? 'id', order: order ?? 'asc' }); 
 }
 
 function updateCountWinners(count: number) {
@@ -33,7 +34,23 @@ function updateCountWinners(count: number) {
   if (winnersText) winnersText.innerText = `Winners (${count})`;
 }
 
-export async function createTableWinners(target: HTMLElement) {
+export async function renderTableWinners(sort?: string, order?: string) { 
+  const winners = await getAllWinners(sort, order);
+  if (winners.count)  updateCountWinners(winners.count);
+
+  const tbody = document.querySelector('tbody')!;  
+  tbody.innerHTML = '';
+  
+  winners.items?.forEach(async (el) => {
+    const { name, color } = await getCar(el.id);  
+    const strCarSVG = getStringSVG(50, color);
+    const tr = createSection(tbody, 'tr');
+    fillTable(tr, [el.id.toString(), strCarSVG, name, el.wins.toString(), el.time.toString()]);
+  }); 
+}
+
+export async function createTableWinners(targetEl?: HTMLElement) {
+  const target: HTMLElement = targetEl ?? document.querySelector('winners')!;
   const winners = await getAllWinners();
   if (winners.count)  updateCountWinners(winners.count);
   const table = createSection(target, 'table', ['table']);
@@ -47,7 +64,14 @@ export async function createTableWinners(target: HTMLElement) {
     const tr = createSection(tbody, 'tr');
     fillTable(tr, [el.id.toString(), strCarSVG, name, el.wins.toString(), el.time.toString()]);
   }); 
+
+  winnersTableSortListeners();
 }
+
+// export async function sortTable() {
+//   const th = document.querySelectorAll('th');
+
+// }
 
 // document.addEventListener('DOMContentLoaded', () => {
 

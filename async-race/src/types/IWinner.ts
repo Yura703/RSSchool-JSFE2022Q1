@@ -7,8 +7,8 @@ export interface IWinner {
 export interface IWinnerQueryParams {
   page: number;
   limit: number;
-  sort: Sort;
-  order: Order;
+  sort: string;
+  order: string;
 }
 
 export interface IWinnerResponse {

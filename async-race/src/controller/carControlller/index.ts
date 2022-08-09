@@ -1,6 +1,7 @@
 import { drive, startedOrStopedEngine } from '../../api/engine';
 import { createCar, getCars, getCar, updateCar } from '../../api/garage';
 import { createWinner } from '../../api/winners';
+import { createTableWinners } from '../../components/createTableWinners/index';
 import { CustomSelect } from '../../components/select/index';
 import { CarBrand, CarModel } from '../../constants/cars';
 import { renderCarsTrack } from '../../pages/garage/index';
@@ -193,6 +194,6 @@ function writeWinner(car: ICar, duration: number) {
   span.style.color = 'gold';
   span.style.paddingLeft = '5%';
   document.querySelector('.count')?.appendChild(span);
-
-  createWinner({ "wins": 1, "time": duration})
+  
+  createWinner({ "wins": 1, "time": duration})  
 }

@@ -1,5 +1,6 @@
 import { switchPages } from '../../controller/switchPages/index';
 import { createButton } from '../button/index';
+import { createTableWinners, renderTableWinners } from '../createTableWinners/index';
 import { createSection } from '../section/index';
 
 export function createHeader() {
@@ -10,5 +11,8 @@ export function createHeader() {
   const btnToWinners = createButton(header, 'TO WINNERS', ['header__btn_to-winners']);
 
   btnToGarage.addEventListener('click', () => switchPages(true));
-  btnToWinners.addEventListener('click', () => switchPages(false));
+  btnToWinners.addEventListener('click', () => {
+    switchPages(false);
+    renderTableWinners();
+  });
 }
