@@ -3,7 +3,6 @@ import { getWinners } from '../../api/winners';
 import { constants } from '../../constants/index';
 import { winnersTableSortListeners } from '../../listeners/winnersListeners';
 import { store } from '../../store/index';
-import { Order, Sort } from '../../types/IWinner';
 import { getStringSVG } from '../carTrack/getStringSVG';
 import { createSection } from '../section/index';
 export { constants } from '../../constants/index';
@@ -15,8 +14,7 @@ function fillTitleTable(target: HTMLElement, tableRow: string[]) {
   }
 }
 
-function fillTable(target: HTMLElement, winnersList: string[]) { 
-  //сделать интерфейс для списка и перебор обьекта
+function fillTable(target: HTMLElement, winnersList: string[]) {
   createSection(target, 'td').innerText = winnersList[0];
   createSection(target, 'td').innerHTML = winnersList[1];
   createSection(target, 'td').innerText = winnersList[2];
@@ -26,7 +24,7 @@ function fillTable(target: HTMLElement, winnersList: string[]) {
 
 async function getAllWinners(sort?: string, order?: string) {
   const page = store.pageWin;
-  return await getWinners({ page, limit:7, sort: sort ?? 'id', order: order ?? 'asc' }); 
+  return getWinners({ page, limit: constants.limit, sort: sort ?? 'id', order: order ?? 'asc' });
 }
 
 function updateCountWinners(count: number) {
@@ -34,67 +32,39 @@ function updateCountWinners(count: number) {
   if (winnersText) winnersText.innerText = `Winners (${count})`;
 }
 
-export async function renderTableWinners(sort?: string, order?: string) { 
+export async function renderTableWinners(sort?: string, order?: string) {
   const winners = await getAllWinners(sort, order);
-  if (winners.count)  updateCountWinners(winners.count);
+  if (winners.count) updateCountWinners(winners.count);
 
-  const tbody = document.querySelector('tbody')!;  
+  const tbody = document.querySelector('tbody');
+  if (!tbody) throw new Error('do not html element');
   tbody.innerHTML = '';
-  
+
   winners.items?.forEach(async (el) => {
-    const { name, color } = await getCar(el.id);  
-    const strCarSVG = getStringSVG(50, color);
+    const { name, color } = await getCar(el.id);
+    const strCarSVG = getStringSVG(constants.width, color);
     const tr = createSection(tbody, 'tr');
     fillTable(tr, [el.id.toString(), strCarSVG, name, el.wins.toString(), el.time.toString()]);
-  }); 
+  });
 }
 
 export async function createTableWinners(targetEl?: HTMLElement) {
-  const target: HTMLElement = targetEl ?? document.querySelector('winners')!;
+  const winnersElement: HTMLElement | null = document.querySelector('winners');
+  const target: HTMLElement | null = targetEl ?? winnersElement;
+  if (!target) throw new Error('do not html element');
   const winners = await getAllWinners();
-  if (winners.count)  updateCountWinners(winners.count);
+  if (winners.count) updateCountWinners(winners.count);
   const table = createSection(target, 'table', ['table']);
   const thead = createSection(table, 'thead');
   const tr = createSection(thead, 'tr');
   fillTitleTable(tr, constants.tableRow);
   const tbody = createSection(table, 'tbody');
   winners.items?.forEach(async (el) => {
-    const { name, color } = await getCar(el.id);  
-    const strCarSVG = getStringSVG(50, color);
-    const tr = createSection(tbody, 'tr');
-    fillTable(tr, [el.id.toString(), strCarSVG, name, el.wins.toString(), el.time.toString()]);
-  }); 
+    const { name, color } = await getCar(el.id);
+    const strCarSVG = getStringSVG(constants.width, color);
+    const trEl = createSection(tbody, 'tr');
+    fillTable(trEl, [el.id.toString(), strCarSVG, name, el.wins.toString(), el.time.toString()]);
+  });
 
   winnersTableSortListeners();
 }
-
-// export async function sortTable() {
-//   const th = document.querySelectorAll('th');
-
-// }
-
-// document.addEventListener('DOMContentLoaded', () => {
-
-//   const getSort = function(event: Event) {
-//       const target = event.target as HTMLTableCellElement;
-//       if (!target) throw new Error('Do not event.target');
-//       const order: number = (target.dataset.order -= -(target.dataset.order || -1));
-//       const index: number = [...(target.parentNode as HTMLTableRowElement).cells].indexOf(target);
-//       const collator = new Intl.Collator(['en', 'ru'], { numeric: true });
-//       const comparator = (index: number, order: number) => (a: { children: { innerHTML: string; }[]; }, b: { children: { innerHTML: string; }[]; }) => order * collator.compare(
-//           a.children[index].innerHTML,
-//           b.children[index].innerHTML
-//       );
-      
-//       for(const tBody of target.closest('table').tBodies)
-//           tBody.append(...[...tBody.rows].sort(comparator(index, order)));
-
-//       for(const cell of target.parentNode.cells)
-//           cell.classList.toggle('sorted', cell === target);
-//   };
-  
-//   document.querySelectorAll('.table thead').forEach(tableTH => tableTH.addEventListener('click', (event) => getSort(event)));
-  
-// });
-
-

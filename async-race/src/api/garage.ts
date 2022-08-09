@@ -37,7 +37,7 @@ export const createCar = async (body: Omit<ICar, 'id'>): Promise<ICar> => {
 export const deleteCar = async (id: number) => {
   const res = await httpFetch<ICar>(`${garage}/${id}`, { method: 'DELETE' });
 
-  return res.status === 200;
+  return res.status === constants.OK;
 };
 
 export const updateCar = async (id: number, body: Omit<ICar, 'id'>) => {
@@ -49,6 +49,6 @@ export const updateCar = async (id: number, body: Omit<ICar, 'id'>) => {
     },
   });
 
-  if (carRes.status === 200) return carRes.parsedBody;
+  if (carRes.status === constants.OK) return carRes.parsedBody;
   else throw new Error('Object update failed');
 };

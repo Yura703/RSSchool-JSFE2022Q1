@@ -13,7 +13,6 @@ export class CustomSelect {
     }
 
     this._customSelect = document.createElement('select');
-    //this._customSelect.multiple = true;
 
     this.#initSelect(params, this._customSelect);
     this._customSelect.classList.add(this.#CLASS_NAME_SELECT);
@@ -22,13 +21,12 @@ export class CustomSelect {
     this._elRoot.append(this._customSelect);
   }
 
-  
-  public get value() : string {
+  public get value(): string {
     return this._customSelect.value;
   }
-  
+
   disabled(disabledOrUndisabled: boolean) {
-    this._customSelect.disabled = (disabledOrUndisabled) ?  true : false;
+    this._customSelect.disabled = disabledOrUndisabled ? true : false;
   }
 
   addClasses(classes: string) {

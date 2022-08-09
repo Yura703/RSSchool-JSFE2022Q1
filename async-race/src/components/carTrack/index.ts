@@ -9,7 +9,7 @@ function ctreateDriveElements(target: HTMLElement, carModel: string, id: number)
   btnSelect.id = 'S' + id.toString();
   const btnRemove = createButton(driveElements, 'REMOVE');
   btnRemove.id = 'R' + id.toString();
-  btnRemove.style.zIndex = "1";
+  btnRemove.style.zIndex = '1';
   createSection(driveElements, 'h3').innerText = carModel;
 
   return driveElements;

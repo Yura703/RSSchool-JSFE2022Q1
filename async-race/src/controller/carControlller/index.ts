@@ -1,9 +1,8 @@
 import { drive, startedOrStopedEngine } from '../../api/engine';
 import { createCar, getCars, getCar, updateCar } from '../../api/garage';
-import { createWinner } from '../../api/winners';
-import { createTableWinners } from '../../components/createTableWinners/index';
 import { CustomSelect } from '../../components/select/index';
 import { CarBrand, CarModel } from '../../constants/cars';
+import { constants } from '../../constants/index';
 import { renderCarsTrack } from '../../pages/garage/index';
 import { store } from '../../store/index';
 import { Car } from '../../types/Car';
@@ -22,30 +21,34 @@ export function generateCar() {
   return new Car(name, color);
 }
 
-export async function generateCars(count: number) {
-  
+export function generateCars(count: number) {
   const promiseArr = [];
   for (let i = 0; i < count; i++) {
     const car = generateCar();
-    promiseArr.push(createCar(car));    
-  }  
-    
-  if (store.carCount < 7) {
-    promiseArr.push(renderCarsTrack('.garage')); 
-  } else {
-    store.carCount += 100; 
+    promiseArr.push(createCar(car));
   }
-    
-  Promise.all(promiseArr).then(values => {   
+
+  if (store.carCount < constants.limit) {
+    promiseArr.push(renderCarsTrack('.garage'));
+  } else {
+    store.carCount += 100;
+  }
+
+  void Promise.all(promiseArr).then(() => {
     (<HTMLElement>document.querySelector('h1.count')).innerText = `Garage (${store.carCount})`;
   });
 }
 
-export async function getListCarsFromDB(page = 1, limit = 7) {
+export async function getListCarsFromDB(page = 1, limit = constants.limit) {
   const carRes: ICarResponse = await getCars(page, limit);
   if (carRes.count) store.carCount = carRes.count;
 
   return carRes;
+}
+
+export async function updateGarage() {
+  await renderCarsTrack('.garage');
+  (<HTMLElement>document.querySelector('h1.count')).innerText = `Garage (${store.carCount})`;
 }
 
 export async function createNewCar(select: CustomSelect, inputColor: HTMLInputElement) {
@@ -55,7 +58,7 @@ export async function createNewCar(select: CustomSelect, inputColor: HTMLInputEl
   const car = new Car(name, color);
   await createCar(car);
 
-  updateGarage();
+  void updateGarage();
 }
 
 export async function updateSelectCar(select: CustomSelect, inputColor: HTMLInputElement) {
@@ -65,37 +68,36 @@ export async function updateSelectCar(select: CustomSelect, inputColor: HTMLInpu
   const car = new Car(name, color);
   await updateCar(store.editCarId, car);
 
-  updateGarage();
+  void updateGarage();
 }
 
 export function disabledButton() {
-  const pageMax = (store.carCount > 1) ? Math.ceil(store.carCount / 7) : 1; 
+  const pageMax = store.carCount > 1 ? Math.ceil(store.carCount / constants.limit) : 1;
 
-  if (store.carCount > 7) {
-    const btnPrev: HTMLButtonElement | null = document.querySelector('.footer__btn_perv')
-    const btnNext: HTMLButtonElement | null = document.querySelector('.footer__btn_next')
+  if (store.carCount > constants.limit) {
+    const btnPrev: HTMLButtonElement | null = document.querySelector('.footer__btn_perv');
+    const btnNext: HTMLButtonElement | null = document.querySelector('.footer__btn_next');
 
     if (!btnNext || !btnPrev) throw new Error('Target element does not exist');
 
     if (pageMax === 1) {
       btnPrev.disabled = true;
       btnNext.disabled = true;
-    } else if(store.page === 1) {
+    } else if (store.page === 1) {
       btnPrev.disabled = true;
       btnNext.disabled = false;
-    } else if(store.page === pageMax) {   
+    } else if (store.page === pageMax) {
       btnPrev.disabled = false;
       btnNext.disabled = true;
     } else {
       btnPrev.disabled = false;
       btnNext.disabled = false;
     }
-  } 
+  }
 }
 
-export async function updateGarage() {
-  await renderCarsTrack('.garage');
-  (<HTMLElement>document.querySelector('h1.count')).innerText = `Garage (${store.carCount})`;  
+function getCarName(fullName: string) {
+  return CarBrand.filter((name) => fullName.includes(name))[0];
 }
 
 export async function initUpdateSection() {
@@ -103,29 +105,24 @@ export async function initUpdateSection() {
   const input: HTMLInputElement | null = document.querySelector('input.update');
   const btn: HTMLButtonElement | null = document.querySelector('.form__btn_update');
 
-  if (select && input && btn) {        
+  if (select && input && btn) {
     select.disabled = false;
     input.disabled = false;
     btn.disabled = false;
 
     const car = await getCar(store.editCarId);
     select.value = getCarName(car.name);
-    input.value = car.color;  
-  }  
+    input.value = car.color;
+  }
 }
 
-function getCarName(fullName: string) {  
-  return CarBrand.filter((name) => fullName.includes(name))[0];
-}
-
-async function startAnimation(duration: number, target: HTMLElement, id: number) {
-  let start = performance.now();
+function startAnimation(duration: number, target: HTMLElement, id: number) {
+  const start = performance.now();
 
   let requestId = requestAnimationFrame(function animate(time) {
-    // timeFraction изменяется от 0 до 1
-    let timeFraction = (time - start) / duration;    
-    
-    target.style.left = (timeFraction * 100) + '%';     
+    const timeFraction = (time - start) / duration;
+
+    target.style.left = (timeFraction * 100).toString() + '%';
 
     const carError = animSet.has(id);
 
@@ -133,68 +130,61 @@ async function startAnimation(duration: number, target: HTMLElement, id: number)
       requestId = requestAnimationFrame(animate);
     }
   });
-  
+
   return requestId;
 }
 
+function writeWinner(car: ICar, duration: number) {
+  const span = document.querySelector('span') ?? document.createElement('span');
+
+  span.innerText = `${car.name} won with time ${duration} s`;
+  span.style.color = 'gold';
+  span.style.paddingLeft = '5%';
+  document.querySelector('.count')?.appendChild(span);
+
+  void verifyAndCreateWinner({ id: car.id, wins: 1, time: duration });
+}
+
 export async function startMoving(id: number, target?: HTMLElement) {
-  try { 
+  try {
     animSet.add(id);
-    const car: HTMLElement | null = (target) ? target : document.querySelector(`#C${id}`);  
-   
-    if(!car) throw new Error('Not existing car ID');
+    const car: HTMLElement | null = target ? target : document.querySelector(`#C${id}`);
+
+    if (!car) throw new Error('Not existing car ID');
 
     const { velocity, distance }: IEngineResponse = await startedOrStopedEngine(id, 'started');
-    
+
     const duration: number = distance / velocity;
 
-    const requestId = await startAnimation(duration, car, id);
+    const requestId = startAnimation(duration, car, id);
     store.carsId.push([id, requestId]);
 
-    const reqDriveCar = await drive(id);    
-    
+    const reqDriveCar = await drive(id);
+
     if (!reqDriveCar.success) {
       animSet.delete(id);
-     
+
       console.log(`car ${id} brocken 500`);
       cancelAnimationFrame(requestId);
-      
-    } else {    
-      const car = await getCar(id) 
-      if (store.wins.length === 0) writeWinner(car, Math.round(duration) / 1000);
-      store.wins.push(id)      
-    }   
+    } else {
+      const carFromDb = await getCar(id);
+      if (store.wins.length === 0) writeWinner(carFromDb, Math.round(duration) / 1000);
+      store.wins.push(id);
+    }
   } catch (err) {
-    console.log('Error 12345');    
-  } 
+    console.log('Error moving');
+  }
 }
 
 export async function returnToStart(id: number) {
   const car: HTMLElement | null = document.querySelector(`#C${id}`);
   animSet.delete(id);
-  
+
   const stoppedCar = await startedOrStopedEngine(id, 'stopped');
 
-  const idAnimation = store.carsId.filter(el => el[0] === id);
+  store.carsId.filter((el) => el[0] === id);
 
   if (stoppedCar && car) {
-    car.style.left = 0 + '%';  
-  } 
-}
-
-function getWight(target = '.avto-road') {
-  const road = document.querySelectorAll(target)[0] as HTMLDivElement;
-
-  return road.offsetWidth;  
-}
-
-function writeWinner(car: ICar, duration: number) {
-  const span = document.querySelector('span') ?? document.createElement('span');
-  
-  span.innerText = `${car.name} won with time ${duration} s`;
-  span.style.color = 'gold';
-  span.style.paddingLeft = '5%';
-  document.querySelector('.count')?.appendChild(span);
-  
-  verifyAndCreateWinner({ "id": car.id, "wins": 1, "time": duration});
+    car.style.left = '0%';
+  }
 }

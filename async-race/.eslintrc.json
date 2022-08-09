@@ -10,7 +10,7 @@
       "plugin:@typescript-eslint/recommended-requiring-type-checking"      
   ], 
   "parserOptions": {
-    //   "tsconfigRootDir": "async-race",    
+       //"tsconfigRootDir": "async-race",    
       "project": "tsconfig.json",        
       "ecmaVersion": "latest",
       "sourceType": "module"
@@ -26,7 +26,9 @@
       "no-console": 0,
       "class-methods-use-this": "off",
       "@typescript-eslint/rule-name": "off",
-      "@typescript-eslint/unbound-method": "off"
+      "@typescript-eslint/unbound-method": "off",
+      "@typescript-eslint/no-misused-promises": "off",
+      "no-unsafe-finally": "off"      
   },
   "ignorePatterns": ["*.html", "*config.js"] 
 }

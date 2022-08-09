@@ -1,11 +1,11 @@
-import { renderTableWinners } from "../components/createTableWinners/index";
-import { Order, Sort } from "../types/IWinner";
+import { renderTableWinners } from '../components/createTableWinners/index';
+import { Order } from '../types/IWinner';
 
-let flag = {
-  number: true, 
-  wins: true, 
+const flag = {
+  number: true,
+  wins: true,
   time: true,
-}
+};
 let order: string;
 
 export function winnersTableSortListeners() {
@@ -16,22 +16,22 @@ export function winnersTableSortListeners() {
       switch (thElement.innerText) {
         case 'Number':
           order = flag.number ? Order[1] : Order[0];
-          await renderTableWinners('id', order);          
+          await renderTableWinners('id', order);
           flag.number = !flag.number;
-          break;             
+          break;
         case 'Wins':
           order = flag.number ? Order[0] : Order[1];
-          await renderTableWinners('wins', order);          
+          await renderTableWinners('wins', order);
           flag.number = !flag.number;
           break;
         case 'Best time (seconds)':
           order = flag.number ? Order[0] : Order[1];
-          await renderTableWinners('time', order);          
+          await renderTableWinners('time', order);
           flag.number = !flag.number;
-          break;      
+          break;
         default:
           break;
       }
-    })
+    });
   });
 }

@@ -1,9 +1,14 @@
 import { CarBrand } from '../../constants/cars';
-import { createNewCar, generateCars, updateSelectCar, returnToStart, startMoving } from '../../controller/carControlller/index';
+import {
+  createNewCar,
+  generateCars,
+  updateSelectCar,
+  returnToStart,
+  startMoving,
+} from '../../controller/carControlller/index';
 import { createButton } from '../button/index';
 import { createSection } from '../section/index';
 import { CustomSelect } from '../select/index';
-import { updateCar } from '../../api/garage';
 import { store } from '../../store/index';
 import { unDisableBtn } from '../../listeners/carListener';
 
@@ -13,13 +18,13 @@ function createCarPanel(
   nameSelect: string,
   btnText: string,
   btnClasses: string[],
-  disabled?: boolean
+  disabled?: boolean,
 ) {
   const classes = disabled ? 'update' : 'create';
 
   const select = new CustomSelect(params, target, nameSelect);
   select.addClasses(classes);
-  const inputColor = (<HTMLInputElement>createSection(target, 'input', [classes]));
+  const inputColor = <HTMLInputElement>createSection(target, 'input', [classes]);
   inputColor.type = 'color';
   const btn = createButton(target, btnText, btnClasses);
 
@@ -28,7 +33,7 @@ function createCarPanel(
     inputColor.disabled = true;
     btn.disabled = true;
 
-    btn.addEventListener('click', async () => await updateSelectCar(select, inputColor));
+    btn.addEventListener('click', async () => updateSelectCar(select, inputColor));
   } else btn.addEventListener('click', () => createNewCar(select, inputColor));
 }
 
@@ -36,31 +41,31 @@ function generateCarsPanel(target: HTMLElement) {
   const btnRace = createButton(target, 'RACE', ['form__btn_race']);
   const btnReset = createButton(target, 'RESET', ['form__btn_reset']);
   btnReset.disabled = true;
-  const btnGenerate= createButton(target, 'GENERATE CARS', ['form__btn_generate']);
-  btnRace.addEventListener('click', async() => {
+  const btnGenerate = createButton(target, 'GENERATE CARS', ['form__btn_generate']);
+  btnRace.addEventListener('click', () => {
     store.wins = [];
-    let promisseArray: Promise<void>[] = [];
+    const promisseArray: Promise<void>[] = [];
     const elements = document.querySelectorAll('.avto-svg');
-    elements.forEach(async element => {
-      const id =  +element.id.slice(1);
+    elements.forEach((element) => {
+      const id = +element.id.slice(1);
       unDisableBtn(id, true);
       promisseArray.push(startMoving(id));
-    });    
-    const win =  Promise.all(promisseArray).then();  
+    });
+    void Promise.all(promisseArray).then();
     btnRace.disabled = true;
     btnReset.disabled = false;
   });
-  btnReset.addEventListener('click', async() => {    
-    let promisseArray: Promise<void>[] = [];
-    store.carsId.forEach(async element => {
+  btnReset.addEventListener('click', () => {
+    const promisseArray: Promise<void>[] = [];
+    store.carsId.forEach((element) => {
       unDisableBtn(element[0], false);
       promisseArray.push(returnToStart(element[0]));
-    });    
-    Promise.all(promisseArray).then();
+    });
+    void Promise.all(promisseArray).then();
     btnReset.disabled = true;
     btnRace.disabled = false;
   });
-  btnGenerate.addEventListener('click', async() => await generateCars(100));  
+  btnGenerate.addEventListener('click', () => generateCars(100));
 }
 
 export function createFormsPanel(target: HTMLElement) {

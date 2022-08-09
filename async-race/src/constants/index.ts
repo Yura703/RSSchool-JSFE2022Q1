@@ -5,6 +5,10 @@ export const constants = {
   url: ['garage', 'engine', 'winners'],
   tableRow: ['Number', 'Car', 'Name', 'Wins', 'Best time (seconds)'],
   widthAvto: 100,
+  OK: 200,
+  limit: 7,
+  width: 50,
+  notFound: -1,
 };
 
 export enum EngineStatus {

@@ -13,5 +13,5 @@ function createInfoPanel(target: HTMLElement) {
 export function createWinners() {
   const winners = createSection('.main', 'selection', ['winners', 'hidden']);
   createInfoPanel(winners);
-  createTableWinners(winners);
+  void createTableWinners(winners);
 }

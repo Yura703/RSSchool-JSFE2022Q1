@@ -26,7 +26,3 @@ export interface ICarCreate {
     'Content-Type': string;
   };
 }
-
-//Code: 200 OK
-// Headers?: "X-Total-Count": "4"
-//type Color = 'red' | 'green' | 'blue'; //сделать регулярку для цвета
