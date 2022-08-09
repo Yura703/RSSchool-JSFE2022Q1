@@ -7,6 +7,7 @@ export const constants = {
   widthAvto: 100,
   OK: 200,
   limit: 7,
+  limitTable: 10,
   width: 50,
   notFound: -1,
 };

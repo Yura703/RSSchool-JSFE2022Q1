@@ -3,6 +3,7 @@ import { createFormsPanel } from '../../components/formsPanel/index';
 import { createSection } from '../../components/section/index';
 import { constants } from '../../constants/index';
 import { disabledButton, getListCarsFromDB } from '../../controller/carControlller/index';
+import { switchPagesWinners } from '../../controller/winnerController';
 import { carListener } from '../../listeners/carListener';
 import { store } from '../../store/index';
 import { ICar } from '../../types/ICar';
@@ -60,11 +61,10 @@ export async function createGarage() {
 }
 
 export async function switchPagination(direction: boolean) {
-  const cars = document.querySelector('.winners');
+  const winners = document.querySelector('.winners');
 
-  if (cars?.classList.contains('hidden')) {
+  if (winners?.classList.contains('hidden')) {
     store.page = direction ? store.page + 1 : store.page - 1;
-
     const garage: HTMLElement | null = document.querySelector('.garage');
     const pageNumber: HTMLElement | null = document.querySelector('.page');
     if (pageNumber) pageNumber.innerText = `Page #${store.page}`;
@@ -73,8 +73,8 @@ export async function switchPagination(direction: boolean) {
     }
   } else {
     store.pageWin = direction ? store.pageWin + 1 : store.pageWin - 1;
-
     const pageNumber: HTMLElement | null = document.querySelector('h2');
     if (pageNumber) pageNumber.innerText = `Page #${store.pageWin}`;
+    void switchPagesWinners();
   }
 }

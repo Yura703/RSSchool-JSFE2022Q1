@@ -22,12 +22,12 @@ function fillTable(target: HTMLElement, winnersList: string[]) {
   createSection(target, 'td').innerText = winnersList[4];
 }
 
-async function getAllWinners(sort?: string, order?: string) {
+export async function getAllWinners(sort?: string, order?: string) {
   const page = store.pageWin;
-  return getWinners({ page, limit: constants.limit, sort: sort ?? 'id', order: order ?? 'asc' });
+  return getWinners({ page, limit: constants.limitTable, sort: sort ?? 'id', order: order ?? 'asc' });
 }
 
-function updateCountWinners(count: number) {
+export function updateCountWinners(count: number) {
   const winnersText = document.querySelector('h1');
   if (winnersText) winnersText.innerText = `Winners (${count})`;
 }

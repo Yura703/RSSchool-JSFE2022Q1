@@ -16,9 +16,9 @@ export const getWinners = async ({ page, limit, sort, order }: IWinnerQueryParam
 };
 
 export const getWinner = async (id: number) => {
-  const winner = (await httpFetch<IWinner>(`${winners}/${id}`)).parsedBody;
-
-  if (winner) return winner;
+  const winner = await httpFetch<IWinner>(`${winners}/${id}`);
+  const status = winner.status;
+  if (status === constants.OK) return winner.parsedBody;
   else return constants.notFound;
 };
 
