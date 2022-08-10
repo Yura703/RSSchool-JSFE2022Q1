@@ -39,9 +39,12 @@ function createCarPanel(
 
 function generateCarsPanel(target: HTMLElement) {
   const btnRace = createButton(target, 'RACE', ['form__btn_race']);
+
   const btnReset = createButton(target, 'RESET', ['form__btn_reset']);
   btnReset.disabled = true;
+
   const btnGenerate = createButton(target, 'GENERATE CARS', ['form__btn_generate']);
+
   btnRace.addEventListener('click', () => {
     store.wins = [];
     const promisseArray: Promise<void>[] = [];
@@ -55,16 +58,21 @@ function generateCarsPanel(target: HTMLElement) {
     btnRace.disabled = true;
     btnReset.disabled = false;
   });
+
   btnReset.addEventListener('click', () => {
     const promisseArray: Promise<void>[] = [];
+
     store.carsId.forEach((element) => {
       unDisableBtn(element[0], false);
       promisseArray.push(returnToStart(element[0]));
     });
+
     void Promise.all(promisseArray).then();
+
     btnReset.disabled = true;
     btnRace.disabled = false;
   });
+
   btnGenerate.addEventListener('click', () => generateCars(100));
 }
 

@@ -3,6 +3,7 @@ import { getWinners } from '../../api/winners';
 import { constants } from '../../constants/index';
 import { winnersTableSortListeners } from '../../listeners/winnersListeners';
 import { store } from '../../store/index';
+import { IWinnerResponse } from '../../types/IWinner';
 import { getStringSVG } from '../carTrack/getStringSVG';
 import { createSection } from '../section/index';
 export { constants } from '../../constants/index';
@@ -15,11 +16,9 @@ function fillTitleTable(target: HTMLElement, tableRow: string[]) {
 }
 
 function fillTable(target: HTMLElement, winnersList: string[]) {
-  createSection(target, 'td').innerText = winnersList[0];
-  createSection(target, 'td').innerHTML = winnersList[1];
-  createSection(target, 'td').innerText = winnersList[2];
-  createSection(target, 'td').innerText = winnersList[3];
-  createSection(target, 'td').innerText = winnersList[4];
+  for (let i = 0; i < 5; i += 1) {
+    createSection(target, 'td').innerHTML = winnersList[i];
+  }
 }
 
 export async function getAllWinners(sort?: string, order?: string) {
@@ -48,23 +47,39 @@ export async function renderTableWinners(sort?: string, order?: string) {
   });
 }
 
+function getDataAndFillTable(winners: IWinnerResponse, tbody: HTMLElement) {
+  const promisesArray: Promise<void>[] = [];
+
+  winners.items?.forEach((el) => {
+    // eslint-disable-next-line no-async-promise-executor
+    const promise: Promise<void> = new Promise(async () => {
+      const { name, color } = await getCar(el.id);
+      const strCarSVG = getStringSVG(constants.width, color);
+      const trEl = createSection(tbody, 'tr');
+      fillTable(trEl, [el.id.toString(), strCarSVG, name, el.wins.toString(), el.time.toString()]);
+    });
+
+    promisesArray.push(promise);
+  });
+
+  void Promise.all(promisesArray);
+}
+
 export async function createTableWinners(targetEl?: HTMLElement) {
   const winnersElement: HTMLElement | null = document.querySelector('winners');
   const target: HTMLElement | null = targetEl ?? winnersElement;
+
   if (!target) throw new Error('do not html element');
   const winners = await getAllWinners();
+
   if (winners.count) updateCountWinners(winners.count);
   const table = createSection(target, 'table', ['table']);
   const thead = createSection(table, 'thead');
   const tr = createSection(thead, 'tr');
   fillTitleTable(tr, constants.tableRow);
   const tbody = createSection(table, 'tbody');
-  winners.items?.forEach(async (el) => {
-    const { name, color } = await getCar(el.id);
-    const strCarSVG = getStringSVG(constants.width, color);
-    const trEl = createSection(tbody, 'tr');
-    fillTable(trEl, [el.id.toString(), strCarSVG, name, el.wins.toString(), el.time.toString()]);
-  });
+
+  await getDataAndFillTable(winners, tbody);
 
   winnersTableSortListeners();
 }

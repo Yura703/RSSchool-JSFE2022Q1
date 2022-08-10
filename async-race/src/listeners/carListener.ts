@@ -20,6 +20,7 @@ async function selectAndRemove(event: MouseEvent) {
   switch (element.id[0]) {
     case 'R':
       await deleteCar(id);
+      store.carsId = store.carsId.filter((el) => el[0] !== id);
       void deleteWinner(id);
       void updateGarage();
       break;

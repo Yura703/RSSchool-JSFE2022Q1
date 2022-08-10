@@ -5,28 +5,14 @@ export class Car implements ICar {
 
   name: string;
 
-  #speed = 0;
+  speed: number;
 
-  #idCar = 0;
+  id: number;
 
-  constructor(name: string, color: string) {
+  constructor(name: string, color: string, speed?: number, id?: number) {
     this.name = name;
     this.color = color;
-  }
-
-  public set speed(v: number) {
-    this.#speed = v;
-  }
-
-  public get speed(): number {
-    return this.#speed;
-  }
-
-  public set id(v: number) {
-    this.#idCar = v;
-  }
-
-  public get id(): number {
-    return this.#idCar;
+    this.speed = speed ?? 0;
+    this.id = id ?? 0;
   }
 }

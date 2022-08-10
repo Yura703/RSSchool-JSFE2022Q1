@@ -3,15 +3,6 @@ import { switchPagination } from '../../pages/garage/index';
 import { createButton } from '../button/index';
 import { createSection } from '../section/index';
 
-// function switchDisableBtn() {
-//   const btnRace: HTMLButtonElement | null = document.querySelector('.form__btn_race');
-//   const btnReset: HTMLButtonElement | null = document.querySelector('.form__btn_reset');
-//   if (btnRace && btnReset) {
-//     btnRace.disabled = false;
-//     btnReset.disabled = true;
-//   }
-// }
-
 export function createFooter() {
   const wrapper = createSection('body', 'footer', ['wrapper']);
   const footer = createSection(wrapper, 'div', ['footer']);
@@ -25,11 +16,9 @@ export function createFooter() {
   btnPrev.addEventListener('click', () => {
     void switchPagination(false);
     disabledButton();
-    //switchDisableBtn();
   });
   btnNext.addEventListener('click', () => {
     void switchPagination(true);
     disabledButton();
-    //switchDisableBtn();
   });
 }

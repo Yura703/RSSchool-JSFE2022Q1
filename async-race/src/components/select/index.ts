@@ -26,7 +26,7 @@ export class CustomSelect {
   }
 
   disabled(disabledOrUndisabled: boolean) {
-    this._customSelect.disabled = disabledOrUndisabled ? true : false;
+    this._customSelect.disabled = disabledOrUndisabled;
   }
 
   addClasses(classes: string) {

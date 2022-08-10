@@ -20,7 +20,7 @@ export interface ICarResponse {
 }
 
 export interface ICarCreate {
-  method: string; //                      !'POST'   сделать
+  method: string; 
   body?: string;
   headers?: {
     'Content-Type': string;
