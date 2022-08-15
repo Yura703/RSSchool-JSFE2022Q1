@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>AWS-presentation</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/sky.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section style="text-align: left;">
+					<a style="position: absolute; left: -100px; top: 100px;" href="https://aws.amazon.com/">
+						<img src="./assets//AWS-Logo.png" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<div style="text-align: right;">
+						<h5 style="color: red;">Agenda</h5>
+						<ul>
+							<li><a href="#/1">What Is Cloud Computing?</a></li>
+							<li><a href="#/10">Amazon WEB Services</a></li>
+							<li><a href="#/15">AWS Free Tier</a></li>
+							<li><a href="#/17">SERVERLESS ARCHITECTURES</a></li>
+							<li><a href="#/20">IAM</a></li>
+							<li><a href="#/23">STORAGE S3</a></li>
+							<li><a href="#/26">AWS LAMBDA</a></li>
+							<li><a href="#/27">AMAZON RDS</a></li>
+							<li><a href="#/30">AMAZON SQS</a></li>
+						</ul>
+					</div>					
+				</section>
+				<section>
+					<h3 style="color: red;">What Is Cloud Computing?</h3>
+					<br>
+					<p class="fragment">Cloud computing allows companies to access computing services via the internet without needing to purchase or set up their own infrastructure locally</p>
+				</section>
+				<section>
+					<h4 style="color: blue;">There are numerous reasons why companies decide to use cloud services:</h4>
+					<ul>
+						<li class="fragment">Relying on the cloud removes the need to set up and maintain an expensive on-site data center.</li>
+						<li class="fragment">Cloud resources enable a business to quickly and cheaply build a custom IT environment that perfectly fits their requirements.</li>
+						<li class="fragment">You can access cloud-based data from anywhere and on any device as long as you have an Internet connection.</li>
+						</ul>
+				</section>
+				<section>
+					<ul>
+						<li>The cloud offers performance and high-availability levels that are unrealistic for most companies.</li>
+						<li class="fragment">Cloud resources scale alongside IT needs. You can instantly add more computing resources whenever necessary. The same works in reverse: once the demand returns to normal, you scale capacity down and ensure there's no needless spending.</li>
+						<li class="fragment">Using the cloud gives continuous access to cutting-edge tech as major providers always stay at the forefront of the latest industry standards.</li>
+					</ul>
+				</section>				
+				<section>
+					<h5 style="color: blue">Models of Cloud Services </h5>
+					<img src="./assets/Onsite-Iaas-Paas-Saas-Popup.jpg" height="70%">
+				</section>	
+				<section>
+					<h4 style="color: blue">Infrastructure as a service (IaaS)</h4>
+					<p>
+						IaaS is a form of cloud computing service that offers compute, storage and networking resources on-demand, usually on a pay-as-you-go basis. Businesses can purchase resources on-demand and as-needed instead of having to buy the hardware outright.
+						While IaaS gives you virtualized resources such as servers, disks, networks, and IP addresses, you are still responsible for administering the operating system, data, applications, middleware and runtimes. A dashboard or an API gives you complete control over the entire infrastructure.
+						IaaS gives you the flexibility to purchase only the computing you need and scales them up or down as needed. If you are looking to migrate an application as-is from an on-premises data center to the cloud, choose the IaaS model. You will be able to proceed with the migration with minimum changes.
+					</p>
+				</section>
+				<section>
+					<h4 style="color: blue">Platform as a Service (PaaS)</h4>
+					<p>
+						PaaS provides a framework for application creation and deployment. The technical stack (e.g., AWS Beanstalk, Google App Engine) required for application development is available on the cloud, which requires no download or local installation.
+						With PaaS, developers can focus on building their applications without having to worry about operating systems, software updates, storage or infrastructure. You get a “platform” with built-in software components for both hardware and software such as runtime libraries, tools, applications, email and HTTP servers. This allows developers to rapidly develop, run, and manage their own apps without having to build and maintain the infrastructure or platform usually associated with the process.
+						PaaS applications are scalable and highly available as they take on certain cloud characteristics.
+					</p>
+				</section>
+				<section>
+					<h4 style="color: blue">Software as a Service (SaaS)</h4>
+					<p>
+						SaaS) — это веб-модель развертывания программного обеспечения, которая делает программное обеспечение доступным через веб-браузер. Как пользователю программного обеспечения SaaS вам все равно, где размещается программное обеспечение, какую операционную систему оно использует или на каком языке оно написано. Программное обеспечение SaaS доступно с любого устройства, если у вас есть подключение к Интернету. С SaaS вы не несете капитальных затрат на покупку серверов или программного обеспечения. Поставщик услуг ограждает вас от обслуживания программного обеспечения, и вы просто подключаетесь к приложению SaaS через консоль или API. Типичные примеры включают Microsoft Office 365, Intuit, Salesforce CRM, Zoom, ZoomInfo, Dropbox, Google Apps и многие другие, предназначенные для использования конечными пользователями.
+					</p>
+				</section>
+				<section>
+					<img src="./assets/latest-cloud-computing-trends.jpg" height="100%">
+				</section>					
+				<section>
+					<h4 style="color: blue">Gartner Magic Quadrant</h4>
+					<img src="./assets/Magic-Quadrant-for-Cloud-Infrastructure-and-Platform-Servicestarget.png" height="100%">
+				</section>
+				<section>
+					<h4 style="color: red">Amazon Web Services (AWS)</h4>
+					<p class="fragment">AWS is the world’s most comprehensive and broadly adopted cloud platform, 
+						offering over 200 fully featured services from data centers globally. Millions of customers—including the fastest-growing 
+						startups, largest enterprises, and leading government agencies—are using AWS to lower costs, become more agile, and innovate faster.
+					</p>					
+				</section>
+				<section>
+					<h4 style="color: blue"> Full-Stack Service</h4>
+					<img src="./assets/List-of-AWS-Services.jpg" height="100%">
+				</section>
+				<section>
+					
+					<img src="./assets/AllServices.jpg" height="100%">
+				</section>
+				<section>
+					<h4 style="color: blue"> Availability</h4>
+					<img src="./assets/0__C32ZjM34ChFA5H4.png" >
+				</section>
+				<section>					
+					<img src="./assets/allRegions1.jpg" >
+					<img src="./assets/allRegions2.jpg" >
+				</section>
+				<section>
+					<h4 style="color: red">AWS Free Tier</h4>
+					<img src="./assets/freeTier1.jpg" >
+				</section>
+				<section>					
+					<img src="./assets/freeTier2.jpg" >
+				</section>	
+				<section>
+					<h4 style="color: red">Serverless Architectures</h4>
+					<p>
+						A serverless architecture is a way to build and run applications and services without having to manage infrastructure. 
+						Your application still runs on servers, but all the server management is done by AWS. You no longer have to provision, 
+						scale, and maintain servers to run your applications, databases, and storage systems
+					</p>					
+				</section>
+				<section>
+					<p>
+						By using a serverless architecture, developers can focus on their core product instead of worrying about managing 
+						and operating servers or runtimes, either in the cloud or on-premises. This reduced overhead lets developers reclaim time 
+						and energy that can be spent on developing great products which scale and that are reliable.
+					</p>
+				</section>
+				<section>
+					<p>Use case serverless architecture</p>
+					<img style="height: 500px;" src="./assets/Arch-Diagrams_Serverless-Category-Page_WebApp.jpg" >		
+				</section>
+				<section>
+					<h4 style="color: red">IAM</h4>
+					<p>(Identity and Access Management) </p>
+					<img src="./assets/iam-how-it-works-diagram.png" >					
+				</section>	
+				<section>
+					<p>IAM users can be:</p>
+					<ol>
+						<li>Privileged administrators who need console access to manage your AWS resources</li>
+						<li>End users who need access to content in AWS</li>
+						<li>Systems that need privileges to programmatically access your data in AWS</li>
+					</ol>
+				</section>		
+				<section>
+					<p>General Use Cases for Creating IAM Users</p>
+						<ul>
+							<li>It is a security best practice to not use your root account because the root account grants access 
+								to all services and resources. Grant users the minimum amount of privilege necessary, which is known as least privilege
+							</li>
+							<li>You have other people in your group who have varied access and authorization permissions. When you use IAM users, 
+								it is easier to assign policies to specific users that access specific services and associated resources
+							</li>
+							<li>An IAM user can use the AWS CLI</li>
+							<li>An IAM user can use a role</li>
+						</ul>
+				</section>
+				<section>
+					<h4 style="color: red">Storage S3</h4>
+					<p>Amazon Simple Storage Service (Amazon S3) is an object storage service offering industry-leading scalability, 
+						data availability, security, and performance.
+					</p>
+				</section>
+				<section>
+					<p>With cost-effective storage classes and easy-to-use management features, you can optimize costs, organize data, and configure 
+						fine-tuned access controls to meet specific business, organizational, and compliance requirements</p>
+					<img src="./assets/product-page-diagram_Amazon-S3.png" >		
+				</section>
+				<section>
+					<p>It is possible to load data directly into S3 Bucket, but it is more correct to use  Amazon API Gateway and Lambda-functions</p>
+					<img src="./assets/s3-2-S3-upload-architecture.png" >		
+				</section>
+				<section>
+					<h4 style="color: red">AWS Lambda</h4>
+					<p>
+						WS Lambda is a serverless, event-driven compute service that lets you run code for virtually any type of application or backend 
+						service without provisioning or managing servers. You can trigger Lambda from over 200 AWS services and software as
+						 a service (SaaS) applications, and only pay for what you use.
+					</p>
+				</section>
+				<section>
+					<h4 style="color: red">Amazon RDS</h4>
+					<p>
+						Amazon Relational Database Service (Amazon RDS) is a collection of managed services that makes it simple to set up, 
+						operate, and scale databases in the cloud. Choose from seven popular engines — Amazon Aurora with MySQL compatibility, 
+						Amazon Aurora with PostgreSQL compatibility, MySQL, MariaDB, PostgreSQL, Oracle, and SQL Server — and deploy on-premises 
+						with Amazon RDS on AWS Outposts.
+					</p>
+				</section>
+				<section>
+					<p>RDS offers 6 databases to choose from</p>
+					<img src="./assets/rds.jpg" >	
+				</section>
+				<section>
+					<p>Possible application RDS</p>
+					<img style="height: 400px;" src="./assets/product-page-diagram_Amazon-RDS-Regular-Deployment.png" >	
+				</section>
+				<section>
+					<h4 style="color: red">Amazon SQS</h4>
+					<img style="height: 400px;" src="./assets/product-page-diagram_Amazon-SQS.png" >						
+				</section>
+				<section>
+					<p>
+						Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple 
+						and scale microservices, distributed systems, and serverless applications. SQS eliminates the complexity and 
+						overhead associated with managing and operating message-oriented middleware, and empowers developers to focus 
+						on differentiating work. Using SQS, you can send, store, and receive messages between software components at 
+						any volume, without losing messages or requiring other services to be available. 
+					</p>
+				</section>
+				<section>
+					<p>
+						Get started with SQS in minutes using the AWS Management Console, Command Line Interface or SDK of your choice, and three simple commands.
+						SQS offers two types of message queues. Standard queues offer maximum throughput, best-effort ordering, 
+						and at-least-once delivery. SQS FIFO queues are designed to guarantee that messages are processed exactly once, 
+						in the exact order that they are sent.				
+					</p>
+				</section>
+				<section>
+					<img src="./assets/slide20.jpg" >		
+					<a href="https://github.com/Yura703">@Yura703</a>
+				</section>
+			</div>
+		</div>		
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
