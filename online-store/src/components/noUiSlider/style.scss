@@ -1,0 +1,27 @@
+.noUi-connect {
+  background-color: rgb(118, 238, 108);
+  height: 10px;
+  cursor: pointer;
+}
+
+.noUi-target {
+  height: 10px;
+  margin-top: 40px;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  right: -4px;
+  background-color: rgb(9, 90, 52);
+  cursor: pointer;
+}
+
+.noUi-handle:before, .noUi-handle:after {
+  display: none;
+}
+
+.noUi-base {
+  height: 10px;
+}

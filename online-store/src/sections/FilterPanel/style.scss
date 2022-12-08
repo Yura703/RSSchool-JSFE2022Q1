@@ -1,0 +1,36 @@
+form {
+  box-sizing: border-box;
+  
+  p {    
+    border-top: 1px green solid;
+    padding-top: 10px;
+    font-weight: bold;
+  }
+
+  .select {
+    width: 100%;  
+  }
+  .select, label:hover {
+    //border: $main-color 2px solid;
+    cursor: pointer;
+  }
+
+  .button-favorites {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .button-clear {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  button:hover {
+    cursor: pointer;
+    border: $main-color 2px solid;
+  }
+}
