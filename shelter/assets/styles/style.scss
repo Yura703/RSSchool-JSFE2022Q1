@@ -1,0 +1,238 @@
+@import "./constants";
+
+
+//миксины
+@mixin flex($align, $justContent) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justContent;
+}
+
+@mixin circle-btn ($diameter, $border-thick, $border-color) {
+    width: $diameter;
+    height: $diameter;
+    border: $border-thick solid $border-color;
+    box-sizing: border-box;
+    border-radius: 100px;
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+.activ {
+    border-bottom: 2px solid $color-primary;
+    a {
+        color: $color-dark-3xl !important;
+    }      
+}
+
+button.willactive:hover {
+    background: $color-primary-light !important;
+    cursor: pointer;
+}
+
+//---------------------------------
+.wrapper {
+    max-width: 1280px;
+    margin: 0 auto;   
+    padding: 0 40px;
+}
+
+.menu-btn {
+	width: 30px;
+	height: 22px;
+	position: relative;
+    right: 63px;
+	z-index:2;
+	overflow: hidden;
+}
+.menu-btn span {
+	width: 30px;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: $color-primary;
+	transition: all 0.5s;
+}
+.menu-btn span:nth-of-type(2) {
+	top: calc(50% - 10px);
+}
+.menu-btn span:nth-of-type(3) {
+	top: calc(50% + 10px);
+}
+
+.menu-btn {
+    display: none;
+}
+
+.card {
+    //margin-bottom: 30px;
+    height: 435px;
+    width: 270px;
+    background: $color-light-s;
+    border-radius: 9px;   
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.3s ease-in-out;
+    .card__foto {
+        height: 270px;
+        width: 100%;
+        //background: url("../../../assets/pets/katrine.png");
+        border-radius: 9px 9px 0 0;
+    }
+    p {
+        margin: 0 auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 23px;
+        text-align: center;
+        letter-spacing: 0.06em;
+        color: $color-dark-l;
+    }
+    .card__button {      
+        button {
+            background: $color-light-s;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 13px 43px;                   
+            border: 2px solid #F1CDB3;                   
+            border-radius: 100px;  
+            font-family: 'Georgia';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 130%;
+            letter-spacing: 0.06em;
+            color: $color-dark-3xl;
+        }
+    }
+    &:hover {
+        cursor: pointer;
+        box-shadow: 5px 5px 35px 14px rgba(13, 13, 13, 0.26);
+        background: $color-light-xl;     
+        button {
+            background: $color-primary-light;
+        }        
+    }
+}
+
+footer {
+    background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
+}
+
+.footer {
+    padding: 40px;
+    padding-bottom: 0;
+    @include flex(start, space-between);
+    flex-wrap: wrap;
+    //height: 350px;
+    //background: url("../../../assets/images/noise_transparent@2x.png"), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #211F20;
+    .footer__contacts {
+        @include flex(start, space-between);
+        flex-direction: column;        
+        height: 234px;
+        width: 280px;
+        margin-top: 16px;
+        h2 {
+            font-family: 'Georgia';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 35px;
+            line-height: 130%;
+            letter-spacing: 0.06em;            
+            color: $color-light-xl;
+        }
+        .footer__contacts__mail {           
+            @include flex(center, flex-start);
+            div {
+                height: 32px;
+                width: 40px;
+                background: url("../../../assets/images/icon-email.svg");
+            }
+            p {
+                &:hover {
+                    color: $color-primary-light;
+                }
+                margin-left: 20px;
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 115%;
+                letter-spacing: 0.06em;
+                color: #F1CDB3;
+            }
+        }
+        .footer__contacts__phone {
+            @include flex(center, flex-start);
+
+            div {
+                height: 32px;
+                width: 40px;
+                background: url("../../../assets/images/icon-phone.svg");
+            }
+            p {
+                &:hover {
+                    color: $color-primary-light;
+                }
+                margin-left: 20px;
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 115%;
+                letter-spacing: 0.06em;
+                color: #F1CDB3;
+            }
+        }       
+    }
+    .footer__location {
+        @include flex(start, space-between);
+        flex-direction: column;
+        margin-top: 16px;
+        height: 234px;
+        width: 302px;
+        h2 {
+            font-family: 'Georgia';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 35px;
+            line-height: 130%;
+            letter-spacing: 0.06em;            
+            color: $color-light-xl;
+        }
+        a {
+            @include flex(center, flex-start);
+            div {
+                height: 32px;
+                width: 22px;
+                background: url("../../../assets/images/icon-marker.svg");
+            }
+            p {
+                &:hover {
+                    color: $color-primary-light;
+                }
+                margin-left: 20px;
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 115%;
+                letter-spacing: 0.06em;
+                color: #F1CDB3;
+            }
+        }
+    }
+    div.foto {
+        height: 310px;
+        width: 300px;
+        background: url("../../../assets/images/footer-puppy.png");
+    }
+}

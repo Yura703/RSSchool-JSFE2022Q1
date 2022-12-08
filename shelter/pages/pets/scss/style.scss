@@ -1,0 +1,307 @@
+@import "../../../assets/styles/style.scss";
+
+.our-friends-bg {
+    background: $color-light-l;
+}
+
+.header-bg {
+    background: $color-light-xl;
+    position: sticky;
+    top: 0;
+}
+
+.header {
+    height: 120px;    
+    top: 0;
+    max-width: 1280px;
+    width: 100%;
+    @include flex(center, space-between);
+
+    .header__logo {
+        margin-top: -10px;       
+        height: 50%;
+        width: 186px;
+        @include flex(center, space-between);
+        flex-direction: column;
+        h1 {
+            margin-bottom: 2px;
+            a {            
+                font-family: "Georgia";
+                font-size: 32px;
+                font-weight: 400;
+                line-height: 35px;
+                letter-spacing: 0.06em;
+                text-align: left;
+                color: $color-dark-l;             
+            }
+        }        
+
+        div {
+            font-family: Arial;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 15px;
+            letter-spacing: 0.1em;
+            text-align: left;
+            color: $color-dark-3xl;
+        }
+    }    
+
+    .header__nav {
+        width: 443px;
+        height: 27px;
+        .header__nav__nav-list {
+            margin-top: -1px;
+            @include flex(center, space-between);
+            .header__nav__nav-list__nav-item {
+                
+                .header__nav__nav-list__nav-item__nav-link {
+                    font-family: 'Arial';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 160%;
+                    color: $color-dark-l;
+                    flex: none;
+                    order: 0;
+                    flex-grow: 0;
+                    margin: 10px 0px;
+
+                    &:hover {                        
+                        // border-bottom: 2px solid #F1CDB3;                       
+                        font-family: 'Arial';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 160%;
+                        color: $color-dark-3xl;                           
+                    }
+                }               
+            }
+        }        
+    }
+    .burger-btn {  
+        display: none;
+        margin-right: 14.3%;
+    }
+}
+
+#hamburger-4.is-active .line:nth-child(1),
+#hamburger-4.is-active .line:nth-child(3){
+  width: 40px;
+}
+
+#hamburger-4.is-active .line:nth-child(1){
+  -webkit-transform: translateX(10px) rotate(45deg);
+  -ms-transform: translateX(10px) rotate(45deg);
+  -o-transform: translateX(10px) rotate(45deg);
+  transform: translateX(10px) rotate(45deg);
+}
+
+#hamburger-4.is-active .line:nth-child(3){
+  -webkit-transform: translateX(10px) rotate(-45deg);
+  -ms-transform: translateX(10px) rotate(-45deg);
+  -o-transform: translateX(10px) rotate(-45deg);
+  transform: translateX(10px) rotate(-45deg);
+}
+
+.hamburger .line{
+    width: 30px;
+    height: 2px;
+    background-color: #000;
+    display: block;
+    margin: 8px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hamburger:hover{
+    cursor: pointer;
+  }
+
+i {
+border: solid $color-dark-l;
+border-width: 0 2px 2px 0;
+display: inline-block;
+padding: 4px;
+}  
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+.our-friends {   
+    margin-top: 0px;
+    h2 {
+        padding-top: 80px;
+        padding-bottom: 44px;
+        margin: 0 auto;
+        // width: 400px;
+        //height: 215px;
+        font-family: 'Georgia';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 35px;
+        line-height: 130%;
+
+        // display: flex;
+        // align-items: center;
+        text-align: center;
+        letter-spacing: 0.06em;
+        color: $color-dark-l;
+    }
+
+    .our-friends__cards-container {
+       flex-wrap: wrap; 
+       min-height: 930px;
+       width: 100%;
+       @include flex(center, space-between);          
+    }
+
+    .our-friends__navigation {
+        width: 340px;
+        //height: 52px;
+        @include flex(center, space-between);
+        margin: 0 auto;
+        padding-top: 45px;
+        padding-bottom: 100px;
+
+        button.inactive {
+            background: $color-light-l;
+            @include circle-btn(52px, 2px, $color-dark-s);
+            @include flex(center, center);  
+            i {
+                border-color: $color-dark-s
+            }  
+        }
+
+        button.active {
+            @include circle-btn(52px, 2px, $color-primary);
+            background: $color-primary;
+            @include flex(center, center);
+            // &:hover {
+            //     //background: $color-primary-light !important;
+            //     //cursor: pointer;
+            // } 
+            div {
+                font-family: 'Georgia';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 115%;            
+                letter-spacing: 0.06em;
+                color: #292929;
+            }
+        }
+
+        button.willactive {
+            background: $color-light-l;
+            @include circle-btn(52px, 2px, $color-primary);
+            @include flex(center, center);  
+            i {
+                border-color: $color-dark-3xl;
+            }
+        }
+    }
+}
+
+.popup {    
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: $color-pupap;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s ease 0s;
+    .popup__body {
+        cursor: pointer;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;        
+        .popup__content {
+            cursor: auto;            
+            position: relative;
+            button {     
+                background-color: #7f7f7f;
+                width: 52px;
+                height: 52px;
+                border: 2px solid $color-primary;
+                box-sizing: border-box;
+                border-radius: 100px;
+                position: absolute;
+                right: -42px;
+                top: -52px;
+                @include flex(center, center);
+                &:hover {
+                    background-color: $color-primary !important;
+                    cursor: pointer;
+                }
+                span {
+                    font-size: 35px;
+                    font-weight: 900;
+                    color: $color-dark-3xl;
+                }
+            }      
+                width: 900px;
+                height: 500px;
+                border-radius: 9px;
+                background: $color-light-s;
+                @include flex(center, start);
+            
+                .content__foto {
+                    border-radius: 9px 0 0 9px;
+                    width: 500px;
+                    height: 100%;                
+                    background-size: cover !important;                
+                }
+                .content__text { 
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    width: 400px;
+                    height: 100%;
+                    padding: 50px 20px 88px 29px;  
+                            
+                    h3 {
+                        @extend %text-h3;
+                        padding-bottom: 10px;                    
+                    }
+                    h4 {
+                        @extend %text-h4;                    
+                    }
+                    h5 {
+                        @extend %text-h5;
+                        padding-bottom: 40px 0;
+                    }
+                    ul {
+                        padding: 0; 
+                        li {
+                            @extend %text-h5;
+                            list-style-type: none;
+                        }
+                        li::before {
+                            color: $color-primary; /* Цвет маркера */
+                            content: "•"; /* Сам маркер */
+                            padding-right: 10px; /* Расстояние от маркера до текста */
+                        }
+                    }               
+            }
+        }
+    }
+}
+
+.popup-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+@import "./adaptive";
+@import "../../../assets/styles/burger-menu";
